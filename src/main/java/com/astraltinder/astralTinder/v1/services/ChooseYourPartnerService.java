@@ -1,13 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.astraltinder.astralTinder.v1.services;
 
-/**
- *
- * @author Maria Miska
- */
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ChooseYourPartnerService {
-    
+
+    private UserRepository userRepository;
+
+    @Autowired
+    public ChooseYourPartnerService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User randomUser() {
+
+        List<User> userList = userRepository.findAll();
+
+        int chooseRandomUser = (int) (Math.random() * userList.size());
+
+        User randomUser = userList.get(chooseRandomUser);
+
+        return randomUser;
+    }
 }
