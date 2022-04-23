@@ -1,5 +1,4 @@
-
-package com.astraltinder.astralTinder.v1.config;
+package com.astralTinderV1.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,9 +1,5 @@
-package com.astraltinder.astralTinder.enttities;
+package com.astralTinderV1.enttities;
 
-import com.astraltinder.astralTinder.enums.Gender;
-import com.astraltinder.astralTinder.enums.Province;
-import com.astraltinder.astralTinder.enums.Roles;
-import com.astraltinder.astralTinder.enums.SexualOrientation;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
