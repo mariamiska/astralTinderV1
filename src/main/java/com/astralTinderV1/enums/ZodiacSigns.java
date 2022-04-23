@@ -1,7 +1,14 @@
 package com.astralTinderV1.enums;
+<<<<<<< HEAD
 
 import static com.astralTinderV1.enums.Cualidades.*;
 import static com.astralTinderV1.enums.Elements.*;
+=======
+
+import static com.astralTinderV1.enums.Cualidades.*;
+import static com.astralTinderV1.enums.Elements.*;
+
+>>>>>>> 6b81525c6e4959d33ee4f159b584192c4ead8fc1
 
 public enum ZodiacSigns {
 

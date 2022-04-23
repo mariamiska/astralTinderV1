@@ -1,5 +1,7 @@
 package com.astralTinderV1.services;
 
+import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,6 +125,10 @@ public class UserService implements UserDetailsService {
 
     public User getUserbyEmail(String username) {
         return userRepo.findByEmail(username);
+    }
+
+    public void save(org.springframework.security.core.userdetails.User user) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
