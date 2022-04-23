@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static//stylesheets/styles-registro.css">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <section class="containerS">
+            <h2>Bievenido a Astral Tinder</h2>
+            <form class="form" th:action="@{/logincheck}" method="POST">
+                <fieldset>
+                    <legend>Inicia sesión con tu cuenta</legend>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Email</label>
+                            <input type="email" name="direccion de correo" class="direccion de correo" placeholder="Tú email">
+                        </div>
+                    </div>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Contraseña</label>
+                            <input type="password" name="contrasñea" class="contraseña" placeholder="Tú contraseña">
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" class="principal-button" value="Enviar">
+                    </div>
+
+                    <h5><a href="../templates/user-register.html">¿No tienes una cuenta?</a></h5>
+
+                </fieldset>
+            </form>
+             <span th:if="${error}" th:text="${error}" > </span>
+        </section>
+
+    </div>
+
+
+</body>
+</html>

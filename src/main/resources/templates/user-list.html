@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+        <link rel="stylesheet" type="text/css" href="../../lista-de-usuarios.css">
+        <link rel="stylesheet" href="..//static/stylesheets/user-list.css" type="text/css"/>
+ 
+
+        <title>Lista de usuarios</title>
+    </head>
+    <body>
+        <div class="datatable-container">
+            <div class="header-tools">
+                <div class="tools">
+                    <ul>
+                        <li><span><input type="checkbox"></span></li>
+                        <li><button><i class="material-icons">add_circle</i></button></li>
+                        <li><button><i class="material-icons">edit</i></button></li>
+                        <li><button><i class="material-icons">delete</i></button></li>
+                        <li><button><i class="material-icons">share</i></button></li>
+                    </ul>
+                </div>
+                <div class="search"></div>
+                <!--<input type="text" name="" id="" class="search-input">-->
+
+            </div>
+
+            <table class="datatable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Estado</th>
+                        <th>ID</th>              
+                        <th>Birth</th>
+                        <th>Email</th>
+                        <th>Gender</th>                 
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Phone Number</th>
+                        <th>Province</th>
+
+                        <th>Sex Orientation</th>                   
+                        <th>Surname</th>                
+
+                        <th>Birth hour</th>
+
+
+                    </tr>
+
+
+
+                </thead>
+
+                <tbody>
+                    <tr th:each="user : ${user}">
+                        <td class="table-checkbox"><input type="checkbox" name="" id=""></td>
+                        <td><span class="available"></span></td>
+                        <td th:text="${user.id}"> </td>
+                        <td th:text="${user.birth}"> </td>
+                        <td th:text="${user.email}"> </td>
+                        <td th:text="${user.gender}"> </td>                   
+                        <td th:text="${user.name}"> </td>
+                        <td th:text="${user.password}"> </td>
+                        <td th:text="${user.phoneNumber}"> </td>
+                        <td th:text="${user.province}"></td>
+
+                        <td th:text="${user.sexOrient}"></td>
+                        <td th:text="${user.surname}"></td>
+
+                        <td th:text="${user.birthHour}"></td>  
+
+
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+
+
+            <div class="footer-tools">
+                <div class="list-items">
+                    Mostrar
+                    <select name="n-entries" id="n-entris" class="n-entries">
+                        <option value="5">5 </option>
+                        <option value="10">10 </option>
+                        <option value="15">15 </option>
+                    </select>
+                    Entradas
+                </div>
+                <div class="pages">
+                    <ul>
+                        <li><span class="active">1</span></li>
+                        <li><button>2</button></li>
+                        <li><button>3</button></li>                  
+                        <li><button>4</button></li>
+                        <li><span>...</span></li>
+                        <li><button>9</button></li>
+                        <li><button>10</button></li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </body>
+</html>

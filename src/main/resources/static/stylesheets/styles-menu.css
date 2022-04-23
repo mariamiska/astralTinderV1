@@ -1,0 +1,215 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+    background: #f5f7fa;
+    height: 100vh;
+    width: 100%;
+
+}
+
+/*NAVBAR*/
+/* 
+nav {
+    background-color: rgb(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 40px;
+
+}
+
+.logo{
+    color: beige;
+    font-size: 28px;
+
+}
+
+.span-logo{
+    color:#87006C;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a{
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;    
+}
+
+nav ul li a:hover{
+    color: #87006C;
+    transition: .3s;
+}
+
+button{
+    
+    border: none;
+    background: #87006C;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: beige;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .4s;
+}
+
+button:hover{
+    transform: scale(1.3);
+
+}
+
+
+
+ */
+/* NAVBAR-CARD*/
+
+.navbarCard{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 10px 0;
+    height: 44px;
+}
+
+.navbarCard i {
+    font-size: 1.5rem;
+    color: #dadfe6;
+}
+
+.navbarCard i:nth-child(2){
+    color: #fe466d;
+}
+
+/* PHOTO AND ACTIONS */
+
+.photo-and-actions{
+    height: calc(100vh - 44px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo {
+    width: 98vh;
+    height: 85vh;
+    background: url(../imgs/javier.jpg) center center/cover;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    color: #eee;
+    box-shadow: 0 2px 10px 0 rgb(136, 136, 136, 0.77);
+}
+
+.photo-text {
+    padding: 15px;
+    background: rgb(2, 0, 36);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+        100deg,
+        rgb(2, 0, 36, 1) 0%,
+        rgb(35, 34, 65, 0) 0%,
+        rgb(0, 0, 0, 0.7) 52%
+    );
+    border-radius: 10px;
+}
+
+.photo-name-and-age {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+}
+
+.photo-name-and-age h2:nth-child(2){
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.photo-bio{
+    line-height: 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.action {
+    background: #fff;
+    box-shadow: 0 2px 6px 0 rgba(112, 125, 134, 0.14);
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2rem;
+    
+}
+
+.actions .action:nth-child(1){
+    margin: 0 1rem;
+    height: 48px;
+    width: 48px;
+    font-size: 1.5rem;
+}
+.actions .action:nth-child(2){
+    margin: 0 1rem;
+    height: 48px;
+    width: 48px;
+    font-size: 2rem;
+    color: #fe466d;
+}
+.actions .action:nth-child(3){
+    margin: 0 1rem;
+    height: 48px;
+    width: 48px;
+    font-size: 1.5rem;
+    color: #2db1ff;
+}
+.actions .action:nth-child(4){
+    margin: 0 1rem;
+    height: 48px;
+    width: 48px;
+    font-size: 1.5rem;
+    color: #1be4a1;
+}
+.actions .action:nth-child(5){
+    margin: 0 1rem;
+    height: 48px;
+    width: 48px;
+    font-size: 1.5rem;
+}
+
+/* DESTKOP VIEW */
+
+@media(min-width: 1025px){
+    .photo{
+        width: 367px;
+        height: 684px;
+    }
+
+    .navbarCard{
+        width: 400px;
+        margin: auto;
+        margin-top: 10px;
+    }
+}
