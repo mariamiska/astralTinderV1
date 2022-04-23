@@ -15,7 +15,7 @@ public class LoginController {
 
     @GetMapping
     public String home() {
-        return "index/index.html";
+        return "index.html";
     }
     UserService uS;
 
@@ -38,7 +38,7 @@ public class LoginController {
         if (error != null) {
             model.put("error", "email o password invalidos");
         }
-        return "index/4iniciodesesion";
+        return "user-login";
     }
 }
 
