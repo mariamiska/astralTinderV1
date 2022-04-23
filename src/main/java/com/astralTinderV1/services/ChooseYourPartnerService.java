@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1.services;
+package com.astralTinderV1.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1.controllers;
+package com.astralTinderV1.controllers;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,5 @@
 
-package com.astraltinder.astralTinder.v1.exceptions;
+package com.astralTinderV1.exceptions;
 
 public class ServiceException extends Exception {
 

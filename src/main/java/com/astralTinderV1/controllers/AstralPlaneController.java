@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1.controllers;
+package com.astralTinderV1.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

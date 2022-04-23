@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1.controllers;
+package com.astralTinderV1.controllers;
 
 import com.astraltinder.astralTinder.v1.enums.Gender;
 import com.astraltinder.astralTinder.v1.enums.Province;
