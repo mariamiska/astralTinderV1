@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1.enums;
+package com.astralTinderV1.enums;
 
 public enum Cualidades {
     

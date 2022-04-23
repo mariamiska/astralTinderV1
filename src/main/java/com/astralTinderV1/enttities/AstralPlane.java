@@ -1,8 +1,8 @@
 package com.astralTinderV1.enttities;
 
-import com.astraltinder.astralTinder.enums.Cualidades;
-import com.astraltinder.astralTinder.enums.Elements;
-import com.astraltinder.astralTinder.enums.ZodiacSigns;
+import com.astralTinderV1.enums.Cualidades;
+import com.astralTinderV1.enums.Elements;
+import com.astralTinderV1.enums.ZodiacSigns;
 import javax.persistence.Entity;
 import lombok.Data;
 import javax.persistence.GeneratedValue;
