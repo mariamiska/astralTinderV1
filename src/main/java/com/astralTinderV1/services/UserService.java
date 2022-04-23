@@ -127,8 +127,4 @@ public class UserService implements UserDetailsService {
         return userRepo.findByEmail(username);
     }
 
-    public void save(org.springframework.security.core.userdetails.User user) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
