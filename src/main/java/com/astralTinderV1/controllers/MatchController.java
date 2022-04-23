@@ -1,12 +1,13 @@
-package com.astraltinder.astralTinder.v1.controllers;
+package com.astralTinderV1.controllers;
 
-import java.util.List;
+import com.astralTinderV1.enttities.Vote;
+import com.astralTinderV1.services.ChooseYourPartnerService;
+import com.astralTinderV1.services.UserService;
+import com.astralTinderV1.services.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller

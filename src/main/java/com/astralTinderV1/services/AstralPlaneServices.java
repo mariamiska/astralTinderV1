@@ -2,6 +2,8 @@ package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.User;
 import com.astralTinderV1.enttities.AstralPlane;
+import com.astralTinderV1.enums.YearLunarSign;
+import com.astralTinderV1.enums.ZodiacSigns;
 import com.astralTinderV1.repositories.AstralPlaneRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import javax.transaction.Transactional;
 public class AstralPlaneService {
 
     private final AstralPlaneRepository astralRepo;
-    
+
      @Transactional
     public void crearPerfilAstral (User user){
 

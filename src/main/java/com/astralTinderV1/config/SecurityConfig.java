@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5010c31c85767eea22b96629d817bb146ca4815
 package com.astralTinderV1.config;
 
 import com.astraltinder.astralTinder.v1.services.UserService;

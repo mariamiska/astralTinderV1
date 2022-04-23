@@ -1,8 +1,9 @@
-package com.astraltinder.astralTinder.v1.controllers;
+package com.astralTinderV1.controllers;
 
-import com.astraltinder.astralTinder.v1.enums.Gender;
-import com.astraltinder.astralTinder.v1.enums.Province;
-import com.astraltinder.astralTinder.v1.enums.SexualOrientation;
+import com.astralTinderV1.enums.Gender;
+import com.astralTinderV1.enums.Province;
+import com.astralTinderV1.enums.SexualOrientation;
+import com.astralTinderV1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
