@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 public class AstralPlaneService {
 
     private final AstralPlaneRepository astralRepo;
-    
+
      @Transactional
     public void crearPerfilAstral (User user){
 

@@ -1,10 +1,6 @@
 package com.astralTinderV1.config;
 
-<<<<<<< HEAD
 import com.astralTinderV1.services.UserService;
-=======
-import com.astraltinder.astralTinder.v1.services.UserService;
->>>>>>> 6b81525c6e4959d33ee4f159b584192c4ead8fc1
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
