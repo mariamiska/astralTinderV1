@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/usuarios")
-//@PreAuthorize("hasAnyRole('ROLE_USER')")
 public class UserController {
 
     private UserService userService;
