@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.enttities;
+package com.astralTinderV1.enttities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

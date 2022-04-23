@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.enttities;
+package com.astralTinderV1.enttities;
 
 import com.astraltinder.astralTinder.enums.Cualidades;
 import com.astraltinder.astralTinder.enums.Elements;
