@@ -84,7 +84,7 @@
 
             <artifactId>spring-security-core</artifactId>
 
-            <version>5.5.2</version>
+            <version>5.6.3</version>
             <type>jar</type>
         </dependency>                
           

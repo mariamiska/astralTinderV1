@@ -1,6 +1,7 @@
 package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Service
 public class UserService implements UserDetailsService {
 
-    private UserRepository userRepo;
+private UserRepository userRepo;
     private AstralPlaneService apServ;
 
     @Autowired
@@ -30,7 +31,7 @@ public class UserService implements UserDetailsService {
         this.userRepo = userRepo;
         this.apServ = apServ;
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
@@ -50,7 +51,7 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
 
-    /**
+     /**
      * no olvidar encriptar contraseñas que sino no entra
      *
      * @param user
@@ -79,13 +80,13 @@ public class UserService implements UserDetailsService {
         }
         return res.get();
     }
-
+    
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
     }
-
-    public boolean mayorDeEdad(User user) {
+    
+      public boolean mayorDeEdad(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - añoNacio;
@@ -95,8 +96,7 @@ public class UserService implements UserDetailsService {
             return false;
         }
     }
-
-    public void validate(User user) throws Exception {
+       public void validate(User user) throws Exception {
         if (user.getName().isEmpty()) {
             throw new Exception("Debe tener un nombre");
         }
@@ -123,8 +123,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public User getUserbyEmail(String username) {
+        public User getUserbyEmail(String username) {
         return userRepo.findByEmail(username);
     }
-
 }

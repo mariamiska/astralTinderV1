@@ -1,9 +1,9 @@
 package com.astralTinderV1.services;
 
+import com.astralTinderV1.enttities.User;
 import com.astralTinderV1.repositories.UserRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 @Service
