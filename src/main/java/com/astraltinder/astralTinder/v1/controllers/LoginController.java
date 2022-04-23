@@ -1,0 +1,47 @@
+package com.astraltinder.astralTinder.v1.controllers;
+
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+//tener en cuenta que los directorios de las plantillas pueden cambiar a medida que el front meta 
+@Controller
+@RequestMapping("/")
+public class LoginController {
+
+    @GetMapping
+    public String home() {
+        return "index/index.html";
+    }
+    UserService uS;
+
+    @Autowired
+    public LoginController(UserService uS) {
+        this.uS = uS;
+    }
+
+    /**
+     * envia la pagina de registro al usuario no se necesita un post
+     *
+     * @param error no me queda claro bien de donde sale este error spring
+     * security parece que lo envia a la vista cuando no se ingresa
+     * correctamente el user
+     * @param model envia el error a la vista
+     * @return pagina de inicio de sesion
+     */
+    @GetMapping("/login")
+    public String Login(@RequestParam(required = false) String error, ModelMap model) {
+        if (error != null) {
+            model.put("error", "email o password invalidos");
+        }
+        return "index/4iniciodesesion";
+    }
+}
+
