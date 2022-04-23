@@ -1,7 +1,8 @@
-package com.astraltinder.astralTinder.v1.enums;
+package com.astralTinderV1.enums;
 
-import static com.astraltinder.astralTinder.v1.enums.Cualidades.*;
-import static com.astraltinder.astralTinder.v1.enums.Elements.*;
+import static com.astralTinderV1.enums.Cualidades.*;
+import static com.astralTinderV1.enums.Elements.*;
+
 
 public enum ZodiacSigns {
 

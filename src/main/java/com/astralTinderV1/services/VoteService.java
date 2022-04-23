@@ -1,5 +1,8 @@
-package com.astraltinder.astralTinder.v1.services;
+package com.astralTinderV1.services;
 
+import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.enttities.Vote;
+import com.astralTinderV1.repositories.VoteRepository;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,7 @@
-package com.astraltinder.astralTinder.v1.services;
+package com.astralTinderV1.services;
 
+import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
