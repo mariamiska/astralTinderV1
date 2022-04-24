@@ -1,4 +1,4 @@
-package com.astraltinder.astralTinder.v1;
+package com.astraltinderV1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
