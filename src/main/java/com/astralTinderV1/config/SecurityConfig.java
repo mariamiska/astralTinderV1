@@ -12,21 +12,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     public UserService userService;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    
+    @Autowired 
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
+    {
         auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
+    
     @Override
-    protected void configure(HttpSecurity http) throws Exception { ///esta publico cuidaoooo
-
-        http
+        protected void configure(HttpSecurity http) throws Exception { ///esta publico cuidaoooo
+    
+  http
                 .authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .and()
