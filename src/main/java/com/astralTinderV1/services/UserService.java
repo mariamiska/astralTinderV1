@@ -1,6 +1,7 @@
 package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.enums.Roles;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
@@ -121,9 +122,28 @@ private UserRepository userRepo;
         if (user.getEmail().isEmpty()) {
             throw new Exception("Debe tener un email");
         }
-    }
-
+       }
+       
         public User getUserbyEmail(String username) {
         return userRepo.findByEmail(username);
+    }
+        
+   @Transactional
+    public void changeRole(String id) throws ServiceException{
+    
+            Optional<User> res = userRepo.findById(id);
+    	
+    	if(res.isPresent()) {
+    		
+    		User user = res.get();
+    		
+    		if(user.getRole().equals(Roles.USER)) {
+    			
+    		user.setRole(Roles.ADMIN);
+    		
+    		}else if(user.getRole().equals(Roles.ADMIN)) {
+    			user.setRole(Roles.USER);
+    		}
+    	}
     }
 }
