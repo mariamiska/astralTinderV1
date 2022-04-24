@@ -1,4 +1,4 @@
-package com.astraltinderV1;
+package com.astralTinderV1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
