@@ -23,7 +23,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Service
 public class UserService implements UserDetailsService {
 
-private UserRepository userRepo;
+    private UserRepository userRepo;
     private AstralPlaneService apServ;
 
     @Autowired
@@ -31,7 +31,7 @@ private UserRepository userRepo;
         this.userRepo = userRepo;
         this.apServ = apServ;
     }
-    
+
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
@@ -51,7 +51,7 @@ private UserRepository userRepo;
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
 
-     /**
+    /**
      * no olvidar encriptar contraseñas que sino no entra
      *
      * @param user
@@ -80,13 +80,13 @@ private UserRepository userRepo;
         }
         return res.get();
     }
-    
+
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
     }
-    
-      public boolean mayorDeEdad(User user) {
+
+    public boolean mayorDeEdad(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - añoNacio;
@@ -96,7 +96,8 @@ private UserRepository userRepo;
             return false;
         }
     }
-       public void validate(User user) throws Exception {
+
+    public void validate(User user) throws Exception {
         if (user.getName().isEmpty()) {
             throw new Exception("Debe tener un nombre");
         }
@@ -123,7 +124,7 @@ private UserRepository userRepo;
         }
     }
 
-        public User getUserbyEmail(String username) {
+    public User getUserbyEmail(String username) {
         return userRepo.findByEmail(username);
     }
 }
