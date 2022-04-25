@@ -4,9 +4,6 @@ import com.astralTinderV1.enttities.User;
 import com.astralTinderV1.enums.Roles;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
-import com.astraltinder.astralTinder.v1.enums.Gender;
-import com.astraltinder.astralTinder.v1.enums.Province;
-import com.astraltinder.astralTinder.v1.enums.SexualOrientation;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +25,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Service
 public class UserService implements UserDetailsService {
 
-private UserRepository userRepo;
+    private UserRepository userRepo;
     private AstralPlaneService apServ;
 
     @Autowired
@@ -36,7 +33,7 @@ private UserRepository userRepo;
         this.userRepo = userRepo;
         this.apServ = apServ;
     }
-    
+
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
@@ -56,7 +53,7 @@ private UserRepository userRepo;
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
 
-     /**
+    /**
      * no olvidar encriptar contraseñas que sino no entra
      *
      * @param user
@@ -66,12 +63,16 @@ private UserRepository userRepo;
     public void save(User user) throws Exception {
         //falta validar    
         validate(user);
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+        encodedPassword(user);
         apServ.crearPerfilAstral(user);
         user.setRole(Roles.USER);
         userRepo.save(user);
+    }
+
+    public void encodedPassword(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
     }
 
     @Transactional(rollbackOn = {Exception.class})
@@ -83,13 +84,13 @@ private UserRepository userRepo;
         }
         return res.get();
     }
-    
+
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
     }
-    
-      public boolean mayorDeEdad(User user) {
+
+    public boolean mayorDeEdad(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - añoNacio;
@@ -99,7 +100,8 @@ private UserRepository userRepo;
             return false;
         }
     }
-       public void validate(User user) throws Exception {
+
+    public void validate(User user) throws Exception {
         if (user.getName().isEmpty()) {
             throw new Exception("Debe tener un nombre");
         }
@@ -124,34 +126,52 @@ private UserRepository userRepo;
         if (user.getEmail().isEmpty()) {
             throw new Exception("Debe tener un email");
         }
-       }
-       
-        public User getUserbyEmail(String username) {
+    }
+
+    public User getUserbyEmail(String username) {
         return userRepo.findByEmail(username);
     }
-        
-   @Transactional
-    public void changeRole(String id) throws ServiceException{
-    
-            Optional<User> res = userRepo.findById(id);
-    	
-    	if(res.isPresent()) {
-    		
-    		User user = res.get();
-    		
-    		if(user.getRole().equals(Roles.USER)) {
-    			
-    		user.setRole(Roles.ADMIN);
-    		
-    		}else if(user.getRole().equals(Roles.ADMIN)) {
-    			user.setRole(Roles.USER);
-    		}
-    	}
+
+    @Transactional
+    public void changeRole(String id) throws ServiceException {
+
+        Optional<User> res = userRepo.findById(id);
+
+        if (res.isPresent()) {
+
+            User user = res.get();
+
+            if (user.getRole().equals(Roles.USER)) {
+
+                user.setRole(Roles.ADMIN);
+
+            } else if (user.getRole().equals(Roles.ADMIN)) {
+                user.setRole(Roles.USER);
+            }
+        }
     }
-   @Transactional
-  public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email, Gender gender, Province province, SexualOrientation sexOrient ){
-    
-      return null;
-  }  
-  }
+
+    @Transactional
+    public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email) throws Exception {
+        User user = userRepo.getById(id);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setPhoneNumber(phonenumber);
+        user.setEmail(email);
+        user.setBirth(birth);
+        user.setBirthHour(birthHour);
+        
+        validate(user);
+        apServ.crearPerfilAstral(user);
+
+        return userRepo.save(user);
+    }
+
+    @Transactional
+    public User modifyPassword(String id, String password) {
+        User user = userRepo.getById(id);
+        user.setPassword(password);
+        encodedPassword(user);
+        return userRepo.save(user);
+    }
 }
