@@ -10,13 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 //tener en cuenta que los directorios de las plantillas pueden cambiar a medida que el front meta 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/login")
 public class LoginController {
 
-    @GetMapping
-    public String home() {
-        return "index.html";
-    }
     UserService uS;
 
     @Autowired
@@ -33,7 +29,7 @@ public class LoginController {
      * @param model envia el error a la vista
      * @return pagina de inicio de sesion
      */
-    @GetMapping("/login")
+    @GetMapping()
     public String Login(@RequestParam(required = false) String error, ModelMap model) {
         if (error != null) {
             model.put("error", "email o password invalidos");

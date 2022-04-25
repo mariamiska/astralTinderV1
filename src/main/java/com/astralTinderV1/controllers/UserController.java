@@ -96,7 +96,7 @@ public class UserController {
     @GetMapping("/listarTodos")
     public String listAllUsers(ModelMap mm) {
         mm.addAttribute("listaUsers", userService.getAll());
-        return "index/lista-de-usuarios";
+        return "user-list";
     }
 
 }
