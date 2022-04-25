@@ -4,8 +4,12 @@ import com.astralTinderV1.enttities.User;
 import com.astralTinderV1.enums.Roles;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
+import com.astraltinder.astralTinder.v1.enums.Gender;
+import com.astraltinder.astralTinder.v1.enums.Province;
+import com.astraltinder.astralTinder.v1.enums.SexualOrientation;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
@@ -145,7 +149,9 @@ private UserRepository userRepo;
     	}
     }
    @Transactional
-  public User modifyUser(){
-      
+  public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email, Gender gender, Province province, SexualOrientation sexOrient ){
+    
+      return null;
+  }  
   }
 }
