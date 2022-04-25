@@ -66,10 +66,8 @@ private UserRepository userRepo;
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         apServ.crearPerfilAstral(user);
+        user.setRole(Roles.USER);
         userRepo.save(user);
-        System.out.println(user);
-        System.out.println(user.getAstralPlane());
-
     }
 
     @Transactional(rollbackOn = {Exception.class})
@@ -146,4 +144,8 @@ private UserRepository userRepo;
     		}
     	}
     }
+   @Transactional
+  public User modifyUser(){
+      
+  }
 }
