@@ -64,7 +64,7 @@ public class User {
     private Province province;
 
     @Enumerated(EnumType.STRING)
-    private SexualOrientation sexOrient;    
+    private SexualOrientation sexOrient;
 
     @OneToOne
     private AstralPlane astralPlane;
