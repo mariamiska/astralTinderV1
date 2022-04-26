@@ -53,7 +53,7 @@ public class UserController {
     public String procesarFormulario(@ModelAttribute User user, ModelMap mm) {
         try {
             userService.save(user);
-            return "redirect : /user-login";
+            return "/user-login";
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             return "/user-register";

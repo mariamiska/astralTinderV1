@@ -22,14 +22,14 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Email</label>
-                            <input type="email" name="direccion de correo" class="direccion de correo" placeholder="Tú email">
+                            <input type="email" name="email" class="direccion de correo" placeholder="Tú email">
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Contraseña</label>
-                            <input type="password" name="contrasñea" class="contraseña" placeholder="Tú contraseña">
+                            <input type="password" name="password" class="contraseña" placeholder="Tú contraseña">
                         </div>
                     </div>
 
@@ -41,6 +41,7 @@
 
                 </fieldset>
             </form>
+
              <span th:if="${error}" th:text="${error}" > </span>
         </section>
 
