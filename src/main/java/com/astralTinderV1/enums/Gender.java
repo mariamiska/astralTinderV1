@@ -6,7 +6,7 @@ public enum Gender {
     MALE("Hombre"), 
     NO_BINARY("No binario"),
     QUEER("Queer"),
-    NON_CONFORMING_GENDER("Genero fluido"),
+    NON_CONFORMING_GENDER("Género fluido"),
     OTHER("Otro");
     
     private final String name;
