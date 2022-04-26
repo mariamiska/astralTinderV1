@@ -44,7 +44,11 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Provincia</label>
-                            <input type="text" th:field="*{province}" name="province" id="provincia" placeholder="Tú provincia">
+                           <select id="Province" th:field="*{province}">
+                                <option th:each="province : ${T(com.astralTinderV1.enums.Province).values()}"
+                                        th:value="${province}" th:text="${province}"></option>
+                            </select>
+
                         </div>
                     </div>
 

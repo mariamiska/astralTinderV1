@@ -1,7 +1,10 @@
 package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.enums.Gender;
+import com.astralTinderV1.enums.Province;
 import com.astralTinderV1.enums.Roles;
+import com.astralTinderV1.enums.SexualOrientation;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
@@ -152,17 +155,23 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email) throws Exception {
+    public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email, Province province, Gender gender, SexualOrientation sexOrient) throws Exception {
         User user = userRepo.getById(id);
+        
         user.setName(name);
         user.setSurname(surname);
         user.setPhoneNumber(phonenumber);
         user.setEmail(email);
         user.setBirth(birth);
         user.setBirthHour(birthHour);
+        user.setProvince(province);
+        user.setGender(gender);
+        user.setSexOrient(sexOrient);
+        
         
         validate(user);
         apServ.crearPerfilAstral(user);
+        encodedPassword(user);
 
         return userRepo.save(user);
     }
