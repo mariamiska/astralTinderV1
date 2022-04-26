@@ -37,21 +37,30 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Género</label>
-                            <input type="text" th:field="*{gender}" name="género" id="género" placeholder="Tú género">
+                            <select id="Province" th:field="*{gender}">
+                                <option th:each="gender : ${genders}"
+                                        th:value="${gender}" th:text="${gender}"></option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Provincia</label>
-                            <input type="text" th:field="*{province}" name="province" id="provincia" placeholder="Tú provincia">
+                            <select id="Province" th:field="*{province}">
+                                <option th:each="province : ${provinces}"
+                                        th:value="${province}" th:text="${province}"></option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Orientación sexual</label>
-                            <input type="text" th:field="*{sexOrient}" name="Orientación sexual" id="sexOrient" placeholder="Tú orientacion sexual">
+                            <select id="Province" th:field="*{sexOrient}">
+                                <option th:each="sexualOrientation : ${sexualOrientations}"
+                                        th:value="${sexualOrientation}" th:text="${sexualOrientation}"></option>
+                            </select>
                         </div>
                     </div>
 
