@@ -5,26 +5,30 @@ import static com.astralTinderV1.enums.Elements.*;
 
 public enum ZodiacSigns {
 
-    CAPRICORNIO(TIERRA, CARDINAL),
-    ARIES(FUEGO, CARDINAL),
-    VIRGO(TIERRA, MUTABLE),
-    LEO(FUEGO, FIJO),
-    PISCIS(AGUA, MUTABLE),
-    ESCORPIO(AGUA, FIJO),
-    SAGITARIO(FUEGO, MUTABLE),
-    LIBRA(AIRE, CARDINAL),
-    ACUARIO(AIRE, FIJO),
-    GEMINIS(AIRE, MUTABLE),
-    CANCER(AGUA, CARDINAL),
-    TAURO(TIERRA, FIJO);
+    CAPRICORNIO(TIERRA, CARDINAL, "Capricornio"),
+    ARIES(FUEGO, CARDINAL, "Aries"),
+    VIRGO(TIERRA, MUTABLE, "Virgo"),
+    LEO(FUEGO, FIJO, "Leo"),
+    PISCIS(AGUA, MUTABLE, "Piscis"),
+    ESCORPIO(AGUA, FIJO, "Escorpio"),
+    SAGITARIO(FUEGO, MUTABLE, "Sagitario"),
+    LIBRA(AIRE, CARDINAL, "Libra"),
+    ACUARIO(AIRE, FIJO, "Acuario"),
+    GEMINIS(AIRE, MUTABLE, "Géminis"),
+    CANCER(AGUA, CARDINAL, "Cáncer"),
+    TAURO(TIERRA, FIJO, "Tauro");
 
-    private Elements elemento;
-    private Cualidades cualidad;
+    private final Elements elemento;
+    private final Cualidades cualidad;
+    private final String nameSign;
 
-    private ZodiacSigns(Elements elemento, Cualidades cualidad) {
+    private ZodiacSigns(Elements elemento, Cualidades cualidad, String nameSign) {
         this.elemento = elemento;
         this.cualidad = cualidad;
+        this.nameSign = nameSign;
     }
+    
+
 
     public Elements showElement() {
         return this.elemento;
@@ -32,5 +36,9 @@ public enum ZodiacSigns {
 
     public Cualidades showCualidad() {
         return this.cualidad;
+    }
+    
+    public String nameSign(){
+        return this.nameSign;
     }
 }
