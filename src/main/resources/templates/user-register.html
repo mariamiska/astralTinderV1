@@ -41,26 +41,29 @@
                             <label>Género</label>
                             <!--                             <input type="text" th:field="*{gender}" name="género" id="género" placeholder="Tú género">
  -->
-                            <select class="selectRegistro">
+   <!--                          <select class="selectRegistro">
                                 <option selected="">♀♂</option>
                                 <option value="1">Masculino</option>
                                 <option value="2">Femenino</option>
                                 <option value="3">No binario</option>
                                 <option value="4">Queer</option>
                                 <option value="5">No confirmado</option>
-                                <option value="6">Otros</option>
+                                <option value="6">Otros</option> -->
+                                
                             <select id="Province" th:field="*{gender}">
                                 <option th:each="gender : ${genders}"
                                         th:value="${gender}" th:text="${gender}"></option>
                             </select>
+
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Provincia</label>
-                            <input type="text" th:field="*{province}" name="province" id="provincia"
-                                placeholder="Tú provincia">
+                            <!-- <input type="text" th:field="*{province}" name="province" id="provincia"
+                                placeholder="Tú provincia"> -->
+                                
                             <select id="Province" th:field="*{province}">
                                 <option th:each="province : ${provinces}"
                                         th:value="${province}" th:text="${province}"></option>
@@ -71,7 +74,7 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Orientación sexual</label>
-                            <select class="selectRegistro">
+                            <!-- <select class="selectRegistro">
                                 <option selected="">♀♂</option>
                                 <option value="1">Lesbiana</option>
                                 <option value="2">Gay</option>
@@ -79,7 +82,7 @@
                                 <option value="4">Bisexual</option>
                                 <option value="5">Pansexual</option>
                                 <option value="6">Otros</option>
-                            </select>
+                            </select> -->
                             <!--     <input type="sexOrient" th:field="*{sexOrient}" name="Orientación sexual" id="sexOrient" placeholder="">
                             <select name="select">
                                 <option value="1">Femenino</option>
