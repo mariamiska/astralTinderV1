@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -28,22 +30,21 @@ public class MatchController {
     @GetMapping
     public String ruleta(ModelMap model) {
 
-        model.addAttribute("user", cypS.randomUser());
+        model.addAttribute("randomUser", cypS.randomUser());
         model.addAttribute("vote", new Vote());
         return "index/6ruletamuestrayacciones";
 
     }
-
+    
 //    @PostMapping
-//    public String vistaRuelta(){
+//    public String addLike(@ModelAttribute Vote vote, ModelMap model){
 //        
+//        voteService.saveVote(vote);
 //        return null;
 //        
 //    }
-//    @GetMapping("/like")
-//    public String addLike(@ModelAttribute Vote vote, ModelMap model){
-//        
-//        return "index/6ruletamuestrayacciones";
-//        
-//    }
+    
+    
+
+
 }
