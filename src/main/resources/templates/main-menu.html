@@ -1,72 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../static/styles-menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-menu.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-            rel="stylesheet">
-
-        <title>Menu</title>
+    <title>Menu</title>
 
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="Card">
-            <nav class="navbarCard">
 
-                <i class="fas fa-comments"></i>
-                <i class="fa-solid fa-fire-flame-curved"></i>
-                <i class="fas fa-user"></i>
+    <Header>
+        <nav class="navbar">
+            <!-- <h2 class="logo">Astral <span class="span-logo">Tinder</span></h2> -->
+            <div class="div-logo">
+                <a href="../index/index.html"><img src="../../imgs/LOGO 2 (HORIZONTAL).png" alt="logo "
+                        class="LogoT"></a>
+            </div>
 
-            </nav>
+            <ul class="navbar-menu">
+                <!--                 <li><a href="../index/menu.html">Menu</a></li>
+ -->
+                <li><a href="../index/astral-card.html">Carta Astral</a></li>
+                <li><i class="fa-solid fa-star"></i>
+                    <ul class="submenu">
+                        <li><a href="../index/user-profile.html">Mi perfil</a></li>
+                        <li><a href="../index/feedback.html">Regalanos un feedback</a></li>
+                        <li><a href="../index/account-settings.html">Configuracion de la cuenta</a></li>
+                        <li><a href="../index/Q&A.html">Preguntas y respuestas</a></li>
+                        <li><a href="../index/index.html">Salir</a></li>
 
-            <div class="photo-and-actions">
-                <div class="photo">
-                    <div class="photo-text">
-                        <div class="photo-name-and-age">
-                            <h2>Javier</h2>
-                            <h2>24</h2>
+                    </ul>
+                </li>
+            </ul>
+            <!--             <button type="button"><a href="../index/user-login.html">Iniciar sesión</a></button>
+ -->
+        </nav>
+
+    </Header>
+
+    <div class="Card">
+        <nav class="navbarCard">
+
+
+            <div class="actionTop"><a href="../index/menu.html"><img src="../../imgs/boton cualidad.png"
+                        class="ImgRuleta"></a>
+            </div>
+
+            <div class="actionTop"><a href="../index/menu.html"><img src="../../imgs/boton ascendente.png"
+                        class="ImgCorazon"></a>
+            </div>
+
+            <div class="actionTop"><a href="../index/menu.html"><img src="../../imgs/boton elemento.png"
+                        class="ImgRuleta"></a>
+            </div>
+
+            <div class="actionTop"><a href="../index/menu.html"><img src="../../imgs/boton signo lunar.png"
+                        class="ImgCorazon"></a>
+            </div>
+
+            <div class="actionTop"><a href="../index/menu.html"><img src="../../imgs/boton signo solar.png"
+                        class="ImgRuleta"></a>
+            </div>
+
+            <!-- 
+            <i class="fas fa-comments"></i>
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            <i class="fas fa-user"></i> -->
+
+        </nav>
+
+        <div class="photo-and-actions">
+            <div class="photo">
+                <div class="photo-text">
+                    <div class="photo-name-and-age">
+                        <h2>Javier</h2>
+                        <h2>24</h2>
+                    </div>
+                    <div class="photo-bio">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo alias, ad corporis ex
+                        distinctio culpa, ipsam numquam maiores magni dolor harum eaque, commodi ipsum sapiente nostrum.
+                        Officia eveniet commodi omnis.
+                    </div>
+                    <div class="actions">
+
+                        <div class="action"><a href="../index/menu.html"><img src="../../imgs/boton ruleta.png"
+                                    class="ImgRuleta"></a>
                         </div>
-                        <div class="photo-bio">
-                            EN ESTA VISTA DEBEN APARECER A LA DERECHA DE LA FOTO LOS SIMBOLOS DE LA CARTA ASTRAL DEL USUARIO, DEBEN TENER UN ANCLA QUE
-                            LLEVE A OTRA VISTA DONDE SE PUEDA VER MAS INFORMACION ACERCA DE LA CARTA ASTRAL Y LA ASTROLOGIA EN GENERAL.
-                            
-                            
-                            
+                        <div class="action"><a href="../index/menu.html"><img src="../../imgs/boton corazon.png"
+                                    class="ImgCorazon"></a>
                         </div>
-                    </div>
-                </div>
 
-                <div class="actions">
-                    <div class="action">
-                        <i class="fa-solid fa-arrow-left-long"></i>
+                        <!--  <div class="action">
+                             <i class="fa-solid fa-arrow-botton-long"></i>
+                         </div>
+                         <div class="action">
+                             <i class="fa-solid fa-xmark"></i>
+                         </div> 
+                        <div class="action">
+                            <i ></i>
+                        </div>
+                        <div class="action">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                         <div class="action">
+                             <i class="fa-solid fa-arrow-right-long"></i>
+                         </div> -->
                     </div>
-                    <div class="action">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <div class="action">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="action">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <div class="action">
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
+
+
                 </div>
             </div>
-        </div>
-        <script src="https://kit.fontawesome.com/712725c422.js" crossorigin="anonymous"></script>
-    </body>
 
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/712725c422.js" crossorigin="anonymous"></script>
+</body>
 
 </html>
