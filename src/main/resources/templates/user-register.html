@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
-    
+
     <title>Registrarse</title>
 </head>
+
 <body>
-    
+
     <div class="container">
-        
+
         <section class="containerS">
             <h2>Bienvenido a Astral Tinder</h2>
             <form class="form" th:action="@{/usuarios/registro}" th:object="${user}" method="POST">
@@ -30,28 +31,57 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Apellido</label>
-                            <input type="text" th:field="*{surname}" name="apellido" id="apellido" placeholder="Tú apellido">
+                            <input type="text" th:field="*{surname}" name="apellido" id="apellido"
+                                placeholder="Tú apellido">
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Género</label>
-                            <input type="text" th:field="*{gender}" name="género" id="género" placeholder="Tú género">
+                            <!--                             <input type="text" th:field="*{gender}" name="género" id="género" placeholder="Tú género">
+ -->
+                            <select class="selectRegistro">
+                                <option selected="">♀♂</option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Femenino</option>
+                                <option value="3">No binario</option>
+                                <option value="4">Queer</option>
+                                <option value="5">No confirmado</option>
+                                <option value="6">Otros</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Provincia</label>
-                            <input type="text" th:field="*{province}" name="province" id="provincia" placeholder="Tú provincia">
+                            <input type="text" th:field="*{province}" name="province" id="provincia"
+                                placeholder="Tú provincia">
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Orientación sexual</label>
-                            <input type="text" th:field="*{sexOrient}" name="Orientación sexual" id="sexOrient" placeholder="Tú orientacion sexual">
+                            <select class="selectRegistro">
+                                <option selected="">♀♂</option>
+                                <option value="1">Lesbiana</option>
+                                <option value="2">Gay</option>
+                                <option value="3">Heterosexual</option>
+                                <option value="4">Bisexual</option>
+                                <option value="5">Pansexual</option>
+                                <option value="6">Otros</option>
+                            </select>
+                            <!--     <input type="sexOrient" th:field="*{sexOrient}" name="Orientación sexual" id="sexOrient" placeholder="">
+                            <select name="select">
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">No binario</option>
+                                <option value="4">Queer</option>
+                                <option value="5">genero no confirmado</option>
+                                <option value="6">Otro</option>
+                            </select> -->
                         </div>
                     </div>
 
@@ -65,14 +95,16 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Contraseña</label>
-                            <input type="password" th:field="*{password}" name="contraseña" id="contraseña" placeholder="Tú contraseña">
+                            <input type="password" th:field="*{password}" name="contraseña" id="contraseña"
+                                placeholder="Tú contraseña">
                         </div>
                     </div>
 
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Número de telefono</label>
-                            <input type="text" th:field="*{phoneNumber}" name="número de telefono" id="número de telefono" placeholder="Tú número de telefono">
+                            <input type="text" th:field="*{phoneNumber}" name="número de telefono"
+                                id="número de telefono" placeholder="Tú número de telefono">
                         </div>
                     </div>
 
@@ -86,7 +118,8 @@
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Hora de nacimiento</label>
-                            <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="Tú nombre">
+                            <input type="time" th:field="*{birthHour}" name="nombre" class="nombre"
+                                placeholder="Tú nombre">
                         </div>
                     </div>
 
@@ -94,7 +127,7 @@
                         <input type="submit" class="principal-button" value="Enviar">
                     </div>
 
-                    <h5><a href="/user-login.html">¿Ya tienes una cuenta?</a></h5>
+                    <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
 
                 </fieldset>
             </form>
@@ -105,4 +138,5 @@
 
 
 </body>
+
 </html>
