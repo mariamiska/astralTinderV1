@@ -27,7 +27,7 @@ public class MatchController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping()
     public String ruleta(ModelMap model) {
 
         model.addAttribute("randomUser", cypS.randomUser());
