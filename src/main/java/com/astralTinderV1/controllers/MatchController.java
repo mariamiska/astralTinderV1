@@ -28,9 +28,9 @@ public class MatchController {
     @GetMapping()
     public String ruleta(ModelMap model) {
 
-        model.addAttribute("user", cypS.randomUser());
-        model.addAttribute("vote", new Vote());
-        return "index/6ruletamuestrayacciones";
+//        model.addAttribute("user", cypS.randomUser());
+//        model.addAttribute("vote", new Vote());
+        return "main-menu.html";
 
     }
 
