@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,14 +20,13 @@
             <form class="form" th:action="@{/usuarios/registro}" th:object="${user}" method="POST">
                 <fieldset>
                     <legend>Completa el formulario</legend>
-=======
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
+
 
         <title>Registrarse</title>
     </head>
@@ -49,22 +47,18 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Apellido</label>
                             <input type="text" th:field="*{surname}" name="apellido" id="apellido"
                                 placeholder="Tú apellido">
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Apellido</label>
                                 <input type="text" th:field="*{surname}" name="apellido" id="apellido" placeholder="Tú apellido">
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Género</label>
@@ -84,7 +78,6 @@
                                         th:value="${gender}" th:text="${gender}"></option>
                             </select>
 
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Provincia</label>
@@ -94,10 +87,9 @@
                                             th:value="${province}" ></option>
                                 </select>
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
+
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Provincia</label>
@@ -108,7 +100,6 @@
                                 <option th:each="province : ${provinces}"
                                         th:value="${province}" th:text="${province}"></option>
                             </select>
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Género</label>
@@ -118,10 +109,8 @@
                                             th:value="${gender}"></option>
                                 </select>
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Orientación sexual</label>
@@ -148,7 +137,6 @@
                                         th:value="${sexualOrientation}" th:text="${sexualOrientation}"></option>
                             </select>
 
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Orientación sexual</label>
@@ -158,7 +146,6 @@
                                             th:value="${sexualOrientation}" ></option>
                                 </select>
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
                         <div class="containerDiv">
@@ -168,34 +155,28 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Contraseña</label>
                             <input type="password" th:field="*{password}" name="contraseña" id="contraseña"
                                 placeholder="Tú contraseña">
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Contraseña</label>
                                 <input type="password" th:field="*{password}" name="contraseña" id="contraseña" placeholder="Tú contraseña">
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Número de telefono</label>
                             <input type="text" th:field="*{phoneNumber}" name="número de telefono"
                                 id="número de telefono" placeholder="Tú número de telefono">
-=======
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Número de telefono</label>
                                 <input type="text" th:field="*{phoneNumber}" name="número de telefono" id="número de telefono" placeholder="Tú número de telefono">
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
                         <div class="containerDiv">
@@ -205,26 +186,23 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                     <div class="containerDiv">
                         <div class="campo">
                             <label>Hora de nacimiento</label>
                             <input type="time" th:field="*{birthHour}" name="nombre" class="nombre"
                                 placeholder="Tú nombre">
-=======
+
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Hora de nacimiento</label>
                                 <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="Tú nombre">
                             </div>
->>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
                         </div>
 
                         <div class="button">
                             <input type="submit" class="principal-button" value="Enviar">
                         </div>
 
-<<<<<<< HEAD
                     <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
 
                 </fieldset>
