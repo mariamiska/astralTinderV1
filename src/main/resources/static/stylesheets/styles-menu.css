@@ -6,42 +6,33 @@
 }
 
 body{
-    background: #f5f7fa;
-    height: 100vh;
+    background-image:url(../imgs/FONDO\ MENU\ ASTRAL\ TINDER.png);
+    height: 1000px;
     width: 100%;
 
 }
 
-/*NAVBAR*/
+
 /* 
-nav {
-    background-color: rgb(0,0,0,0.6);
+/*NAVBAR*/
+
+nav{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 40px;
+    background-color: rgb(0,0,0,0.6);
 
 }
-
-.logo{
-    color: beige;
-    font-size: 28px;
-
+.navbar-menu{
+    cursor: pointer;
+    margin-right: 200px;
 }
 
-.span-logo{
-    color:#87006C;
-}
-
-nav ul li{
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px 20px;
-}
-
+ 
+.navLogo{
+    margin-left: 200px;
+} 
 nav ul li a{
     color: beige;
     text-decoration: none;
@@ -52,6 +43,35 @@ nav ul li a:hover{
     color: #87006C;
     transition: .3s;
 }
+
+.submenu{
+    color: white;
+    position: absolute;
+    display: none;
+    list-style: none;
+}
+
+nav li:hover .submenu{
+    display: block;
+}
+
+.submenu:hover{
+    color: #87006C;
+    transition: .3s;
+}
+
+.submenu li a{
+    display: block;
+    color: beige;
+    padding: 15px 15px 15px 20px;
+    text-decoration: none;
+}
+
+.LogoT{
+    height: 100px;
+    width: 250px;
+}
+
 
 button{
     
@@ -73,18 +93,72 @@ button:hover{
 
 
 
- */
+ 
 /* NAVBAR-CARD*/
 
-.navbarCard{
-    align-items: center;
+.Card{
+    margin-top: 40px;
+    margin-left: 600px;
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.navbarCard{
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    margin: 10px 0;
-    height: 44px;
+    width: 100%;    
+    margin-left: 25px;
+    height: 700px;
+    
 }
 
+.Signos{
+    cursor: pointer;
+    list-style: none;
+}
+.Signos ul li a{
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;    
+}
+
+.Signos ul li a:hover{
+    color: #87006C;
+    transition: .3s;
+}
+
+
+.subSignos{
+    width: 220px;
+}
+.subSignos{
+    color: white;
+    position: relative;
+    display: none;
+    list-style: none;
+    right: -100px;
+    top:-40px;
+}
+
+.Signos li:hover .subSignos{
+    display: block;
+}
+
+.subSignos:hover{
+    color: #87006C;
+    transition: .3s;
+}
+
+.subSignos li a{
+    display: block;
+    color: beige;
+    text-decoration: none;
+}
+
+
+/* 
 .navbarCard i {
     font-size: 1.5rem;
     color: #dadfe6;
@@ -92,8 +166,29 @@ button:hover{
 
 .navbarCard i:nth-child(2){
     color: #fe466d;
+} */
+
+.BtonAscendente{
+    height: 50px;
+    width: 50px;
 }
 
+.BtonDesplegable{
+    height: 25px;
+    width: 25px;
+}
+.btonCorazon{
+
+    height: 25px;
+    width: 25px;
+}
+
+.btonRuleta{
+    
+    height: 25px;
+    width: 25px;
+
+}
 /* PHOTO AND ACTIONS */
 
 .photo-and-actions{
@@ -104,8 +199,8 @@ button:hover{
 }
 
 .photo {
-    width: 98vh;
-    height: 85vh;
+    width: 500px;
+    height: 800px;
     background: url(../imgs/javier.jpg) center center/cover;
     border-radius: 10px;
     display: flex;
@@ -148,9 +243,13 @@ button:hover{
 .actions {
     display: flex;
     flex: auto;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin: 1rem 0;
 }
+
+
 
 .action {
     background: #fff;
@@ -200,7 +299,7 @@ button:hover{
 }
 
 /* DESTKOP VIEW */
-
+/* 
 @media(min-width: 1025px){
     .photo{
         width: 367px;
@@ -212,4 +311,4 @@ button:hover{
         margin: auto;
         margin-top: 10px;
     }
-}
+} */

@@ -56,6 +56,25 @@ form fieldset{
     padding: 2rem;
 }
 
+.selectRegistro{
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    border: none;
+    border-radius: 2rem;
+    height: 4rem;
+    color: black;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.selectOrientacion{
+
+    color:white;
+    
+}
+
+
 .campo{
     margin-bottom: 1rem;
 }
