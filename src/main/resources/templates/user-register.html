@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
+
+    <title>Registrarse</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section class="containerS">
+            <h2>Bienvenido a Astral Tinder</h2>
+            <form class="form" th:action="@{/usuarios/registro}" th:object="${user}" method="POST">
+                <fieldset>
+                    <legend>Completa el formulario</legend>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
+
 
         <title>Registrarse</title>
     </head>
@@ -27,12 +47,36 @@
                             </div>
                         </div>
 
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Apellido</label>
+                            <input type="text" th:field="*{surname}" name="apellido" id="apellido"
+                                placeholder="Tú apellido">
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Apellido</label>
                                 <input type="text" th:field="*{surname}" name="apellido" id="apellido" placeholder="Tú apellido">
                             </div>
                         </div>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Género</label>
+                            <!--                             <input type="text" th:field="*{gender}" name="género" id="género" placeholder="Tú género">
+ -->
+   <!--                          <select class="selectRegistro">
+                                <option selected="">♀♂</option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Femenino</option>
+                                <option value="3">No binario</option>
+                                <option value="4">Queer</option>
+                                <option value="5">No confirmado</option>
+                                <option value="6">Otros</option> -->
+                                
+                            <select id="Province" th:field="*{gender}">
+                                <option th:each="gender : ${genders}"
+                                        th:value="${gender}" th:text="${gender}"></option>
+                            </select>
 
                         <div class="containerDiv">
                             <div class="campo">
@@ -43,8 +87,19 @@
                                             th:value="${province}" ></option>
                                 </select>
                             </div>
+
                         </div>
 
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Provincia</label>
+                            <!-- <input type="text" th:field="*{province}" name="province" id="provincia"
+                                placeholder="Tú provincia"> -->
+                                
+                            <select id="Province" th:field="*{province}">
+                                <option th:each="province : ${provinces}"
+                                        th:value="${province}" th:text="${province}"></option>
+                            </select>
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Género</label>
@@ -55,6 +110,32 @@
                                 </select>
                             </div>
                         </div>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Orientación sexual</label>
+                            <!-- <select class="selectRegistro">
+                                <option selected="">♀♂</option>
+                                <option value="1">Lesbiana</option>
+                                <option value="2">Gay</option>
+                                <option value="3">Heterosexual</option>
+                                <option value="4">Bisexual</option>
+                                <option value="5">Pansexual</option>
+                                <option value="6">Otros</option>
+                            </select> -->
+                            <!--     <input type="sexOrient" th:field="*{sexOrient}" name="Orientación sexual" id="sexOrient" placeholder="">
+                            <select name="select">
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">No binario</option>
+                                <option value="4">Queer</option>
+                                <option value="5">genero no confirmado</option>
+                                <option value="6">Otro</option>
+                            </select> -->
+                            <select id="Province" th:field="*{sexOrient}">
+                                <option th:each="sexualOrientation : ${sexualOrientations}"
+                                        th:value="${sexualOrientation}" th:text="${sexualOrientation}"></option>
+                            </select>
 
                         <div class="containerDiv">
                             <div class="campo">
@@ -74,6 +155,11 @@
                             </div>
                         </div>
 
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Contraseña</label>
+                            <input type="password" th:field="*{password}" name="contraseña" id="contraseña"
+                                placeholder="Tú contraseña">
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Contraseña</label>
@@ -81,6 +167,11 @@
                             </div>
                         </div>
 
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Número de telefono</label>
+                            <input type="text" th:field="*{phoneNumber}" name="número de telefono"
+                                id="número de telefono" placeholder="Tú número de telefono">
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Número de telefono</label>
@@ -95,6 +186,12 @@
                             </div>
                         </div>
 
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Hora de nacimiento</label>
+                            <input type="time" th:field="*{birthHour}" name="nombre" class="nombre"
+                                placeholder="Tú nombre">
+
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Hora de nacimiento</label>
@@ -106,6 +203,19 @@
                             <input type="submit" class="principal-button" value="Enviar">
                         </div>
 
+                    <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
+
+                </fieldset>
+            </form>
+
+        </section>
+
+    </div>
+
+
+</body>
+
+=======
                         <h5><a href="/user-login.html">¿Ya tienes una cuenta?</a></h5>
 
                     </fieldset>
@@ -113,4 +223,5 @@
             </section>
         </div>
     </body>
+>>>>>>> 09c58c29b691f894a802c9bf094a7c77aeebcc76
 </html>
