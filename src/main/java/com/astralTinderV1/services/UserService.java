@@ -66,6 +66,7 @@ public class UserService implements UserDetailsService {
     public void save(User user) throws Exception {
         //falta validar    
         validate(user);
+        age(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         user.setRole(Roles.USER);
@@ -117,7 +118,7 @@ public class UserService implements UserDetailsService {
         if (user.getBirth() == null) {
             throw new Exception("Debes ingresar tu fecha de nacimiento para la carta astral");
         }
-        if (user.getBirthHour().equals(null)) {
+        if (user.getBirthHour() == null) {
             throw new Exception("Debes ingresar tu hora de nacimiento para la carta astral");
         }
         if (user.getPhoneNumber().isEmpty()) {
