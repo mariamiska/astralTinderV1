@@ -41,7 +41,7 @@ public class VoteService {
     }
 
     @Transactional
-    public void Match(Vote vote) {
+    public boolean Match(Vote vote) {
 
         User user1 = vote.getUserRecive();
         User user2 = vote.getUserSend();
@@ -65,7 +65,7 @@ public class VoteService {
             matchsUser2.add(user1);
 
         }
-
+      return (match1 && match2);
     }
 
 }
