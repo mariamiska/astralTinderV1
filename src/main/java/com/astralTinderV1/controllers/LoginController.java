@@ -38,7 +38,7 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
-    public String logOut(@RequestParam(required = false) String error, ModelMap model) {
+    public String logOut() {
         return "user-login";
     }
 }
