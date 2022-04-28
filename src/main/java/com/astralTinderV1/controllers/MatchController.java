@@ -32,25 +32,25 @@ public class MatchController {
     @GetMapping()
     public String ruleta(ModelMap model, HttpSession session) {
 
-//        User currentUser = (User) session.getAttribute("randomUser");
-//
-//        User random = cypS.randomUser();
-//        while (random.getId().equals(currentUser.getId())) {
-//            random = cypS.randomUser();
-//        }
-//        session.setAttribute("randomUser", cypS.randomUser());
-//
-//        model.addAttribute("vote", new Vote());
+        User currentUser = (User) session.getAttribute("randomUser");
+
+        User random = cypS.randomUser();
+        while (currentUser!=null && random.getId().equals(currentUser.getId())) {
+            random = cypS.randomUser();
+        }
+        session.setAttribute("randomUser", random);//cypS.randomUser());
+
+        model.addAttribute("vote", new Vote());
         return "main-menu";
 
     }
 
-//    @PostMapping
-//    public String addLike(@ModelAttribute Vote vote, ModelMap model){
-//        
-//        voteService.saveVote(vote);
-//        model.addAttribute("match", voteService.Match(vote));
-//        return null;
-//        
-//    }
+    @PostMapping
+    public String addLike(@ModelAttribute Vote vote, ModelMap model){
+        
+        voteService.saveVote(vote);
+        model.addAttribute("match", voteService.Match(vote));
+        return null;
+        
+    }
 }
