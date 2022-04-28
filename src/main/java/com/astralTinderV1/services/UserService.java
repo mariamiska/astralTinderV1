@@ -64,9 +64,9 @@ public class UserService implements UserDetailsService {
      */
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
-        //falta validar    
-        validate(user);
+        //falta validar  
         age(user);
+        validate(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         user.setRole(Roles.USER);
@@ -93,13 +93,13 @@ public class UserService implements UserDetailsService {
     public List<User> getAll() {
         return userRepo.findAll();
     }
-    
-    public void age(User user){
+
+    public void age(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - añoNacio;
         user.setAge(edad);
-        }
+    }
 
     public boolean mayorDeEdad(User user) {
         return user.getAge() >= 18;
@@ -158,7 +158,7 @@ public class UserService implements UserDetailsService {
     @Transactional
     public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email, Province province, Gender gender, SexualOrientation sexOrient) throws Exception {
         User user = userRepo.getById(id);
-        
+
         user.setName(name);
         user.setSurname(surname);
         user.setPhoneNumber(phonenumber);
@@ -168,8 +168,7 @@ public class UserService implements UserDetailsService {
         user.setProvince(province);
         user.setGender(gender);
         user.setSexOrient(sexOrient);
-        
-        
+
         validate(user);
         apServ.crearPerfilAstral(user);
         encodedPassword(user);
