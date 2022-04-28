@@ -37,7 +37,7 @@ public class LoginController {
         return "user-login";
     }
     
-    @GetMapping()
+    @GetMapping("/logout")
     public String logout() {
         return "user-login";
     }
