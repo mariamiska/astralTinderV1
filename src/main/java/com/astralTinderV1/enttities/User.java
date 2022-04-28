@@ -42,7 +42,9 @@ public class User {
 
     @DateTimeFormat(pattern = "mm:HH")
     private Date birthHour;
-
+    
+    private Integer age;
+    
     @OneToMany
     private List<User> matches;
 

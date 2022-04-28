@@ -92,16 +92,16 @@ public class UserService implements UserDetailsService {
     public List<User> getAll() {
         return userRepo.findAll();
     }
-
-    public boolean mayorDeEdad(User user) {
+    
+    public void age(User user){
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - añoNacio;
-        if (edad >= 18) {
-            return true;
-        } else {
-            return false;
+        user.setAge(edad);
         }
+
+    public boolean mayorDeEdad(User user) {
+        return user.getAge() >= 18;
     }
 
     public void validate(User user) throws Exception {
