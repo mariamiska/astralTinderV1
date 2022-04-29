@@ -66,10 +66,7 @@ public class UserService implements UserDetailsService {
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
 //        photoServ.save(user.getImage());
-        System.out.println(user.getBirth());
-        System.out.println(LocalDate.now().getYear());
         age(user);
-        System.out.println(user.getAge());
         validate(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);

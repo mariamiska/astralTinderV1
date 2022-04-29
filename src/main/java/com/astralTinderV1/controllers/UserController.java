@@ -36,6 +36,7 @@ public class UserController {
         model.addAttribute("provinces", Province.values());
         model.addAttribute("genders",Gender.values());
         model.addAttribute("sexualOrientations",SexualOrientation.values());
+        
         return "/user-register";
     }
 
