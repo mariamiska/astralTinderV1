@@ -28,8 +28,8 @@ public class MatchController {
         this.cypS = cypS;
         this.userService = userService;
     }
-    
-    @GetMapping
+
+    @GetMapping()
     public String ruleta(ModelMap model, HttpSession session) {
 
         User currentUser = (User) session.getAttribute("randomUser");
