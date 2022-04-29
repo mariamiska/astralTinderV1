@@ -27,7 +27,7 @@ public class PhotoService {
             photo.setMime(file.getContentType());
             photo.setName(file.getName());
             photo.setContent(file.getBytes());
-            return photo;
+            return photoRepository.save(photo);
         } catch (Exception e) {
             return null;
         }
