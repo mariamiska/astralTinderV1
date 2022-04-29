@@ -89,13 +89,14 @@ public class UserService implements UserDetailsService {
      */
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
-//        photoServ.save(user.getImage());
+        photoServ.save(user.getImage());
         age(user);
         validate(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         user.setRole(Roles.USER);
         userRepo.save(user);
+        System.out.println(user);
     }
 
     public void encodedPassword(User user) {
