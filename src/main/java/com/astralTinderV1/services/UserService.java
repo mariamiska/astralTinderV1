@@ -30,6 +30,7 @@ public class UserService implements UserDetailsService {
 
     private UserRepository userRepo;
     private AstralPlaneService apServ;
+    private PhotoService photoServ;
 
     @Autowired
     public UserService(UserRepository userRepo, AstralPlaneService apServ) {
@@ -63,6 +64,21 @@ public class UserService implements UserDetailsService {
         } else {
             return null;
         }
+
+//        User user = userRepo.findByEmail(eMail);
+//        if (user == null) {
+//            throw new UsernameNotFoundException("usuario inexistente");
+//        }
+//
+//        List<GrantedAuthority> permissions = new ArrayList<>();
+//        GrantedAuthority rolePermission = new SimpleGrantedAuthority("ROLE_" + user.getRole());
+//        permissions.add(rolePermission);
+//
+//        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+//        HttpSession session = attr.getRequest().getSession(true);
+//        session.setAttribute("userSession", user);
+//
+//        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
 
     /**
@@ -73,7 +89,7 @@ public class UserService implements UserDetailsService {
      */
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
-        //falta validar  
+//        photoServ.save(user.getImage());
         age(user);
         validate(user);
         encodedPassword(user);
@@ -107,7 +123,7 @@ public class UserService implements UserDetailsService {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - (añoNacio + 1900);
-        user.setAge(edad);
+
     }
 
     public boolean mayorDeEdad(User user) {
