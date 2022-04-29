@@ -30,6 +30,7 @@ public class UserService implements UserDetailsService {
 
     private UserRepository userRepo;
     private AstralPlaneService apServ;
+    private PhotoService photoServ;
 
     @Autowired
     public UserService(UserRepository userRepo, AstralPlaneService apServ) {
@@ -64,8 +65,11 @@ public class UserService implements UserDetailsService {
      */
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
-        //falta validar  
+//        photoServ.save(user.getImage());
+        System.out.println(user.getBirth());
+        System.out.println(LocalDate.now().getYear());
         age(user);
+        System.out.println(user.getAge());
         validate(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
@@ -97,7 +101,7 @@ public class UserService implements UserDetailsService {
     public void age(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
-        int edad = añoAhora - añoNacio;
+        int edad = añoAhora - (añoNacio+1900);
         user.setAge(edad);
     }
 
