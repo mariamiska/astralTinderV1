@@ -6,11 +6,13 @@ import com.astralTinderV1.enums.Roles;
 import com.astralTinderV1.enums.SexualOrientation;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
@@ -44,6 +46,10 @@ public class User {
     private Date birthHour;
     
     private Integer age;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photo_id", referencedColumnName = "id")
+    private Photo image;
     
     @OneToMany
     private List<User> matches;

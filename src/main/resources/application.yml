@@ -17,4 +17,7 @@ spring:
         user:
             name: "admin@mail.com"
             password: "1234"
-
+    servlet:
+        multipart:
+            max-file-size: 20MB
+            max-request-size: 20MB

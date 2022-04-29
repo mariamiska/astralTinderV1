@@ -30,6 +30,7 @@ public class UserService implements UserDetailsService {
 
     private UserRepository userRepo;
     private AstralPlaneService apServ;
+    private PhotoService photoServ;
 
     @Autowired
     public UserService(UserRepository userRepo, AstralPlaneService apServ) {
@@ -41,19 +42,43 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
         User user = userRepo.findByEmail(eMail);
-        if (user == null) {
-            throw new UsernameNotFoundException("usuario inexistente");
+        
+        if (user != null) {
+        	
+            List<GrantedAuthority> permisos = new ArrayList<>();
+                        
+            //Creo una lista de permisos! 
+            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_"+ user.getRole());
+            permisos.add(p1);
+         
+            //Esto me permite guardar el OBJETO USUARIO LOG, para luego ser utilizado
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            
+            session.setAttribute("usuarioSession", user); // llave + valor
+
+            org.springframework.security.core.userdetails.User usuario = new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permisos);
+            
+             return usuario;
+
+        } else {
+            return null;
         }
-
-        List<GrantedAuthority> permissions = new ArrayList<>();
-        GrantedAuthority rolePermission = new SimpleGrantedAuthority("ROLE_" + user.getRole());
-        permissions.add(rolePermission);
-
-        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpSession session = attr.getRequest().getSession(true);
-        session.setAttribute("userSession", user);
-
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
+        
+//        User user = userRepo.findByEmail(eMail);
+//        if (user == null) {
+//            throw new UsernameNotFoundException("usuario inexistente");
+//        }
+//
+//        List<GrantedAuthority> permissions = new ArrayList<>();
+//        GrantedAuthority rolePermission = new SimpleGrantedAuthority("ROLE_" + user.getRole());
+//        permissions.add(rolePermission);
+//
+//        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+//        HttpSession session = attr.getRequest().getSession(true);
+//        session.setAttribute("userSession", user);
+//
+//        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
 
     /**
@@ -64,13 +89,13 @@ public class UserService implements UserDetailsService {
      */
     @Transactional(rollbackOn = {Exception.class})
     public void save(User user) throws Exception {
-        //falta validar  
         age(user);
         validate(user);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         user.setRole(Roles.USER);
         userRepo.save(user);
+        System.out.println(user);
     }
 
     public void encodedPassword(User user) {
@@ -97,7 +122,7 @@ public class UserService implements UserDetailsService {
     public void age(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
-        int edad = añoAhora - añoNacio;
+        int edad = añoAhora - (añoNacio+1900);
         user.setAge(edad);
     }
 
