@@ -28,15 +28,8 @@ public class MatchController {
         this.cypS = cypS;
         this.userService = userService;
     }
-
-    @GetMapping()
-<<<<<<< HEAD
-    public String ruleta(ModelMap model) {
-//
-//        model.addAttribute("user", cypS.randomUser());
-//        model.addAttribute("vote", new Vote());
-        return "main-menu.html";
-=======
+    
+    @GetMapping
     public String ruleta(ModelMap model, HttpSession session) {
 
         User currentUser = (User) session.getAttribute("randomUser");
@@ -49,7 +42,6 @@ public class MatchController {
 
         model.addAttribute("vote", new Vote());
         return "main-menu";
->>>>>>> 21c8c2e7bd0f7a91ff5077b4bbec49fa9c95aa0e
 
     }
 
