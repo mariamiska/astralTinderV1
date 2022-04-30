@@ -17,4 +17,3 @@ spring:
         user:
             name: "admin@mail.com"
             password: "1234"
-
