@@ -3,13 +3,13 @@ package com.astralTinderV1.enums;
 public enum Cualidades {
 
     CARDINAL("Cardinal",
-            "Los signos de cualidad Cardinal son los que inician las estaciones (verano - otoño - invierno - primavera) por lo que estas personas son las que siempre dan el primer paso. Centran toda su energía en iniciar mil proyectos. Se asocia a ellos el poder, la acción y verse constantemente frente a nuevos retos. Se las ingenian, se impulsan y arriesgan porque hay coraje!",
+            "Tu cualidad Cardinal corresponde a los signos que inician con las estaciones (verano - otoño - invierno - primavera) por ello tu naturaleza siempre tienee a dar el primer paso. Centras toda su energía en iniciar proyectos. Se asocia a vos el poder, la acción y verte constantemente frente a nuevos retos. Te las ingenias, te impulsas y arriesgas porque tienes un gran coraje!",
             "Emprendedores. Lideres. Voluntariosos. Desafiantes. Impetuosos"),    
     FIJO("Fijo",
-            "Los signos Fijos comienzan a mediaos de las estaciones (verano - otoño - invierno - primavera) por lo que no tieneden a ser iniciadores, pero si grandes ejecutores de ideas o proyectos. Con su propio empuje son determinados, persistentes, estables en sus acciones y confiables. Básicamente ellos deciden tomar el control de las cosas y ser responsables de que todo funcione. ",
+            "Tu cualidad Fijo corresponde a los signos que comienzan a mediaos de las estaciones (verano - otoño - invierno - primavera) por ello eres una persona de acción y llebas a cabo ideas o proyectos ya sean propios o no. Con tu propio empuje sos determinad@, persistente, estable en tus acciones y confiable. Decides tomar el control de las cosas y ser responsable de que todo funcione.",
             "Estabilidad. Rigidez. Consistencia. Lealtad. Resistencia"),    
     MUTABLE("Mutable",
-            "Los signos Fijos comienzan al final de las estaciones (verano - otoño - invierno - primavera) y por ello estan preparados con una flexibilidad organica para cambio. Son bastante receptivos a adaptarse de la mejor forma a los cambios que se presenten en la marcha. Presentan condiciones para evolucionar, salir de la zona de conford, generar conexiones y comunicar",
+            "Tu cualiad Mutable corresponde con signos comienzan al final de las estaciones (verano - otoño - invierno - primavera) y por ello estas preparad@ con una flexibilidad organica para cambio. Sos bastante receptiv@ a adaptarte de la mejor forma a los cambios que se presenten en la marcha. Presentas condiciones para evolucionar, salir de la zona de conford, generar conexiones y comunicar",
             "Flexibilidad. Versatilidad. Adaptabilidad. Inestabilidad. Impredecibles");
 
     private final String name;
