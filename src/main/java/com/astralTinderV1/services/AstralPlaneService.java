@@ -2,6 +2,8 @@ package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.AstralPlane;
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.enums.Cualidades;
+import com.astralTinderV1.enums.Elements;
 import com.astralTinderV1.enums.YearLunarSign;
 import com.astralTinderV1.enums.ZodiacSigns;
 import com.astralTinderV1.exceptions.ServiceException;
@@ -16,8 +18,8 @@ public class AstralPlaneService {
 
     private final AstralPlaneRepository astralRepo;
 
-     @Transactional
-    public void crearPerfilAstral (User user){
+    @Transactional
+    public void crearPerfilAstral(User user) {
 
         user.setAstralPlane(new AstralPlane());
         resolveSolarSign(user);
@@ -27,7 +29,7 @@ public class AstralPlaneService {
         resolveCualidad(user);
 
         astralRepo.save(user.getAstralPlane());
-    } 
+    }
 
     @Autowired
     public AstralPlaneService(AstralPlaneRepository astralRepo) {
@@ -214,13 +216,57 @@ public class AstralPlaneService {
     }
 
     private void resolveElement(User user) {
-        ZodiacSigns signo = user.getAstralPlane().getLunarSign();
-        user.getAstralPlane().setElement(signo.showElement());
+        ZodiacSigns signo = user.getAstralPlane().getSolarSign();
+        switch (signo.ordinal()) {
+            case 0:
+            case 2:
+            case 11:
+                user.getAstralPlane().setElement(Elements.TIERRA);
+                break;
+            case 1:
+            case 3:
+            case 6:
+                user.getAstralPlane().setElement(Elements.FUEGO);
+                break;
+            case 4:
+            case 5:
+            case 10:
+                user.getAstralPlane().setElement(Elements.AGUA);
+                break;
+            case 7:
+            case 8:
+            case 9:
+                user.getAstralPlane().setElement(Elements.AIRE);
+                break;
+            default:
+                break;
+        }
     }
 
     private void resolveCualidad(User user) {
-        ZodiacSigns signo = user.getAstralPlane().getLunarSign();
-        user.getAstralPlane().setCualidad(signo.showCualidad());
+        ZodiacSigns signo = user.getAstralPlane().getSolarSign();
+        switch (signo.ordinal()) {
+            case 0:
+            case 1:
+            case 7:
+            case 10:
+                user.getAstralPlane().setCualidad(Cualidades.CARDINAL);
+                break;
+            case 2:
+            case 4:
+            case 6:
+            case 9:
+                user.getAstralPlane().setCualidad(Cualidades.MUTABLE);
+                break;
+            case 3:
+            case 5:
+            case 8:
+            case 11:
+                user.getAstralPlane().setCualidad(Cualidades.FIJO);
+                break;
+            default:
+                break;
+        }
     }
 
     private void resolveAscendant(User user) {
