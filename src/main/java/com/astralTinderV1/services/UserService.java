@@ -97,7 +97,7 @@ public class UserService implements UserDetailsService {
     public void age(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
-        int edad = añoAhora - añoNacio;
+        int edad = añoAhora - añoNacio - 1900;
         user.setAge(edad);
     }
 
