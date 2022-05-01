@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
 
     private UserRepository userRepo;
     private AstralPlaneService apServ;
-    private PhotoService photoServ;
+   // private PhotoService photoServ;
 
     @Autowired
     public UserService(UserRepository userRepo, AstralPlaneService apServ) {
