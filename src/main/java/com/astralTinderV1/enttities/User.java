@@ -40,7 +40,7 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
-    @DateTimeFormat(pattern = "mm:HH")
+    @DateTimeFormat(pattern = "HH:mm")
     private Date birthHour;
     
     private Integer age;
