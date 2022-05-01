@@ -70,5 +70,6 @@ public class User {
 
     @OneToOne
     private AstralPlane astralPlane;
-
+    
+    private String photo;
 }
