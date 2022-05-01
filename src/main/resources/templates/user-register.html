@@ -17,7 +17,7 @@
             <section class="containerS">
                 <h2>Bienvenido a Astral Tinder</h2>
                 <form class="form" th:action="@{/usuarios/registro}" th:object="${user}" method="POST" enctype="multipart/form-data">
-                    <fieldset>
+                    <fieldset> <!-- la propiead enctype="multipart/form-data" sirve para que el form pueda mandar la foto-->
                         <legend>Completa el formulario</legend>
 
                         <div class="containerDiv">
@@ -115,7 +115,7 @@
 
         </div>
 
-             <span th:if="${error}" th:text="${error}" > </span>
+        <span th:if="${error}" th:text="${error}" > </span>
 
     </body>
 </html>
