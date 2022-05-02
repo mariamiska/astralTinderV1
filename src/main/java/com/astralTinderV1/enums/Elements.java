@@ -7,7 +7,7 @@ public enum Elements {
     TIERRA("Tierra",
             "Tu elemento es la Tierra. Está representado por la materialidad del impulso energético del fuego. La habilidad de concretar cosas, la practicidad y la creatividad son sus características. En exceso trae terquedad, estancamiento, lentitud, rigidez, crítica, escepticismo, crueldad e insensibilidad."), 
     FUEGO("Fuego",
-            "Tu elemento es el Fuego. Es representado por el ánimo, el entusiasmo, la energía, la voluntad y la pasión. El fuego trae la acción, la proactividad, la energía. El placer de vivir, el impulso de la superación y el crecimiento continuo como seres humanos. Pero si lo encontramos en exceso, trae agresividad, irritabilidad, arrogancia, orgullo y vanidad que pueden ser clasificados como los puntos negativos de los signos de fuego."),    
+            "Tu elemento es el Fuego. Está representado por el ánimo, el entusiasmo, la energía, la voluntad y la pasión. El fuego trae la acción, la proactividad, la energía. El placer de vivir, el impulso de la superación y el crecimiento continuo como seres humanos. Pero si lo encontramos en exceso, trae agresividad, irritabilidad, arrogancia, orgullo y vanidad que pueden ser clasificados como los puntos negativos de los signos de fuego."),    
     AGUA("Agua",
             "Tu elemento es el Agua. Es el sentir, la emoción. No entienden con la mente sino con el corazón. Es la comprensión que va más allá de la mente. En exceso causa actitudes infantiles, caprichos, manipulación, infiltración, vulnerabilidad, inconstancia e inestabilidad.");
 
