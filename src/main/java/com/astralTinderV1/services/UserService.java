@@ -69,6 +69,7 @@ public class UserService implements UserDetailsService {
         user.setImage(photo);
         age(user);
         validate(user);
+        user.setRole(Roles.USER);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         userRepo.save(user);
