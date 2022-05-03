@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -42,24 +44,28 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
-    @DateTimeFormat(pattern = "mm:HH")
+    @DateTimeFormat(pattern = "HH:mm")
     private Date birthHour;
-    
+
     private Integer age;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo image;
-    
+
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany
     private List<User> matches;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany
     private List<User> likeReceived;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany
     private List<User> likeSent;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany
     private List<User> dislike;
 
