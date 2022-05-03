@@ -29,7 +29,7 @@
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
                             <ul class="submenu">
-                                <li><a href="#">Mi perfil</a></li>
+                                <li><a href="/perfil">Mi perfil</a></li>
                                 <li><a href="#">Mi perfil Astral</a></li>
                                 <li><a href="#">Configuracion de la cuenta</a></li>
                                 <li><a href="#">Cita a ciegas(Premium)</a></li>
@@ -51,7 +51,7 @@
                             <div class="photo-text">
                                 <div class="photo-name-and-age">
                                     <h2 th:text="${session.randomUser.name}"></h2>
-                                    <h2>24</h2>
+                                    <h2 th:text="${session.randomUser.age}"></h2>
                                 </div>
                                 <div class="photo-bio">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo alias, ad corporis ex
@@ -60,8 +60,8 @@
                                     Officia eveniet commodi omnis.
                                 </div>
                                 <div class="actions">
-                                    <input type="hidden" th:value="${{session.userSession}}" th:field="*{userSend}"/>
-                                    <input type="hidden" th:value="${{session.randomUser}}" th:field="*{userRecive}"/>
+                                    <input type="hidden" th:value="${session.userSession}" th:field="*{userSend}">
+                                    <input type="hidden" th:value="${session.randomUser}" th:field="*{userRecive}">
 
                                     <button type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
                                                                                  class="btonRuleta"></a></button>

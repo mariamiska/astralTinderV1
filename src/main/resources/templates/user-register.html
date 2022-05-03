@@ -16,8 +16,9 @@
 
             <section class="containerS">
                 <h2>Bienvenido a Astral Tinder</h2>
-                <form class="form" th:action="@{/usuarios/registro}" th:object="${user}" method="POST" enctype="multipart/form-data">
-                    <fieldset> <!-- la propiead enctype="multipart/form-data" sirve para que el form pueda mandar la foto-->
+                <form class="form" th:action="@{/usuarios/registro}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+
+                    <fieldset> 
                         <legend>Completa el formulario</legend>
 
                         <div class="containerDiv">
@@ -101,14 +102,19 @@
                                 <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="Tú nombre">
                             </div>
                         </div>
-
-                        <div class="button">
-                            <input type="submit" class="principal-button" value="Enviar">
+                        <div class="containerDiv">
+                            <div class="campo">
+                                <label>Foto de perfil</label>
+                                <input type="file" class="form-control" id="file" name="archivo" />
+                            </div>
                         </div>
+                </form>                            <div class="button">
+                    <input type="submit" class="principal-button" value="Enviar">
+                </div>
 
-                        <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
+                <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
 
-                    </fieldset>
+                </fieldset>
                 </form>
 
             </section>

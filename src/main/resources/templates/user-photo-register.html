@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+        <!--        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-photo-registro.css">-->
+
+        <title>Registrarse</title>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <section class="containerS">
+                <h2>Estamos alinenado los planetas para comenzar, solo nos faltaria tu foto!</h2>
+                <form th:action="@{/usuarios/registro/foto}" method="POST"  enctype="multipart/form-data">
+                    <input th:if="${photo}!=null" type="hidden" class="form-control" name="id" th:field="${photo.id}" th:value="${photo.id}" />
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Foto de perfil</label>
+                            <input type="file" class="form-control" name="archivo">
+                        </div>
+                    </div>
+
+
+                    <div class="button">
+                        <input type="submit" class="principal-button" value="Enviar">
+                    </div>
+
+                    <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
+
+                    </fieldset>
+                </form>
+
+            </section>
+
+        </div>
+
+        <span th:if="${error}" th:text="${error}" > </span>
+
+    </body>
+</html>
