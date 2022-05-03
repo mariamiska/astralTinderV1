@@ -218,24 +218,24 @@ public class AstralPlaneService {
     private void resolveElement(User user) {
         ZodiacSigns signo = user.getAstralPlane().getSolarSign();
         switch (signo.ordinal()) {
-            case 0:
-            case 2:
-            case 11:
+            case 1:
+            case 5:
+            case 9:
                 user.getAstralPlane().setElement(Elements.TIERRA);
                 break;
-            case 1:
-            case 3:
-            case 6:
+            case 0:
+            case 4:
+            case 8:
                 user.getAstralPlane().setElement(Elements.FUEGO);
                 break;
-            case 4:
-            case 5:
-            case 10:
+            case 3:
+            case 7:
+            case 11:
                 user.getAstralPlane().setElement(Elements.AGUA);
                 break;
-            case 7:
-            case 8:
-            case 9:
+            case 2:
+            case 6:
+            case 10:
                 user.getAstralPlane().setElement(Elements.AIRE);
                 break;
             default:
@@ -247,18 +247,18 @@ public class AstralPlaneService {
         ZodiacSigns signo = user.getAstralPlane().getSolarSign();
         switch (signo.ordinal()) {
             case 0:
-            case 1:
-            case 7:
-            case 10:
-                user.getAstralPlane().setCualidad(Cualidades.CARDINAL);
-                break;
-            case 2:
-            case 4:
+            case 3:
             case 6:
             case 9:
+                user.getAstralPlane().setCualidad(Cualidades.CARDINAL);
+                break;
+            case 1:
+            case 4:
+            case 7:
+            case 10:
                 user.getAstralPlane().setCualidad(Cualidades.MUTABLE);
                 break;
-            case 3:
+            case 2:
             case 5:
             case 8:
             case 11:
