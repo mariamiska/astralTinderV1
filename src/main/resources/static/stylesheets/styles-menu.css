@@ -201,7 +201,7 @@ button:hover{
 .photo {
     width: 500px;
     height: 800px;
-    background: url(../imgs/javier.jpg) center center/cover;
+    /*background: url(../imgs/javier.jpg) center center/cover;*/
     border-radius: 10px;
     display: flex;
     align-items: flex-end;
