@@ -37,7 +37,8 @@ public class UserService implements UserDetailsService {
         this.userRepo = userRepo;
         this.apServ = apServ;
     }
-       
+    
+     
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
@@ -69,6 +70,7 @@ public class UserService implements UserDetailsService {
         user.setImage(photo);
         age(user);
         validate(user);
+        user.setRole(Roles.USER);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
         userRepo.save(user);

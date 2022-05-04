@@ -24,4 +24,11 @@ public class Photo {
     @Lob @Basic(fetch = FetchType.LAZY)
     private byte[] content;
 
+    
+    @Override
+    public String toString() {
+        return "eish";
+    }
+    
+    
 }
