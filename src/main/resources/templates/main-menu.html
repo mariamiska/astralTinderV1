@@ -30,13 +30,8 @@
 
                             <ul class="submenu">
                                 <li><a href="/usuarios/perfil">Mi perfil</a></li>
-<<<<<<< HEAD
-                                <li><a href="#">Mi perfil Astral</a></li>
-                                <li><a href="#">Configuracion de la cuenta</a></li>
-=======
                                 <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
                                 <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>
->>>>>>> abe47fc888d1101e8273e3a510b7db16379e7f17
                                 <li><a href="#">Cita a ciegas(Premium)</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
@@ -47,7 +42,7 @@
             </nav>
         </Header>
         <main>
-            <form th:action="@{/ruleta}"  method="POST" th:object="${vote}">
+            <form th:action="@{/ruleta/match}"  method="POST" th:object="${vote}">
                 <div class="Card">
 
 
@@ -66,14 +61,14 @@
                                     Officia eveniet commodi omnis.
                                 </div>
                                 <div class="actions">
-                                    <input type="hidden" th:value="${session.userSession}" th:field="*{userSend}" name="user2">
-                                    <input type="hidden" th:value="${session.randomUser}" th:field="*{userRecive}" name="user1">
+                                    <input type="hidden" th:value="${{session.userSession}}" name="sender" />
+                                    <input type="hidden" th:value="${{session.randomUser}}" name="receiver" />
 
                                     <button type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
                                                                                  class="btonRuleta"></a></button>
 
-                                    <button type="submit"><a href="/"><img src="../imgs/boton corazon.png"
-                                                                           class="btonCorazon"></a></button>
+                                    <button type="submit"><img src="../imgs/boton corazon.png"
+                                                               class="btonCorazon"></button>
                                 </div>
                             </div>
                         </div>
