@@ -2,7 +2,6 @@ package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.AstralPlane;
 import com.astralTinderV1.enttities.User;
-import com.astralTinderV1.enums.Compatibility;
 import com.astralTinderV1.enums.Cualidades;
 import com.astralTinderV1.enums.Elements;
 import com.astralTinderV1.enums.YearLunarSign;
@@ -606,12 +605,11 @@ public class AstralPlaneService {
             }
         }
     }
-
-    private void compatibilid(User user1, User user2) {
+    private int compatibilidad(User user1, User user2) {
         //user1 = usuario en session, user2 = user random
         int solarUser1 = user1.getAstralPlane().getSolarSign().ordinal();
         int solarUser2 = user1.getAstralPlane().getSolarSign().ordinal();
-        Compatibility compat;
+        int k = 0;
         int matriz[][] = {{2, 0, 2, 0, 2, 2, 1, 1, 2, 0, 2, 0},
         {0, 2, 1, 2, 1, 2, 1, 2, 0, 2, 0, 2},
         {2, 1, 1, 0, 2, 1, 2, 0, 1, 0, 2, 0},
@@ -628,10 +626,13 @@ public class AstralPlaneService {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 if (solarUser1 == i && solarUser2 == j) {
-                    compat;
+                    matriz[i][j] = k;
                 }
-
             }
         }
+        //0 es bajo
+        //1 es medio 
+        //2 es alto
+        return k;
     }
 }
