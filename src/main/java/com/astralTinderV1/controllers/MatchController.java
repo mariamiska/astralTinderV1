@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/ruleta")
@@ -35,7 +36,7 @@ public class MatchController {
         User currentUser = (User) session.getAttribute("randomUser");
 
         User random = cypS.randomUser();
-        while (currentUser!=null && random.getId().equals(currentUser.getId())) {
+        while (currentUser != null && random.getId().equals(currentUser.getId())) {
             random = cypS.randomUser();
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
@@ -45,12 +46,13 @@ public class MatchController {
 
     }
 
-    @PostMapping
-    public String addLike(@ModelAttribute Vote vote, ModelMap model){
-        
+    @PostMapping("/match")
+    public String addLike(@ModelAttribute Vote vote, @RequestParam User sender, @RequestParam User receiver, ModelMap model) {
+        vote.setUserSend(sender);
+        vote.setUserRecive(receiver);
         voteService.saveVote(vote);
         model.addAttribute("match", voteService.Match(vote));
-        return null;
-        
+        return "redirect:/ruleta";
+
     }
 }
