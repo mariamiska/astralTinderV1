@@ -28,13 +28,12 @@
                     <ul class="navbar-menu">
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
-                        <ul class="submenu">
-                            <li><h3 th:text="${session.randomUser.name}"></h3></li>   
-                            <li><a href="#">Mi perfil</a></li>
-                            <li><a href="#">Mi perfil Astral</a></li>
-                            <li><a href="#">Configuracion de la cuenta</a></li>
-                            <li><a href="#">Cita a ciegas(Premium)</a></li>
-                            <li><a href="/login/logout">Cerrar sesión</a></li>
+                            <ul class="submenu">
+                                <li><a href="/usuarios/perfil">Mi perfil</a></li>
+                                <li><a href="#">Mi perfil Astral</a></li>
+                                <li><a href="#">Configuracion de la cuenta</a></li>
+                                <li><a href="#">Cita a ciegas(Premium)</a></li>
+                                <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>
                         </li>
@@ -49,6 +48,7 @@
 
                     <div class="photo-and-actions">
                         <div class="photo">
+                            <img th:src="@{/foto/usuario/__${session.randomUser.id}__}" style="width: 100%; height: 100px;">   
                             <div class="photo-text">
                                 <div class="photo-name-and-age">
                                     <h2 th:text="${session.randomUser.name}"></h2>
@@ -58,19 +58,24 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo alias, ad corporis ex
                                     distinctio culpa, ipsam numquam maiores magni dolor harum eaque, commodi ipsum sapiente
                                     nostrum.
-                            Officia eveniet commodi omnis.
-                        </div>
-                        <div class="actions">
+                                    Officia eveniet commodi omnis.
+                                </div>
+                                <div class="actions">
+                                    <input type="hidden" th:value="${session.userSession}" th:field="*{userSend}" name="user2">
+                                    <input type="hidden" th:value="${session.randomUser}" th:field="*{userRecive}" name="user1">
 
-                            <button type="button"><a href="/"><img src="../imgs/boton ruleta.png"
-                                        class="btonRuleta"></a></button>
+                                    <button type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
+                                                                                 class="btonRuleta"></a></button>
 
-                            <button type="button"><a href="/"><img src="../imgs/boton corazon.png"
-                                        class="btonCorazon"></a></button>
+                                    <button type="submit"><a href="/"><img src="../imgs/boton corazon.png"
+                                                                           class="btonCorazon"></a></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
+            </form>
+
             <div class="navbarCard">
 
                 <ul class="Signos">
