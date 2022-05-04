@@ -39,7 +39,7 @@ public class MatchController {
             random = cypS.randomUser();
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
-
+        
         model.addAttribute("vote", new Vote());
         return "main-menu";
 
@@ -47,7 +47,7 @@ public class MatchController {
 
     @PostMapping
     public String addLike(@ModelAttribute Vote vote, ModelMap model){
-        
+        System.out.println(vote);
         voteService.saveVote(vote);
         model.addAttribute("match", voteService.Match(vote));
         return null;

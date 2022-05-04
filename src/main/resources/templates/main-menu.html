@@ -60,13 +60,14 @@
                                     Officia eveniet commodi omnis.
                                 </div>
                                 <div class="actions">
-                                    <input type="hidden" th:value="${{session.userSession}}" th:field="*{userSend}"/>
+                                    <input type="hidden" th:value="${vote.id}" th:field="*{id}"/>
+                                    <input type="hidden" th:value="${{randomUser}}" th:field="*{userSend}"/>
                                     <input type="hidden" th:value="${{session.randomUser}}" th:field="*{userRecive}"/>
-
+                                    
                                     <button type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
                                                                                  class="btonRuleta"></a></button>
 
-                                    <button type="submit"><a href="/"><img src="../imgs/boton corazon.png"
+                                    <button type="submit"><a><img src="../imgs/boton corazon.png"
                                                                            class="btonCorazon"></a></button>
                                 </div>
                             </div>
