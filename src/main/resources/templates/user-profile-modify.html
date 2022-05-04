@@ -15,8 +15,9 @@
         <div class="container">
 
             <section class="containerS">
-                <h2>Bienvenido a Astral Tinder</h2>
-                <form class="form" th:action="@{/usuarios/registro}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+                <h2>Modifica tu perfil.</h2>
+
+                <form class="form" th:action="@{/usuarios/modificar}" th:object="${user}"  method="POST" enctype="multipart/form-data">
 
                     <fieldset>
                         <legend>Completa el formulario</legend>
@@ -109,10 +110,10 @@
                             </div>
                         </div>
                 </form>                            <div class="button">
-                    <input type="submit" class="principal-button" value="Enviar">
+                    <input type="submit" class="principal-button" value="Modificar">
                 </div>
 
-                <h5><a href="/login">¿Ya tienes una cuenta?</a></h5>
+                <h5><a href="/usuarios/perfil">Volver al Perfil</a></h5>
 
                 </fieldset>
                 </form>
