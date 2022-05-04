@@ -59,7 +59,6 @@ public class UserController {
     public String procesarFormulario(@ModelAttribute User user, ModelMap mm,
             @RequestParam(required = false) MultipartFile archivo) {
         try {
-            System.err.println("archivo = " + archivo.toString());
             userService.save(user, archivo);
             return "/user-login";
         } catch (Exception e) {
@@ -111,9 +110,26 @@ public class UserController {
      * @return
      */
     @GetMapping("/modificar")
-    public String modifyUser(ModelMap mm) {
+    public String modify(ModelMap model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("provinces", Province.values());
+        model.addAttribute("genders", Gender.values());
+        model.addAttribute("sexualOrientations", SexualOrientation.values());
 
-        return "";
+        return "/user-profile-modify";
+    }
+
+    @PostMapping("/modificar")
+    public String modifyUser(@ModelAttribute User user, ModelMap mm,
+            @RequestParam(required = false) MultipartFile archivo) {
+        try {
+            userService.save(user, archivo);
+            return "/user-profile";
+        } catch (Exception e) {
+            mm.addAttribute("error", e.getMessage());
+            e.printStackTrace();
+            return "/user-register";
+        }
     }
 
     /**
