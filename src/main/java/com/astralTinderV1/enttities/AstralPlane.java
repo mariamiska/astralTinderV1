@@ -17,14 +17,14 @@ public class AstralPlane {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
+
     private ZodiacSigns ascendente;
-    
+
     private ZodiacSigns lunarSign;
-    
+
     private ZodiacSigns solarSign;
 
     private Cualidades cualidad;
-    
+
     private Elements element;
 }

@@ -2,6 +2,7 @@ package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.AstralPlane;
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.enums.Compatibility;
 import com.astralTinderV1.enums.Cualidades;
 import com.astralTinderV1.enums.Elements;
 import com.astralTinderV1.enums.YearLunarSign;
@@ -256,13 +257,13 @@ public class AstralPlaneService {
             case 4:
             case 7:
             case 10:
-                user.getAstralPlane().setCualidad(Cualidades.MUTABLE);
+                user.getAstralPlane().setCualidad(Cualidades.FIJO);
                 break;
             case 2:
             case 5:
             case 8:
             case 11:
-                user.getAstralPlane().setCualidad(Cualidades.FIJO);
+                user.getAstralPlane().setCualidad(Cualidades.MUTABLE);
                 break;
             default:
                 break;
@@ -270,8 +271,11 @@ public class AstralPlaneService {
     }
 
     private void resolveAscendant(User user) {
-        int hour = user.getBirthHour().getHours();
-
+        int h = user.getBirthHour().getHours();
+        int hour = h - 2;
+        if (hour >= 24) {
+            hour = 00;
+        }
         if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ARIES) {
             if (hour >= 6 && hour < 8) {
                 user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
@@ -601,341 +605,33 @@ public class AstralPlaneService {
                 user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
             }
         }
-
     }
- 
-    private void compatibilid(User user) {
-        int hour = user.getBirthHour().getHours();
 
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ARIES) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            }
-        }
+    private void compatibilid(User user1, User user2) {
+        //user1 = usuario en session, user2 = user random
+        int solarUser1 = user1.getAstralPlane().getSolarSign().ordinal();
+        int solarUser2 = user1.getAstralPlane().getSolarSign().ordinal();
+        Compatibility compat;
+        int matriz[][] = {{2, 0, 2, 0, 2, 2, 1, 1, 2, 0, 2, 0},
+        {0, 2, 1, 2, 1, 2, 1, 2, 0, 2, 0, 2},
+        {2, 1, 1, 0, 2, 1, 2, 0, 1, 0, 2, 0},
+        {0, 2, 0, 2, 1, 2, 0, 2, 0, 1, 0, 2},
+        {2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1, 1},
+        {2, 2, 1, 2, 1, 1, 0, 2, 1, 2, 1, 1},
+        {1, 1, 2, 0, 2, 0, 1, 1, 2, 1, 2, 1},
+        {1, 2, 0, 2, 2, 2, 1, 2, 0, 2, 1, 2},
+        {2, 0, 1, 0, 2, 1, 2, 0, 1, 0, 2, 0},
+        {0, 2, 0, 1, 2, 2, 1, 2, 0, 2, 0, 2},
+        {2, 0, 2, 0, 1, 1, 2, 1, 2, 0, 2, 0},
+        {0, 2, 0, 2, 1, 1, 1, 2, 0, 2, 0, 1}};
 
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.TAURO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            }
-        }
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (solarUser1 == i && solarUser2 == j) {
+                    compat;
+                }
 
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.GEMINIS) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
             }
         }
-
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.CANCER) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            }
-        }
-
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.LEO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.VIRGO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.LIBRA) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ESCORPIO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            }
-        }
-
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.SAGITARIO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.CAPRICORNIO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ACUARIO) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            }
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.PISCIS) {
-            if (hour >= 6 && hour < 8) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.PISCIS);
-            } else if (hour >= 8 && hour < 10) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
-            } else if (hour >= 10 && hour < 12) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.TAURO);
-            } else if (hour >= 12 && hour < 14) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.GEMINIS);
-            } else if (hour >= 14 && hour < 16) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CANCER);
-            } else if (hour >= 16 && hour < 18) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LEO);
-            } else if (hour >= 18 && hour < 20) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.VIRGO);
-            } else if (hour >= 20 && hour < 22) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.LIBRA);
-            } else if (hour >= 22 && hour < 00) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ESCORPIO);
-            } else if (hour >= 00 && hour < 2) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.SAGITARIO);
-            } else if (hour >= 2 && hour < 4) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.CAPRICORNIO);
-            } else if (hour >= 4 && hour < 6) {
-                user.getAstralPlane().setAscendente(ZodiacSigns.ACUARIO);
-            }
-        }
-
     }
 }
