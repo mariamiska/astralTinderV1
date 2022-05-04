@@ -1,5 +1,6 @@
 package com.astralTinderV1.controllers;
 
+import com.astralTinderV1.enums.ZodiacSigns;
 import com.astralTinderV1.services.AstralPlaneService;
 import com.astralTinderV1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/perfilAstral")
 public class AstralPlaneController {
-     AstralPlaneService apServ;
-     UserService uS;
 
-        @Autowired
+    AstralPlaneService apServ;
+    UserService uS;
+
+    @Autowired
     public AstralPlaneController(AstralPlaneService apServ) {
         this.apServ = apServ;
     }
-              @GetMapping("/mostrar")
-    public String ModifyUser(@RequestParam(required = false) String id, ModelMap mm) {
 
-        return "";
+    @GetMapping("/mostrar")
+    public String showProfile(@RequestParam(required = false) String id, ModelMap model) {
+        model.addAttribute("descripcionAstral", ZodiacSigns.values());
+        return "user-astral-profile";
     }
 
 }

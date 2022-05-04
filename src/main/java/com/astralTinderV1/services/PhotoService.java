@@ -2,7 +2,9 @@ package com.astralTinderV1.services;
 
 import com.astralTinderV1.enttities.Photo;
 import com.astralTinderV1.enttities.User;
+import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.PhotoRepository;
+import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,26 +18,22 @@ public class PhotoService {
     @Autowired
     private PhotoRepository photoRepository;
 
-    private User user;
+    @Transactional
+    public Photo multiPartToEntity(MultipartFile file) throws ServiceException {
+        System.out.println("entro");
+        if (file != null) {
+            try {
+                Photo photo = new Photo();
+                photo.setMime(file.getContentType());
+                photo.setName(file.getName());
+                photo.setContent(file.getBytes());
 
-    private Photo multiPartToEntity(MultipartFile file) throws Exception {
-        if (file.getSize() == 0) {
-            throw new Exception("Debe tener una foto de perfil");
+                return photoRepository.save(photo);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        try {
-            Photo photo = new Photo();
-            photo.setMime(file.getContentType());
-            photo.setName(file.getName());
-            photo.setContent(file.getBytes());
-            return photo;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
-    public void save(Photo entidad) {
-        photoRepository.save(entidad);
+        return null;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
@@ -46,7 +44,8 @@ public class PhotoService {
     }
 
     @Transactional(readOnly = true)
-    public Photo getOne(String id) {
+    public Photo getOne(String id
+    ) {
         return photoRepository.getOne(id);
     }
 

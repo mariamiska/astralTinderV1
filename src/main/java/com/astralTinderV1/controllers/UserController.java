@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/usuarios")
@@ -26,17 +28,18 @@ public class UserController {
     private PhotoService photoServ;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PhotoService photoServ) {
         this.userService = userService;
+        this.photoServ = photoServ;
     }
-    
+
     @GetMapping("/registro")
     public String mostrarFormulario(ModelMap model) {
         model.addAttribute("user", new User());
         model.addAttribute("provinces", Province.values());
-        model.addAttribute("genders",Gender.values());
-        model.addAttribute("sexualOrientations",SexualOrientation.values());
-        
+        model.addAttribute("genders", Gender.values());
+        model.addAttribute("sexualOrientations", SexualOrientation.values());
+
         return "/user-register";
     }
 
@@ -53,16 +56,37 @@ public class UserController {
      *
      */
     @PostMapping("/registro")
-    public String procesarFormulario(@ModelAttribute User user, ModelMap mm) {
+    public String procesarFormulario(@ModelAttribute User user, ModelMap mm,
+            @RequestParam(required = false) MultipartFile archivo) {
         try {
-            userService.save(user);
+            userService.save(user, archivo);
             return "/user-login";
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
+            e.printStackTrace();
             return "/user-register";
         }
     }
 
+//    @GetMapping("/registro/foto")
+//    public String mostrarFormularioFoto(ModelMap model) {
+//        model.addAttribute("photo", new Photo());
+//        return "/user-photo-register";
+//    }
+//
+//    @PostMapping("/registro/foto")
+//    public String procesarFormularioFoto(@ModelAttribute Photo photo, @ModelAttribute User user, ModelMap mm,
+//            @RequestParam MultipartFile archivo) {
+//        try {
+//            photoServ.multiPartToEntity(archivo);
+////            user.setImage(photo);
+////            userService.save(user);
+//            return "/user-login";
+//        } catch (Exception e) {
+//            mm.addAttribute("error", e.getMessage());
+//            return "/user-photo-register";
+//        }
+//    }
     /**
      * controlador qeu trabaja la url de inicio de sesion de exitoso
      *
@@ -86,9 +110,26 @@ public class UserController {
      * @return
      */
     @GetMapping("/modificar")
-    public String modifyUser(ModelMap mm) {
+    public String modify(ModelMap model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("provinces", Province.values());
+        model.addAttribute("genders", Gender.values());
+        model.addAttribute("sexualOrientations", SexualOrientation.values());
 
-        return "";
+        return "/user-profile-modify";
+    }
+
+    @PostMapping("/modificar")
+    public String modifyUser(@ModelAttribute User user, ModelMap mm,
+            @RequestParam(required = false) MultipartFile archivo) {
+        try {
+            userService.save(user, archivo);
+            return "/user-profile";
+        } catch (Exception e) {
+            mm.addAttribute("error", e.getMessage());
+            e.printStackTrace();
+            return "/user-register";
+        }
     }
 
     /**
@@ -103,4 +144,3 @@ public class UserController {
     }
 
 }
-
