@@ -13,7 +13,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -53,21 +53,14 @@ public class User {
     @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo image;
 
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany
+    @ManyToMany
     private List<User> matches;
 
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany
+    @ManyToMany
     private List<User> likeReceived;
 
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany
+    @ManyToMany
     private List<User> likeSent;
-
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany
-    private List<User> dislike;
 
     private String phoneNumber;
 
@@ -83,4 +76,9 @@ public class User {
     @OneToOne
     private AstralPlane astralPlane;
 
+    @Override
+    public String toString() {
+        return "eish2";
+    }
+    
 }
