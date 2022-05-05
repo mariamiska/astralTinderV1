@@ -1,15 +1,12 @@
 package com.astralTinderV1.services;
 
+import com.astralTinderV1.enttities.Photo;
 import com.astralTinderV1.enttities.User;
-import com.astralTinderV1.enums.Gender;
-import com.astralTinderV1.enums.Province;
 import com.astralTinderV1.enums.Roles;
-import com.astralTinderV1.enums.SexualOrientation;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.UserRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
@@ -24,20 +21,25 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UserService implements UserDetailsService {
 
+    @Autowired
     private UserRepository userRepo;
+    @Autowired
     private AstralPlaneService apServ;
-   // private PhotoService photoServ;
 
     @Autowired
+    private PhotoService photoServ;
+
     public UserService(UserRepository userRepo, AstralPlaneService apServ) {
         this.userRepo = userRepo;
         this.apServ = apServ;
     }
-
+    
+     
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
@@ -64,17 +66,16 @@ public class UserService implements UserDetailsService {
      * @throws java.lang.Exception
      */
     @Transactional(rollbackOn = {Exception.class})
-    public void save(User user) throws Exception {
-//        photoServ.save(user.getImage());
-        System.out.println(user.getBirth());
-        System.out.println(LocalDate.now().getYear());
+    public void save(User user, MultipartFile archivo) throws Exception {
+        Photo photo = photoServ.multiPartToEntity(archivo);
+        user.setImage(photo);
         age(user);
-        System.out.println(user.getAge());
         validate(user);
+        user.setRole(Roles.USER);
         encodedPassword(user);
         apServ.crearPerfilAstral(user);
-        user.setRole(Roles.USER);
         userRepo.save(user);
+        System.out.println(user);
     }
 
     public void encodedPassword(User user) {
@@ -101,7 +102,7 @@ public class UserService implements UserDetailsService {
     public void age(User user) {
         int añoNacio = user.getBirth().getYear();
         int añoAhora = LocalDate.now().getYear();
-        int edad = añoAhora - (añoNacio+1900);
+        int edad = añoAhora - (añoNacio + 1900);
         user.setAge(edad);
     }
 
@@ -131,6 +132,13 @@ public class UserService implements UserDetailsService {
         if (user.getPassword().length() < 6 || user.getPassword().isEmpty()) {
             throw new Exception("La contraseña debe tener más de 6 caracteres");
         }
+                         
+        boolean emailExists = getAll().stream().anyMatch(existingUser ->  existingUser.getEmail().equals(user.getEmail()));
+        
+        if(emailExists){
+            throw new Exception ("El email ya existe con otro usuario!");
+        }
+        
         if (user.getEmail().isEmpty()) {
             throw new Exception("Debe tener un email");
         }
@@ -160,23 +168,15 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public User modifyUser(String id, String name, String surname, String phonenumber, Date birth, Date birthHour, String email, Province province, Gender gender, SexualOrientation sexOrient) throws Exception {
-        User user = userRepo.getById(id);
+    public User modifyUser(User user, MultipartFile file) throws Exception {
 
-        user.setName(name);
-        user.setSurname(surname);
-        user.setPhoneNumber(phonenumber);
-        user.setEmail(email);
-        user.setBirth(birth);
-        user.setBirthHour(birthHour);
-        user.setProvince(province);
-        user.setGender(gender);
-        user.setSexOrient(sexOrient);
-
+        age(user);
         validate(user);
         apServ.crearPerfilAstral(user);
         encodedPassword(user);
-
+        Photo photo = photoServ.multiPartToEntity(file);
+        user.setImage(photo);
+        userRepo.save(user);
         return userRepo.save(user);
     }
 

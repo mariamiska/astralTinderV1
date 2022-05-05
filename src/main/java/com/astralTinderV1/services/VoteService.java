@@ -25,7 +25,6 @@ public class VoteService {
 
         User user1 = vote.getUserRecive();
         User user2 = vote.getUserSend();
-
         //guarda el usuario que envio el voto en los recibidos del receptor
         //guarda el usuario que recibe el voto en los enviados del emisor
         List<User> likesReciveUser1 = user1.getLikeReceived();
@@ -37,7 +36,9 @@ public class VoteService {
         user1.setLikeReceived(likesReciveUser1);
         user2.setLikeSent(likesSendUser2);
 
-        voteRepository.save(vote);
+//        userService.flush();
+        
+//        voteRepository.save(vote);
     }
 
     @Transactional
