@@ -4,7 +4,7 @@ import com.astralTinderV1.enttities.User;
 import com.astralTinderV1.enums.Gender;
 import com.astralTinderV1.enums.Province;
 import com.astralTinderV1.enums.SexualOrientation;
-//import com.astralTinderV1.services.PhotoService;
+import com.astralTinderV1.services.PhotoService;
 import com.astralTinderV1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
 
     private UserService userService;
-   // private PhotoService photoServ;
+    private PhotoService photoServ;
 
     @Autowired
     public UserController(UserService userService, PhotoService photoServ) {
