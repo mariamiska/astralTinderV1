@@ -27,5 +27,4 @@ public class AstralPlane {
     private Cualidades cualidad;
 
     private Elements element;
-
 }
