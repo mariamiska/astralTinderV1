@@ -44,7 +44,7 @@ public enum YearLunarSign {
     AO(2001, 26),
     AP(2002, 8),
     AQ(2003, 19),
-    AR(2004, 3);
+    AR(2004, 3),
     /*18AÑOS*/
 
     private final int anio;
