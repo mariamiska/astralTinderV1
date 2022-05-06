@@ -5,8 +5,12 @@ import com.astralTinderV1.enttities.Vote;
 import com.astralTinderV1.services.ChooseYourPartnerService;
 import com.astralTinderV1.services.UserService;
 import com.astralTinderV1.services.VoteService;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +44,7 @@ public class MatchController {
             random = cypS.randomUser();
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
-
+        
         model.addAttribute("vote", new Vote());
         return "main-menu";
 
@@ -54,5 +58,13 @@ public class MatchController {
         model.addAttribute("match", voteService.Match(vote));
         return "redirect:/ruleta";
 
+    }
+    
+    @GetMapping("/listmatch")
+    public String listMatch(ModelMap model, HttpSession session) {
+        User currentUser = (User) session.getAttribute("userSession");
+        System.out.println(currentUser.getEmail());
+        model.put("matches", currentUser.getMatches());
+        return "user-match";
     }
 }
