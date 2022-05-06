@@ -25,7 +25,6 @@ public class AstralPlaneController {
     @GetMapping("/mostrar")
     public String showProfile(@RequestParam(required = false) String id, ModelMap model) {
         model.addAttribute("descripcionAstral", ZodiacSigns.values());
-        return "user-astral-profile";
+        return "/user-astral-profile";
     }
-
 }
