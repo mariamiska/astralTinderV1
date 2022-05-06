@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/perfilAstral")
 public class AstralPlaneController {
-
-    AstralPlaneService apServ;
-    UserService uS;
-
-    @Autowired
-    public AstralPlaneController(AstralPlaneService apServ) {
-        this.apServ = apServ;
-    }
+//
+//    AstralPlaneService apServ;
+//    UserService uS;
+//
+//    @Autowired
+//    public AstralPlaneController(AstralPlaneService apServ) {
+//        this.apServ = apServ;
+//    }
 
     @GetMapping("/mostrar")
     public String showProfile(@RequestParam(required = false) String id, ModelMap model) {
