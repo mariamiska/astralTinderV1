@@ -188,4 +188,9 @@ public class UserService implements UserDetailsService {
         encodedPassword(user);
         return userRepo.save(user);
     }
+    
+    @Transactional
+    public List<User> getMatches(User user){
+        return user.getMatches();
+    }
 }

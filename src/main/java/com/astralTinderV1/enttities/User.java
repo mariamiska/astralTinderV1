@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -51,7 +52,7 @@ public class User {
     @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo image;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<User> matches;
 
     @ManyToMany
