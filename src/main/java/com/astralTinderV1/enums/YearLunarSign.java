@@ -47,8 +47,8 @@ public enum YearLunarSign {
     AR(2004, 3);
     /*18AÑOS*/
 
-    private int anio;
-    private int modificador;
+    private final int anio;
+    private final int modificador;
 
     private YearLunarSign(int anio, int modificador) {
         this.anio = anio;
