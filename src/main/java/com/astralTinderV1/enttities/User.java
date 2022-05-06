@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -17,8 +18,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -53,7 +52,7 @@ public class User {
     @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo image;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<User> matches;
 
     @ManyToMany
