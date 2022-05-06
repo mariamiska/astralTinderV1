@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
-        User user = userRepo.findByEmail(eMail);
+       User user = userRepo.findByEmail(eMail);
         if (user == null) {
             throw new UsernameNotFoundException("usuario inexistente");
         }
@@ -57,6 +57,7 @@ public class UserService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
+
 
     /**
      * no olvidar encriptar contraseñas que sino no entra
@@ -103,6 +104,7 @@ public class UserService implements UserDetailsService {
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - (añoNacio + 1900);
         user.setAge(edad);
+
     }
 
     public boolean mayorDeEdad(User user) {
@@ -185,5 +187,10 @@ public class UserService implements UserDetailsService {
         user.setPassword(password);
         encodedPassword(user);
         return userRepo.save(user);
+    }
+    
+    @Transactional
+    public List<User> getMatches(User user){
+        return user.getMatches();
     }
 }
