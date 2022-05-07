@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +65,7 @@ public class UserController {
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             e.printStackTrace();
-            return "/user-register";
+            return "redirect:/registro";
         }
     }
 
@@ -109,22 +110,26 @@ public class UserController {
      * @param mm
      * @return
      */
-    @GetMapping("/modificar")
-    public String modify(ModelMap model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("provinces", Province.values());
-        model.addAttribute("genders", Gender.values());
-        model.addAttribute("sexualOrientations", SexualOrientation.values());
+    @GetMapping("/modificar/{id}")
+    public String modify(ModelMap model, @PathVariable String id) {
+        try {
+            model.addAttribute("user", userService.findById(id));
+            model.addAttribute("provinces", Province.values());
+            model.addAttribute("genders", Gender.values());
+            model.addAttribute("sexualOrientations", SexualOrientation.values());
 
-        return "/user-profile-modify";
+            return "/user-profile-modify";
+        } catch (Exception e) {
+            return "redirect: /user-profile";
+        }
     }
 
     @PostMapping("/modificar")
     public String modifyUser(@ModelAttribute User user, ModelMap mm,
             @RequestParam(required = false) MultipartFile archivo) {
         try {
-            userService.save(user, archivo);
-            return "/user-profile";
+            userService.modifyUser(user, archivo);
+            return "redirect:/ruleta";
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             e.printStackTrace();

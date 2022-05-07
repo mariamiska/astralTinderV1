@@ -76,14 +76,15 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
         System.out.println(user);
     }
-
+    
+   
     public void encodedPassword(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
     }
 
-    @Transactional(rollbackOn = {Exception.class})
+      @Transactional(rollbackOn = {Exception.class})
     public User findById(String id) throws ServiceException {
         Optional<User> res;
         res = userRepo.findById(id);
@@ -167,16 +168,15 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public User modifyUser(User user, MultipartFile file) throws Exception {
+    public void modifyUser(User user, MultipartFile file) throws Exception {
 
         age(user);
-        validate(user);
+//        validate(user);
         apServ.crearPerfilAstral(user);
         encodedPassword(user);
         Photo photo = photoServ.multiPartToEntity(file);
         user.setImage(photo);
         userRepo.save(user);
-        return userRepo.save(user);
     }
 
     @Transactional
