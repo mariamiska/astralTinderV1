@@ -12,21 +12,16 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 40px;
+    padding-top: 15px;
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 40px;
 
 }
 
-.logo{
-    color: beige;
-    font-size: 28px;
-
-}
-
-.span-logo{
-    color:#87006C;
+.LogoT{
+    height: 130px;
+    width: 350px;
 }
 
 nav ul li{
