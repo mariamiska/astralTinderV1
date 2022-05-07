@@ -20,7 +20,6 @@ public class PhotoService {
 
     @Transactional
     public Photo multiPartToEntity(MultipartFile file) throws ServiceException {
-        System.out.println("entro");
         if (file != null) {
             try {
                 Photo photo = new Photo();
