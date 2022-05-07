@@ -9,12 +9,14 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
     <title>Iniciar sesión</title>
 </head>
+
 <body>
-    
+
     <div class="container">
-        
+
         <section class="containerS">
-            <h2>Bievenido a Astral Tinder</h2>
+            <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+
             <form class="form" th:action="@{/logincheck}" method="POST">
                 <fieldset>
                     <legend>Inicia sesión con tu cuenta</legend>
@@ -42,11 +44,15 @@
                 </fieldset>
             </form>
 
-             <span th:if="${error}" th:text="${error}" > </span>
+            <span th:if="${error}" th:text="${error}"> </span>
         </section>
 
     </div>
 
+    <!--  <div th:text="${session.userSession.name}"> </div>
 
+
+    <td><img th:src="@{/foto/usuario/__${session.userSession.id}__}" style="width: 100%; height: 100px;"></td> -->
 </body>
+
 </html>

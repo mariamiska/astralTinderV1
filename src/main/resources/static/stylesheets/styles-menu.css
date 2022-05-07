@@ -33,6 +33,10 @@ nav{
 .navLogo{
     margin-left: 200px;
 } 
+
+nav ul li{
+    text-decoration: none;
+}
 nav ul li a{
     color: beige;
     text-decoration: none;

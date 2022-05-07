@@ -18,7 +18,9 @@
 
             <section class="containerS">
                 <h2>Perfil de   <div th:text="${session.userSession.name}"> </div> </h2>
-                <form class="form" th:action="@{/usuarios/registro}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+                <!--<form class="form" th:action="@{/usuarios/modificar}" th:object="${user}"  method="POST" enctype="multipart/form-data">-->
+                  
+                    <!--<input type="text" th:field="*{id}" name="id" th:value="${user.id}" >-->
 
                     <fieldset>
                         <legend>Este es tu perfil</legend>
@@ -40,7 +42,7 @@
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Género</label>
-                                <div th:text="${session.userSession.gender}"> </div>
+                                <div th:text="${session.userSession.gender.name}"> </div>
 
                             </div>
                         </div>
@@ -48,14 +50,14 @@
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Orientación sexual</label>
-                                <div th:text="${session.userSession.sexOrient}"> </div>
+                                <div th:text="${session.userSession.sexOrient.name}"> </div>
                             </div>
                         </div>
 
                         <div class="containerDiv">
                             <div class="campo">
                                 <label>Provincia</label>
-                                <div th:text="${session.userSession.province}"> </div>
+                                <div th:text="${session.userSession.province.name}"> </div>
                             </div>
                         </div>
 
@@ -102,7 +104,7 @@
                 </form>                            <div class="button">
                 </div>
 
-                <h5><a href="/usuarios/modificar">Modificar Perfil</a></h5>
+                <h5><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Modificar Perfil</a></h5>
 
                 </fieldset>
                 </form>
