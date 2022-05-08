@@ -84,10 +84,10 @@ public class AstralPlaneService {
     }
 
     private void resolveLunarSign(User user) {
-        int yearMod = user.getBirth().getYear();
-        int monthMod = user.getBirth().getMonth();
-        int day = user.getBirth().getDay();
-        int lunarAdd = modYearAdd(yearMod) + modMonthAdd(monthMod) + day;
+        int yearU = user.getBirth().getYear();
+        int monthU = user.getBirth().getMonth();
+        int dayU = user.getBirth().getDay();
+        int lunarAdd = modYearAdd(yearU) + modMonthAdd(monthU) + dayU;
         int gradoLunar = lunarAddRefact(lunarAdd);
         switch (gradoLunar) {
             case 0:
@@ -101,10 +101,10 @@ public class AstralPlaneService {
             case 4:
                 user.getAstralPlane().setLunarSign(ZodiacSigns.TAURO);
                 break;
-            case 5:
-            case 6:
-                user.getAstralPlane().setLunarSign(ZodiacSigns.GEMINIS);
-                break;
+//            case 5:
+//            case 6:
+//                user.getAstralPlane().setLunarSign(ZodiacSigns.GEMINIS);
+//                break;
             case 7:
             case 8:
                 user.getAstralPlane().setLunarSign(ZodiacSigns.CANCER);
@@ -149,13 +149,14 @@ public class AstralPlaneService {
     }
 
     private int modYearAdd(int num) {
+        //num es el año de nacimiento del usuario
         int addValor = 0;
         YearLunarSign[] anioArray = YearLunarSign.values();
-        for (YearLunarSign aux : anioArray) {
-            if (aux.anioAtributo() == num) {
-                addValor = addValor + aux.modAtributo();
+        for (YearLunarSign anioArray1 : anioArray) {
+            if (anioArray1.anioAtributo() == num) {
+                addValor = addValor + anioArray1.modAtributo();
             }
-        }
+        } 
         return addValor;
     }
 
@@ -196,8 +197,6 @@ public class AstralPlaneService {
                 break;
             case 11:
                 mod = mod + 6;
-                break;
-            default:
                 break;
         }
         return mod;
