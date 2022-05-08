@@ -22,19 +22,21 @@
         <Header>
             <nav>
                 <div class="navLogo">
-                    <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+                    <a href="/"><img src="/imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
                 </div>
                 <div class="navbarUls">
                     <ul class="navbar-menu">
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
-                            <ul class="submenu">
-                                <li><a href="/usuarios/perfil">Mi perfil</a></li>
-                                <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
-                                <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>                              
-                                <li><a href="/login/logout">Cerrar sesión</a></li>
+                        <ul class="submenu">
+                             <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                             <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
+                             <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
+                             <li><a href="/ruleta/listmatch">Matches ♥️</a></li>
+                             <li><a href="/login/logout">Cerrar sesión</a></li>
 
-                            </ul>
+                         </ul>
+
                         </li>
                     </ul>
                 </div>
@@ -52,7 +54,7 @@
                         </div>
                             
                         <div class="nombre-edad ">   
-                            <h3 th:text="${session.randomUser.name} + ' ' + ${session.randomUser.age}"></h3>   
+                            <h3 th:text="${session.randomUser.name} + ' ' + ${session.randomUser.surname} + '. ' + ${session.randomUser.age} + '.'"></h3>   
                         </div>
         
                         <div class="descripcion-perfil">

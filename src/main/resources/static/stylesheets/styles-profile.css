@@ -5,14 +5,10 @@
     font-family: Verdana, Tahoma, sans-serif;
 }
 
-html{
-    font-size: 40%;
-}
 
 body {
-    display: flex;
+    
     justify-content: center;
-    font-size: 16px;
     height: 100vh;
     width: 100%;
 
@@ -21,14 +17,7 @@ body {
     background-position: center;
 }
 
-/* h2 {
-    text-align: center;
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: white;
-    font-weight: 900;
-    margin-top: 10%;
-} */
+
 
 nav{
     width: 100%;
@@ -96,121 +85,70 @@ nav li:hover .submenu{
 }
 .container{
     background-color: rgba(255, 255, 255, 0.1);
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 750px;
     border-radius: 2rem;
     box-shadow: 7px 13px 37px;
-    position: relative;
-    overflow: hidden;
-    margin: 2rem 0 0 0;
-    margin-top: 10%;
+    position: absolute;
+    left: 775px;
+    margin-top: 0.5rem;
+    align-items: center;
 }
 
-.legend{
-    text-align: center;
+.container div {
     color: white;
-    font-size: 2rem;
-    padding: 1rem;
-    padding-top: 2rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.form fieldset{
-    border: none;
-    padding: 2rem;
-}
-
-.selectRegistro{
-    background-color: rgba(255, 255, 255, 0.15);
-    width: 100%;
-    border: none;
-    border-radius: 2rem;
-    height: 4rem;
-    color: black;
     text-align: center;
-    font-weight: 900;
-    font-size: 2rem;
-}
-
-.selectOrientacion{
-
-    color:white;
-
-}
-
-
-.campo{
-    margin-bottom: 1rem;
+    margin-bottom: 5px;
+    margin-left: 17.5px;
+    margin-right: 10px;
 }
 
 .campo label{
     color: white;
     font-weight: bold;
+    text-align: left;
     margin-bottom: 0.5rem;
-    padding-left: 2rem;
-    font-size: 2rem;
+    padding-left: 20px;
+    font-size: 16px;
     display: block;
 }
 
-.campo input{
+ .campo div{
     background-color: rgba(255, 255, 255, 0.15);
-    width: 100%;
-    border: none;
+    width: 90%;
     border-radius: 2rem;
-    height: 4rem;
+    height: 2.2rem;
     color: white;
     text-align: center;
-    font-weight: 900;
-    font-size: 2rem;
+    justify-content: center;
+    padding: 22px;
+    font-size: 16px;
+    margin-top: 10px;
+    
 }
 
-input::placeholder{
-    color: rgba(238, 229, 229, 0.74);
-    padding-left: 2rem;
-}
 
-input:hover{
-    background-color: rgba(255, 255, 255, 0.308);
+.div button{
+    left: 100px;
 }
 
 .button{
+    
+    align-items: center;
+    justify-content: center;  
     border: none;
     background: #87006C;
-    padding: 12px 30px;
+    padding: 12px 20px;
     border-radius: 30px;
     color: beige;
     font-weight: bold;
     cursor: pointer;
     font-size: 15px;
     transition: .4s;
-    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.principal-button{
-    font-family: Arial, Helvetica, sans-serif;
-    border: none;
-    width: 40%;
-    color: white;
-    font-size: 2rem;
-    border-radius: 2rem;
-    margin: 2rem 0 0 0;
-    height: 4rem;
-    font-weight: 800;
-    background-color: #e74064;
-
-}
-
-.principal-button:hover{
-    cursor: pointer;
-    color: #e74064;
-    background-color: white;
-}
-
-h5{
-    text-align: center;
-    margin: 1rem 0;
-}
 
 a{
     text-decoration: none;
@@ -219,7 +157,21 @@ a{
 
 a:hover{
     cursor: pointer;
-    color: #e74064;
-    font-size: 2rem;
+    color: white;
+    
+}
+
+.footer {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    padding-top: 1.7rem;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background: black;
+    color: white;
 }
 
