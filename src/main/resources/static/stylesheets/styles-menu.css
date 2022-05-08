@@ -142,7 +142,19 @@ nav li:hover .submenu{
     
 }
 
-
+.footer {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    padding-top: 1.7rem;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background: black;
+    color: white;
+}
 
 .barra-botones .buttons {
     
@@ -184,7 +196,7 @@ nav li:hover .submenu{
     border-bottom-left-radius: 20px;
 }
 
-.footer {
+/*.footer {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -196,7 +208,7 @@ nav li:hover .submenu{
     height: 4rem;
     background: black;
     color: white;
-}
+}*/
 
 
 
