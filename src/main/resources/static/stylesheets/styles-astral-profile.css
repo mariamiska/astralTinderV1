@@ -5,22 +5,23 @@
     font-family: Verdana, Tahoma, sans-serif;
 }
 
-.perfilAstral-body {
-
-
-    background-image: url(../imgs/FONDO\ MORADO.png);
+body{
+    background-image: url(../imgs/fondo-perfilAstral.png);
     background-size: cover;
-    background-position: center;
-
+    object-fit: cover;
+    height: 1000px;
+    width: 100%;
+    
 }
 
+/*-------------------------------Navbar------------------------------------*/
 nav {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background-color: rgb(0, 0, 0, 0.6);
-    height: 150px;
+    height: 100px;
 
 }
 
@@ -28,7 +29,6 @@ nav {
     cursor: pointer;
     margin-right: 200px;
 }
-
 
 .navLogo {
     margin-left: 200px;
@@ -70,8 +70,8 @@ nav li:hover .submenu {
 }
 
 .LogoT {
-    height: 130px;
-    width: 350px;
+    height: 100px;
+    width: 250px;
 }
 
 .BtonDesplegable {
@@ -80,15 +80,66 @@ nav li:hover .submenu {
     margin-right: 170px;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    cursor: pointer;
+    color: #e74064;
+}
+
+/*---------------------------------Main----------------------------------*/
+
+.img-signos{
+
+    width: 130px;
+    height: 130px;
+    
+}
+
+.conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 0 20px;
+    color:white;
+}
+
+.card-container{
+
+    display: flex;
+    width: 600px;
+    height: auto;
+    
+}
+
+
+
+
+
+/* .containerS{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 12px;
     height: 100vh;
     width: 100%;
     padding-bottom: 100px;
 }
+
 
 
 form {
@@ -102,22 +153,13 @@ form {
     margin-top: 10%;
 }
 
-/* legend{
-    text-align: center;
-    color: white;
-    font-size: 2rem;
-    padding: 1rem;
-    padding-top: 2rem;
-    font-weight: 900;
-    text-transform: uppercase;
-} */
+
 
 form fieldset {
     border: none;
     padding: 2rem;
 }
 
-/* 
 .selectRegistro{
     background-color: rgba(255, 255, 255, 0.15);
     width: 100%;
@@ -129,7 +171,6 @@ form fieldset {
     font-weight: 900;
     font-size: 2rem;
 }
- */
 
 
 .campo {
@@ -141,15 +182,13 @@ form fieldset {
     font-weight: bold;
     margin-bottom: 0.5rem;
     padding-left: 2rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
     display: block;
 }
 
 .campo div {
     background-color: rgba(255, 255, 255, 0.15);
-    /*     width: 100%;
- DESCOMENTAR CUANDO SE REALIZE EL THYMELEAF*/
-    width: 550px;
+    width: 100%;
     border: none;
     border-radius: 2rem;
     height: 4rem;
@@ -167,16 +206,6 @@ input::placeholder {
 input:hover {
     background-color: rgba(255, 255, 255, 0.308);
 }
+ */
 
 
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    cursor: pointer;
-    color: #e74064;
-    font-size: 2rem;
-}
