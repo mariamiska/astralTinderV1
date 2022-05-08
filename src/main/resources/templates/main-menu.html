@@ -31,8 +31,7 @@
                             <ul class="submenu">
                                 <li><a href="/usuarios/perfil">Mi perfil</a></li>
                                 <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
-                                <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>
-                                <li><a href="#">Cita a ciegas(Premium)</a></li>
+                                <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>                              
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>
@@ -42,46 +41,48 @@
             </nav>
         </Header>
         <main>
-            <form th:action="@{/ruleta/match}"  method="POST" th:object="${vote}">
-                <div class="Card">
+            
+            <div class="contenedor">
+                <form th:action="@{/ruleta/match}"  method="POST" th:object="${vote}">
+                    <div class="foto-contenedor">
+                        
+                        <div>
+                            <img class="foto-usuario" th:src="@{/foto/usuario/__${session.randomUser.id}__}">
+                               
+                        </div>
+                            
+                        <div class="nombre-edad ">   
+                            <h3 th:text="${session.randomUser.name} + ' ' + ${session.randomUser.age}"></h3>   
+                        </div>
+        
+                        <div class="descripcion-perfil">
+        
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur pariatur, eligendi sit a ducimus error laboriosam, maxime, debitis quas reprehenderit veniam suscipit? Ipsum non ipsa tempore reprehenderit ex accusamus! Odio.
+                        </div>
+        
+                        <div class="barra-botones">
+        
+                            <input type="hidden" th:value="${{session.userSession}}" name="sender" />
+                            <input type="hidden" th:value="${{session.randomUser}}" name="receiver" />
 
+                            <button class="buttons" type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
+                                                                         class="btonRuleta"></a></button>
 
-                    <div class="photo-and-actions">
-                        <div class="photo">
-                            <img th:src="@{/foto/usuario/__${session.randomUser.id}__}" style="width: 100%; height: 100px;">   
-                            <div class="photo-text">
-                                <div class="photo-name-and-age">
-                                    <h2 th:text="${session.randomUser.name}"></h2>
-                                    <h2 th:text="${session.randomUser.age}"></h2>
-                                </div>
-                                <div class="photo-bio">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo alias, ad corporis ex
-                                    distinctio culpa, ipsam numquam maiores magni dolor harum eaque, commodi ipsum sapiente
-                                    nostrum.
-                                    Officia eveniet commodi omnis.
-                                </div>
-                                <div class="actions">
-                                    <input type="hidden" th:value="${{session.userSession}}" name="sender" />
-                                    <input type="hidden" th:value="${{session.randomUser}}" name="receiver" />
+                            <button class="buttons" type="submit"><img src="../imgs/boton corazon.png"
+                                                       class="btonCorazon" ></button>
 
-                                    <button type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
-                                                                                 class="btonRuleta"></a></button>
-
-                                    <button type="submit"><img src="../imgs/boton corazon.png"
-                                                               class="btonCorazon"></button>
-                                </div>
-                            </div>
                         </div>
                     </div>
-
-            </form>
+                </form>   
+            </div>
 
             <div class="navbarCard">
-
+       
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton signo solar.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO SOLAR</h3></li>
+                            <li><h3>SIGNO SOLAR </h3>
+                                <h3  th:text="${session.randomUser.astralPlane.solarSign}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -89,7 +90,8 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton signo lunar.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO LUNAR</h3></li>
+                            <li><h3>SIGNO LUNAR</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.lunarSign}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -97,16 +99,18 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton ascendente.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO ASCENDENTE</h3></li>
+                            <li><h3>SIGNO ASCENDENTE</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.ascendente}"> </h3> </li>
+
                         </ul>
                     </li>
                 </ul>
-                <!-- <div class="actionTop"><a href="#"><img src="/imgs/boton signo lunar.png" class="BtonAscendente"></a>
-                </div> -->
+               
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton elemento.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO ELEMENTO</h3></li>
+                            <li><h3>SIGNO ELEMENTO</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.element}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -114,13 +118,21 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton cualidad.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO CUALIDAD</h3></li>
+                            <li><h3>SIGNO CUALIDAD</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.cualidad}"> </h3> </li>
+
                         </ul>
                     </li>
                 </ul>
 
             </div>
-        </div>
+         
+
+
+        <footer class="footer">
+            Copyright. All rights reserved by Astral Tinder Company - 2022.
+        </footer>
+
     </main>
     <script src="https://kit.fontawesome.com/712725c422.js" crossorigin="anonymous"></script>
 </body>

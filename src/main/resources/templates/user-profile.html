@@ -5,107 +5,107 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-profile.css">
+
         <title>Perfil</title>
     </head>
     <body>
-        <!--        <h1>ESTE ES EL PROPIO PERFIL DEL USUARIO. DEBE INCLUIR BOTONES PARA MODIFICAR LOS DATOS DEL PERFIL
-                    <div th:text="${session.userSession.name}"> </div> </h1>
-                    <td><img th:src="@{/foto/usuario/__${session.userSession.id}__}" style="width: 100%; height: 100px;"></td>
-        -->
+         <Header>
+            <nav>
+                <div class="navLogo">
+                    <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+                </div>
+                <div class="navbarUls">
+                    <ul class="navbar-menu">
+                        <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
+
+                            <ul class="submenu">
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
+                                <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
+                                <li><a href="#">Cita a ciegas(Premium)</a></li>
+                                <li><a href="/login/logout">Cerrar sesión</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </Header>
 
         <div class="container">
 
-            <section class="containerS">
-                <h2>Perfil de   <div th:text="${session.userSession.name}"> </div> </h2>
-                <form class="form" th:action="@{/usuarios/registro}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+            <section class="container">
+                <h2>  <div th:text="${user.name}"> </div> </h2>
 
-                    <fieldset>
-                        <legend>Este es tu perfil</legend>
+                <fieldset>
+                    <legend>Este es tu perfil</legend>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Nombre</label>
-                                <div th:text="${session.userSession.name}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Nombre</label>
+                            <div th:text="${user.name}"> </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Apellido</label>
-                                <div th:text="${session.userSession.surname}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Apellido</label>
+                            <div th:text="${user.surname}"> </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Género</label>
-                                <div th:text="${session.userSession.gender}"> </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Género</label>
+                            <div th:text="${user.gender.name}"> </div>
 
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Orientación sexual</label>
-                                <div th:text="${session.userSession.sexOrient}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Orientación sexual</label>
+                            <div th:text="${user.sexOrient.name}"> </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Provincia</label>
-                                <div th:text="${session.userSession.province}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Provincia</label>
+                            <div th:text="${user.province.name}"> </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Dirección de correo</label>
-                                <div th:text="${session.userSession.email}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Dirección de correo</label>
+                            <div th:text="${user.email}"> </div>
                         </div>
+                    </div>
 
-                        <!--                        <div class="containerDiv">
-                                                    <div class="campo">
-                                                        <label>Contraseña</label>
-                                                        <input type="password" th:field="*{password}" name="contraseña" id="contraseña" placeholder="Tú contraseña">
-                                                    </div>
-                                                </div>-->
-
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Número de telefono</label>
-                                <div th:text="${session.userSession.phoneNumber}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Número de telefono</label>
+                            <div th:text="${user.phoneNumber}"> </div>
                         </div>
+                    </div>
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label for="start">Fecha de nacimiento</label>
-                                <div th:text="${session.userSession.birth}"> </div>
-                            </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label for="start">Fecha de nacimiento</label>
+                            <div th:text="${user.birth}"> </div>
                         </div>
-
-                        <!--                        <div class="containerDiv">
-                                                    <div class="campo">
-                                                        <label>Hora de nacimiento</label>
-                                                        <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="Tú nombre">
-                                                    </div>
-                                                </div>-->
-                        <!--                        <div class="containerDiv">
-                                                    <div class="campo">
-                                                        <label>Foto de perfil</label>
-                                                        <input type="file" class="form-control" id="file" name="archivo" />
-                                                    </div>
-                                                </div>-->
-                </form>                            <div class="button">
-                </div>
-
-                <h5><a href="/usuarios/modificar">Modificar Perfil</a></h5>
+                    </div>
+                    <button class="button">
+                        <h5><a th:if="${user.id == session.userSession.id}" href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Modificar Perfil</a></h5>
+                    </button>
+                    <button class="button">
+                        <h5><a th:if="${user.id != session.userSession.id}" href="#" th:href="@{'/ruleta/listmatch/'}">Atras</a></h5>
+                    </button>
+                    </div>
 
                 </fieldset>
-                </form>
 
             </section>
 
