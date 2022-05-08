@@ -25,7 +25,8 @@ public enum Province {
     SAN_LUIS("San Luis"), 
     MISIONES("Misiones"), 
     SALTA("Salta"),
-    YPANE("Ypane");
+    YPANE("Ypane"),
+    ONTARIO("Ontario");
     
     private final String name;
 
