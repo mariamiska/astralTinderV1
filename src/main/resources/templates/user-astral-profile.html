@@ -6,103 +6,94 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-astral-profile.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+              rel="stylesheet">
         <title>Perfil Astral</title>
     </head>
 
     <body>
-        <div class="perfilAstral-body">
-            <Header>
-                <nav>
-                    <div class="navLogo">
-                        <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+
+        <Header>
+            <nav>
+                <div class="navLogo">
+                    <a href="/ruleta"><img src="/imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+                </div>
+                <div class="navbarUls">
+                    <ul class="navbar-menu">
+                        <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
+
+                            <ul class="submenu">
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
+                                <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
+                                <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/login/logout">Cerrar sesión</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </Header>
+
+        <div class="container">
+            <!--                 <i><img src="../static/imgs/perfilAstral.png" class="BtonDesplegable"></i>
+            -->
+            <form class="form" th:action="@{/perfilAstral/mostrar}" th:object="${descripcionAstral}" method="POST">
+                <fieldset>
+
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>  <h3 th:text="${'Signo Solar ' + astralPlane.solarSign.nameSign}" > </h3></label>
+                            <div>
+                                <h4  th:text="${astralPlane.solarSign.showInfoSolar}"> </h4>
+                                <h4  th:text="${'Celebridades que comparten signo contigo ' + astralPlane.solarSign.showCelebritySign}"> </h4> </div>
+                        </div>
                     </div>
-                    <div class="navbarUls">
-                        <ul class="navbar-menu">
-                            <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
-
-                                <ul class="submenu">
-                                    <li><a href="/usuarios/perfil">Mi perfil</a></li>
-                                    <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
-                                    <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>
-                                    <li><a href="#">Cita a ciegas(Prox..)</a></li>
-                                    <li><a href="/login/logout">Cerrar sesión</a></li>
-
-                                </ul>
-                            </li>
-                        </ul>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label><h3 th:text="${'Signo Lunar ' + astralPlane.lunarSign.nameSign}" > </h3></label>
+                            <div><h4  th:text="${astralPlane.lunarSign.showInfoLunar}"> </h4>                </div>
+                        </div>
                     </div>
-                </nav>
-            </Header>
-
-            <div class="container">
-
-                <section class="containerS">
-
-                    <!--                 <i><img src="../static/imgs/perfilAstral.png" class="BtonDesplegable"></i>
-                    -->
-                    <form class="form" th:action="@{/perfilAstral/mostrar}" th:object="${user}" method="POST">
-                        <fieldset>
-
-
-                            <div class="containerDiv">
-                                <div class="campo">
-                                    <label>Signo Solar</label>
-                                       <tr th:each="zodiaco : ${descripcion}">
-                                    <h3  th:text="${zodiaco.astralPlane.solarSign}"> </h3> </li>
-                                    <h4  th:text="${zodiaco.astralPlane.solarSign.showInfoSolar}"> </h4> </li>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label><h3 th:text="${'Ascendente ' + astralPlane.ascendente.nameSign}" > </h3></label>
+                            <div>  <h4  th:text="${astralPlane.ascendente.showInfoAscend}"> </h4> </div>
+                        </div>
+                    </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label><h3 th:text="${'Elemento ' + astralPlane.element.showNameElement}" > </h3></label>
+                            <div> <h4  th:text="${astralPlane.element.showInfoElement}"> </h4> </div>
+                        </div>
+                    </div>
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label><h3 th:text="${'Cualidad ' + astralPlane.cualidad.showName}" > </h3></label>
+                            <div>                                <h4  th:text="${astralPlane.cualidad.showInfoCualidad}"> </h4>                      </div>
 
 
-                                    <div></div>
-                                </div>
-                            </div>
-                            <div class="containerDiv">
-                                <div class="campo">
-                                    <label>Signo Lunar</label>
-                                    <div></div>
-                                    <!--<div th:text="${session.userSession.ZodiacSigns.showInfoLunar}"> </div>-->
+                        </div>
 
-                                </div>
-                            </div>
-                            <div class="containerDiv">
-                                <div class="campo">
-                                    <label>Ascendente</label>
-                                    <div></div>
-                                    <!--<div th:text="${session.userSession.ZodiacSigns.showInfoAscend}"> </div>-->
+                </fieldset>
+            </form>
 
-                                </div>
-                            </div>
-                            <div class="containerDiv">
-                                <div class="campo">
-                                    <label>Elemento</label>
-                                    <div></div>
-
-                                    <!--<div th:text="${session.userSession.name}"> </div>-->
-
-                                </div>
-                            </div>
-                            <div class="containerDiv">
-                                <div class="campo">
-                                    <label>Cualidad</label>
-                                    <div></div>
-
-                                    <!--                                 <div th:text="${session.userSession.name}"> </div>
-                                    -->
-                                </div>
-                            </div>
-
-                        </fieldset>
-                    </form>
-
-                    <!--                 <span th:if="${error}" th:text="${error}"> </span>
-                    -->
-                </section>
-
-            </div>
+            <!--                 <span th:if="${error}" th:text="${error}"> </span>
+            -->           
         </div>
+
         <!--  <div th:text="${session.userSession.name}"> </div>
     
     
         <td><img th:src="@{/foto/usuario/__${session.userSession.id}__}" style="width: 100%; height: 100px;"></td> -->
+
+        <footer class="footer">
+            Copyright. All rights reserved by Astral Tinder Company - 2022.
+        </footer>
+
+
     </body>
 
 </html>
