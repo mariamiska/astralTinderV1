@@ -17,6 +17,12 @@ import javax.transaction.Transactional;
 public class AstralPlaneService {
 
     private final AstralPlaneRepository astralRepo;
+    
+    @Autowired
+    public AstralPlaneService(AstralPlaneRepository astralRepo) {
+        this.astralRepo = astralRepo;
+    }
+
 
     @Transactional
     public void crearPerfilAstral(User user) {
@@ -31,11 +37,7 @@ public class AstralPlaneService {
         astralRepo.save(user.getAstralPlane());
     }
 
-    @Autowired
-    public AstralPlaneService(AstralPlaneRepository astralRepo) {
-        this.astralRepo = astralRepo;
-    }
-
+    
     public void save(AstralPlane astralPlane) {
         astralRepo.save(astralPlane);
     }
