@@ -29,7 +29,7 @@
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
                             <ul class="submenu">
-                                   <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
                                 <li><a href="/ruleta/listmatch">Matches ♥</a></li>
@@ -42,35 +42,35 @@
             </nav>
         </Header>
         <main>
-            
+
             <div class="contenedor">
                 <form th:action="@{/ruleta/match}"  method="POST" th:object="${vote}">
                     <div class="foto-contenedor">
-                        
+
                         <div>
                             <img class="foto-usuario" th:src="@{/foto/usuario/__${session.randomUser.id}__}">
-                               
+
                         </div>
-                            
+
                         <div class="nombre-edad ">   
                             <h3 th:text="${session.randomUser.name} + ' ' + ${session.randomUser.surname} + '. ' + ${session.randomUser.age} + '.'"></h3>   
                         </div>
-        
+
                         <div class="descripcion-perfil">
-        
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur pariatur, eligendi sit a ducimus error laboriosam, maxime, debitis quas reprehenderit veniam suscipit? Ipsum non ipsa tempore reprehenderit ex accusamus! Odio.
+
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur pariatur, eligendi sit a ducimus error laboriosam, maxime, debitis quas reprehenderit veniam suscipit? Ipsum non ipsa tempore reprehenderit ex accusamus! Odio.
                         </div>
-        
+
                         <div class="barra-botones">
-        
+
                             <input type="hidden" th:value="${{session.userSession}}" name="sender" />
                             <input type="hidden" th:value="${{session.randomUser}}" name="receiver" />
 
                             <button class="buttons" type="button"><a href="/ruleta"><img src="../imgs/boton ruleta.png"
-                                                                         class="btonRuleta"></a></button>
+                                                                                         class="btonRuleta"></a></button>
 
                             <button class="buttons" type="submit"><img src="../imgs/boton corazon.png"
-                                                       class="btonCorazon" ></button>
+                                                                       class="btonCorazon" ></button>
 
                         </div>
                     </div>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="navbarCard">
-       
+
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton signo solar.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
@@ -106,7 +106,7 @@
                         </ul>
                     </li>
                 </ul>
-               
+
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton elemento.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
@@ -127,15 +127,15 @@
                 </ul>
 
             </div>
-         
 
 
-        <footer class="footer">
-            Copyright. All rights reserved by Astral Tinder Company - 2022.
-        </footer>
 
-    </main>
-    <script src="https://kit.fontawesome.com/712725c422.js" crossorigin="anonymous"></script>
-</body>
+            <footer class="footer">
+                Copyright. All rights reserved by Astral Tinder Company - 2022.
+            </footer>
+
+        </main>
+        <script src="https://kit.fontawesome.com/712725c422.js" crossorigin="anonymous"></script>
+    </body>
 
 </html>
