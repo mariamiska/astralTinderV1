@@ -19,7 +19,7 @@
                     <ul class="navbar-menu">
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
-                            <ul class="submenu">
+                              <ul class="submenu">
                                    <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
@@ -32,86 +32,86 @@
                 </div>
             </nav>
         </Header>
-
+        <div class="container-foto">  
+                               <img class="foto-usuario" th:src="@{/foto/usuario/__${session.userSession.id}__}">
+     </div>
         <div class="container">
-
-            <section class="container">
-                <h2>  <div th:text="${user.name}"> </div> </h2>
-
-                <fieldset>
-                    <legend>Este es tu perfil</legend>
-
-                    <div class="containerDiv">
+                    
+            
+                    <div class="container-campos">
                         <div class="campo">
                             <label>Nombre</label>
                             <div th:text="${user.name}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                   
                         <div class="campo">
                             <label>Apellido</label>
                             <div th:text="${user.surname}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label>Género</label>
                             <div th:text="${user.gender.name}"> </div>
 
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label>Orientación sexual</label>
                             <div th:text="${user.sexOrient.name}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label>Provincia</label>
                             <div th:text="${user.province.name}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label>Dirección de correo</label>
                             <div th:text="${user.email}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label>Número de telefono</label>
                             <div th:text="${user.phoneNumber}"> </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="containerDiv">
+                    
                         <div class="campo">
                             <label for="start">Fecha de nacimiento</label>
                             <div th:text="${user.birth}"> </div>
                         </div>
+
                     </div>
+                    <div class="container-button">
                     <button th:if="${user.id == session.userSession.id}" class="button">
-                        <h5><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Modificar Perfil</a></h5>
+                        <a th:if="${user.id == session.userSession.id}" href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Modificar Perfil</a>
                     </button>
                     <button  th:if="${user.id != session.userSession.id}"  class="button">
-                        <h5><a href="#" th:href="@{'/ruleta/listmatch/'}">Atras</a></h5>
+                        <a href="#" th:href="@{'/ruleta/listmatch/'}">Atras</a>
                     </button>
                     </div>
-
-                </fieldset>
-
-            </section>
-
+     
         </div>
 
         <span th:if="${error}" th:text="${error}" > </span>
+        
+        <footer class="footer">
+            Copyright. All rights reserved by Astral Tinder Company - 2022.
+        </footer>
+
 
 
     </body>
