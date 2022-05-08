@@ -2,11 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Tahoma, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 body{
+<<<<<<< HEAD
     background-image: url(../imgs/fondo-perfilAstral.png);
+=======
+    background-image: url(../imgs/fondo-perfil-astral.png);
+    height: 100vh;
+    width: 100%;
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
     background-size: cover;
     object-fit: cover;
     height: 1000px;
@@ -14,7 +20,12 @@ body{
     
 }
 
+<<<<<<< HEAD
 /*-------------------------------Navbar------------------------------------*/
+=======
+
+
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
 nav {
     display: flex;
     flex-direction: row;
@@ -22,16 +33,20 @@ nav {
     justify-content: space-between;
     background-color: rgb(0, 0, 0, 0.6);
     height: 100px;
+<<<<<<< HEAD
+=======
+    width: 100%;
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
 
 }
 
 .navbar-menu {
     cursor: pointer;
-    margin-right: 200px;
+    margin-right: 20px;
 }
 
 .navLogo {
-    margin-left: 200px;
+    margin-left: 20px;
 }
 
 nav ul li a {
@@ -41,10 +56,7 @@ nav ul li a {
 }
 
 
-nav ul li a:hover {
-    color: #87006C;
-    transition: .3s;
-}
+
 
 .submenu {
     color: white;
@@ -57,10 +69,7 @@ nav li:hover .submenu {
     display: block;
 }
 
-.submenu:hover {
-    color: #87006C;
-    transition: .3s;
-}
+
 
 .submenu li a {
     display: block;
@@ -131,23 +140,33 @@ a:hover {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    margin-left: 100px;
     align-items: center;
+<<<<<<< HEAD
     font-size: 12px;
     height: 100vh;
     width: 100%;
     padding-bottom: 100px;
+=======
+    justify-content: center;
+    top: -1rem;
+    font-size: 16px;
+    height: 700px;
+    width: 1600px;
+    
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
 }
 
 
 
 form {
+    
     background-color: rgba(255, 255, 255, 0.1);
-    width: min(60rem, 100%);
+    width: 100%;
+    height: 100%;
     border-radius: 2rem;
     box-shadow: 7px 13px 37px;
-    position: relative;
     overflow: hidden;
     margin: 2rem 0 0 0;
     margin-top: 10%;
@@ -182,7 +201,11 @@ form fieldset {
     font-weight: bold;
     margin-bottom: 0.5rem;
     padding-left: 2rem;
+<<<<<<< HEAD
     font-size: 1.4rem;
+=======
+    font-size: 1.5rem;
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
     display: block;
 }
 
@@ -190,12 +213,13 @@ form fieldset {
     background-color: rgba(255, 255, 255, 0.15);
     width: 100%;
     border: none;
-    border-radius: 2rem;
-    height: 4rem;
-    color: white;
-    text-align: center;
+    border-radius: 1rem;
+    height: 5rem;
+    color: beige;
+    text-align: left;
     font-weight: 900;
-    font-size: 2rem;
+    padding: 10px 10px;
+    font-size: 16px;
 }
 
 input::placeholder {
@@ -209,3 +233,43 @@ input:hover {
  */
 
 
+<<<<<<< HEAD
+=======
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    cursor: pointer;
+    
+    
+}
+
+.footer {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    padding-top: 1.7rem;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background: black;
+    color: white;
+}
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07/05/2022, 19:32:56
+    Author     : Guido
+*/
+
+>>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99

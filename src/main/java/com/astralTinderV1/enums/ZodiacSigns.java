@@ -71,7 +71,7 @@ public enum ZodiacSigns {
     PISCIS("Piscis",
             "Son tranquilos, amables y pacientes. Los Piscis son sensibles a los sentimientos de los demás y responden con simpatía al tacto y al sufrimiento. Son queridos por el resto de los signos, debido al carácter afable, cariñoso y amable. Les preocupan más los problemas de los demás que los suyos propios. Eso sí, les cuesta mucho luchar por el poder establecido. Son creativos y artísticos.",
             "Eres una persona apasionada y sensible, y las emociones de otras personas te contagian fácilmente. Cuando te sientas agraviado y no entendido, te sentirás triste y magnificará involuntariamente esta emoción. Tienes una gran imaginación, lo que te hace muy innovador. También tienes una mente subconsciente aguda",
-            "Los ascendentes Piscis son las criaturas de forma cambiante del zodiaco –pueden asumir y absorber todas las emociones que están en su órbita. Uno de los signos de agua, también tienen la habilidad de utilizar su intuición para analizar los problemas y tomar decisiones basándose en su instinto.",
+            "Los ascendentes Piscis son las  de forma cambiante del zodiaco –pueden asumir y absorber todas las emociones que están en su órbita. Uno de los signos de agua, también tienen la habilidad de utilizar su intuición para analizar los problemas y tomar decisiones basándose en su instinto.",
             "Rihanna(20/2), Benicio del Toro(19/3), James Blunt(21/2), Bon Jovi(2/3), Justin Bieber(1/3).");
     
     private final String nameSign;

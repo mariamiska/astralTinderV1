@@ -26,17 +26,18 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
     private UserRepository userRepo;
-    @Autowired
     private AstralPlaneService apServ;
-    @Autowired
     private PhotoService photoServ;
 
-    public UserService(UserRepository userRepo, AstralPlaneService apServ) {
+    @Autowired
+    public UserService(UserRepository userRepo, AstralPlaneService apServ, PhotoService photoServ) {
         this.userRepo = userRepo;
         this.apServ = apServ;
+        this.photoServ = photoServ;
     }
+
+   
     
      
     @Override
@@ -95,6 +96,11 @@ public class UserService implements UserDetailsService {
         return res.get();
     }
 
+       @Transactional
+    public User getById(String id) {
+        return userRepo.getById(id);
+    }
+    
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
@@ -192,5 +198,9 @@ public class UserService implements UserDetailsService {
     @Transactional
     public List<User> getMatches(User user){
         return user.getMatches();
+    }
+    
+    public void descripcionZodiacal(User user){
+        user.getAstralPlane().getSolarSign().showInfoSolar();
     }
 }
