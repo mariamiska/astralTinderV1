@@ -35,7 +35,7 @@
                 <th>Apellido</th>
 
                 <th>Photo</th>
-                <th>Numero de Telefono</th>
+                <th>Perfil</th>
 
                 <th>Vas a conocerlo?</th>
                 </thead>
@@ -45,11 +45,13 @@
                         <td th:text="${match.name}"></td>
                         <td th:text="${match.surname}"></td>
                         <td><img th:src="@{/foto/usuario/__${match.id}__}" style="width: 25%; height: 100px;"></td>
-                        <td th:text="${match.phoneNumber}"></td>
+                        <td>
+                            <button ><a href="#" th:href="@{'/usuarios/perfil/'+ ${match.id}}" >Ir al perfil</a></button>
+                        </td> 
+
 
                         <td>
-                            <button ><a href="#" th:href="@{'/perfilAstral/mostrar/'+ ${match.id}}" >Ir al perfil</a></button>
-
+                            <button ><a href="#" th:href="@{'/perfilAstral/mostrar/'+ ${match.id}}" >Ir al perfil astral</a></button>
                         </td> 
                     </tr>
                 </tbody>
