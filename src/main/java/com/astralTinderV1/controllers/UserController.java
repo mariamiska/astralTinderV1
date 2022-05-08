@@ -8,9 +8,6 @@ import com.astralTinderV1.services.PhotoService;
 import com.astralTinderV1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -93,15 +90,32 @@ public class UserController {
      *
      * return pagina perfil del usuario
      */
-    @GetMapping("/perfil")
-    public String showProfile(ModelMap m) {
+//    @GetMapping("/perfil")
+//    public String showProfile(ModelMap m) {
+//        User user;
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        UserDetails userDetail = (UserDetails) auth.getPrincipal();
+//        user = userService.getUserbyEmail(userDetail.getUsername());
+//        m.addAttribute("user", m);
+//        return "user-profile";
+//    }
+
+ @GetMapping("/perfil/{id}")
+    public String ShowProfile(ModelMap m,@PathVariable String id)
+    {
         User user;
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetail = (UserDetails) auth.getPrincipal();
-        user = userService.getUserbyEmail(userDetail.getUsername());
-        m.addAttribute("user", m);
-        return "user-profile";
+        try
+        {
+            user=userService.findById(id);
+            m.addAttribute("user", user);
+            return "user-profile";            
+        }catch(Exception e)
+        {
+            System.out.println("no se encontro el usurio con esa id");
+            return "redirect:/";
+        }
     }
+
 
     /**
      * no tengo plantilla de este metodo todavia tiene que devolver el
@@ -110,7 +124,7 @@ public class UserController {
      * @param mm
      * @return
      */
-    @GetMapping("/modificar/{id}")
+    @GetMapping("/modificar")
     public String modify(ModelMap model, @PathVariable String id) {
         try {
             model.addAttribute("user", userService.findById(id));
@@ -120,7 +134,7 @@ public class UserController {
 
             return "/user-profile-modify";
         } catch (Exception e) {
-            return "redirect: /user-profile";
+            return "redirect:/user-profile";
         }
     }
 
@@ -133,7 +147,7 @@ public class UserController {
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             e.printStackTrace();
-            return "/user-register";
+            return "redirect:/modificar";
         }
     }
 
