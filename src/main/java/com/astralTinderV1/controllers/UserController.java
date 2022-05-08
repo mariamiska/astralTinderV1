@@ -8,13 +8,11 @@ import com.astralTinderV1.services.PhotoService;
 import com.astralTinderV1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +62,7 @@ public class UserController {
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             e.printStackTrace();
-            return "/user-register";
+            return "redirect:/registro";
         }
     }
 
@@ -92,15 +90,32 @@ public class UserController {
      *
      * return pagina perfil del usuario
      */
-    @GetMapping("/perfil")
-    public String showProfile(ModelMap m) {
+//    @GetMapping("/perfil")
+//    public String showProfile(ModelMap m) {
+//        User user;
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        UserDetails userDetail = (UserDetails) auth.getPrincipal();
+//        user = userService.getUserbyEmail(userDetail.getUsername());
+//        m.addAttribute("user", m);
+//        return "user-profile";
+//    }
+
+ @GetMapping("/perfil/{id}")
+    public String ShowProfile(ModelMap m,@PathVariable String id)
+    {
         User user;
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetail = (UserDetails) auth.getPrincipal();
-        user = userService.getUserbyEmail(userDetail.getUsername());
-        m.addAttribute("user", m);
-        return "user-profile";
+        try
+        {
+            user=userService.findById(id);
+            m.addAttribute("user", user);
+            return "user-profile";            
+        }catch(Exception e)
+        {
+            System.out.println("no se encontro el usurio con esa id");
+            return "redirect:/";
+        }
     }
+
 
     /**
      * no tengo plantilla de este metodo todavia tiene que devolver el
@@ -110,25 +125,29 @@ public class UserController {
      * @return
      */
     @GetMapping("/modificar")
-    public String modify(ModelMap model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("provinces", Province.values());
-        model.addAttribute("genders", Gender.values());
-        model.addAttribute("sexualOrientations", SexualOrientation.values());
+    public String modify(ModelMap model, @PathVariable String id) {
+        try {
+            model.addAttribute("user", userService.findById(id));
+            model.addAttribute("provinces", Province.values());
+            model.addAttribute("genders", Gender.values());
+            model.addAttribute("sexualOrientations", SexualOrientation.values());
 
-        return "/user-profile-modify";
+            return "/user-profile-modify";
+        } catch (Exception e) {
+            return "redirect:/user-profile";
+        }
     }
 
     @PostMapping("/modificar")
     public String modifyUser(@ModelAttribute User user, ModelMap mm,
             @RequestParam(required = false) MultipartFile archivo) {
         try {
-            userService.save(user, archivo);
-            return "/user-profile";
+            userService.modifyUser(user, archivo);
+            return "redirect:/ruleta";
         } catch (Exception e) {
             mm.addAttribute("error", e.getMessage());
             e.printStackTrace();
-            return "/user-register";
+            return "redirect:/modificar";
         }
     }
 

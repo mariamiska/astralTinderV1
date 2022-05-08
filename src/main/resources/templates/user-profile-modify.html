@@ -18,6 +18,7 @@
                 <h2>Modifica tu perfil.</h2>
 
                 <form class="form" th:action="@{/usuarios/modificar}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{id}" name="id" th:value="${user.id}" >
 
                     <fieldset>
                         <legend>Completa el formulario</legend>

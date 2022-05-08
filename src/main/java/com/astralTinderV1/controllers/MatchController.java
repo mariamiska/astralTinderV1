@@ -40,7 +40,7 @@ public class MatchController {
             random = cypS.randomUser();
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
-
+        
         model.addAttribute("vote", new Vote());
         return "main-menu";
 
@@ -54,5 +54,12 @@ public class MatchController {
         model.addAttribute("match", voteService.Match(vote));
         return "redirect:/ruleta";
 
+    }
+    
+    @GetMapping("/listmatch")
+    public String listMatch(ModelMap model, HttpSession session) {
+        User currentUser = (User) session.getAttribute("userSession");
+        model.put("matches", currentUser.getMatches());
+        return "user-match";
     }
 }

@@ -29,10 +29,10 @@
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
                             <ul class="submenu">
-                                <li><a href="/usuarios/perfil">Mi perfil</a></li>
-                                <li><a href="/perfilAstral/mostrar">Mi perfil Astral</a></li>
+                                <li><a href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a href="usuarios/modificar">Configuracion de la cuenta</a></li>
-                                <li><a href="#">Cita a ciegas(Premium)</a></li>
+                                <li><a href="/ruleta/listmatch">Matches ♥</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>
@@ -61,6 +61,7 @@
                                     Officia eveniet commodi omnis.
                                 </div>
                                 <div class="actions">
+
                                     <input type="hidden" th:value="${{session.userSession}}" name="sender" />
                                     <input type="hidden" th:value="${{session.randomUser}}" name="receiver" />
 
@@ -69,6 +70,7 @@
 
                                     <button type="submit"><img src="../imgs/boton corazon.png"
                                                                class="btonCorazon"></button>
+
                                 </div>
                             </div>
                         </div>
@@ -81,7 +83,8 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton signo solar.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO SOLAR</h3></li>
+                            <li><h3>SIGNO SOLAR </h3>
+                                <h3  th:text="${session.randomUser.astralPlane.solarSign}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -89,7 +92,8 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton signo lunar.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO LUNAR</h3></li>
+                            <li><h3>SIGNO LUNAR</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.lunarSign}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -97,7 +101,9 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton ascendente.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO ASCENDENTE</h3></li>
+                            <li><h3>SIGNO ASCENDENTE</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.ascendente}"> </h3> </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -106,7 +112,8 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton elemento.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO ELEMENTO</h3></li>
+                            <li><h3>SIGNO ELEMENTO</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.element}"> </h3> </li>
                         </ul>
                     </li>
                 </ul>
@@ -114,7 +121,9 @@
                 <ul class="Signos">
                     <li><i><img src="/imgs/boton cualidad.png" class="BtonAscendente"></i>
                         <ul class="subSignos">
-                            <li><h3>SIGNO CUALIDAD</h3></li>
+                            <li><h3>SIGNO CUALIDAD</h3>
+                                <h3  th:text="${session.randomUser.astralPlane.cualidad}"> </h3> </li>
+
                         </ul>
                     </li>
                 </ul>
