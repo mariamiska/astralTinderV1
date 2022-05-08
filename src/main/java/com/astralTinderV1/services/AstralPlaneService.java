@@ -6,6 +6,7 @@ import com.astralTinderV1.enums.Cualidades;
 import com.astralTinderV1.enums.Elements;
 import com.astralTinderV1.enums.YearLunarSign;
 import com.astralTinderV1.enums.ZodiacSigns;
+import com.astralTinderV1.enums.descripSimulator;
 import com.astralTinderV1.exceptions.ServiceException;
 import com.astralTinderV1.repositories.AstralPlaneRepository;
 import java.util.Optional;
@@ -17,12 +18,11 @@ import javax.transaction.Transactional;
 public class AstralPlaneService {
 
     private final AstralPlaneRepository astralRepo;
-    
+
     @Autowired
     public AstralPlaneService(AstralPlaneRepository astralRepo) {
         this.astralRepo = astralRepo;
     }
-
 
     @Transactional
     public void crearPerfilAstral(User user) {
@@ -37,7 +37,6 @@ public class AstralPlaneService {
         astralRepo.save(user.getAstralPlane());
     }
 
-    
     public void save(AstralPlane astralPlane) {
         astralRepo.save(astralPlane);
     }
@@ -86,7 +85,7 @@ public class AstralPlaneService {
     private void resolveLunarSign(User user) {
         int yearU = user.getBirth().getYear();
         int monthU = user.getBirth().getMonth();
-        int dayU = user.getBirth().getDay();
+        int dayU = user.getBirth().getDay() + 1;
         int lunarAdd = modYearAdd(yearU) + modMonthAdd(monthU) + dayU;
         int gradoLunar = lunarAddRefact(lunarAdd);
         switch (gradoLunar) {
@@ -101,10 +100,10 @@ public class AstralPlaneService {
             case 4:
                 user.getAstralPlane().setLunarSign(ZodiacSigns.TAURO);
                 break;
-//            case 5:
-//            case 6:
-//                user.getAstralPlane().setLunarSign(ZodiacSigns.GEMINIS);
-//                break;
+            case 5:
+            case 6:
+                user.getAstralPlane().setLunarSign(ZodiacSigns.GEMINIS);
+                break;
             case 7:
             case 8:
                 user.getAstralPlane().setLunarSign(ZodiacSigns.CANCER);
@@ -150,14 +149,14 @@ public class AstralPlaneService {
 
     private int modYearAdd(int num) {
         //num es el año de nacimiento del usuario
-        int addValor = 0;
         YearLunarSign[] anioArray = YearLunarSign.values();
-        for (YearLunarSign anioArray1 : anioArray) {
-            if (anioArray1.anioAtributo() == num) {
-                addValor = addValor + anioArray1.modAtributo();
+        int modYear = 0;
+        for (int i = 0; i < anioArray.length; i++) {
+            if( num==anioArray[i].anioAtributo()){
+               modYear = anioArray[i].modAtributo();   
             }
-        } 
-        return addValor;
+        }
+        return modYear;
     }
 
     private int modMonthAdd(int num) {
@@ -606,6 +605,7 @@ public class AstralPlaneService {
             }
         }
     }
+
     private int compatibilidad(User user1, User user2) {
         //user1 = usuario en session, user2 = user random
         int solarUser1 = user1.getAstralPlane().getSolarSign().ordinal();
@@ -636,4 +636,46 @@ public class AstralPlaneService {
         //2 es alto
         return k;
     }
+
+    private String argumentoUser(User user) {
+        int userSignSlot = user.getAstralPlane().getSolarSign().ordinal();
+        descripSimulator[] descripUser;
+        descripUser = descripSimulator.values();
+        int num;
+        String argumento = null;
+        for (int i = 0; i < descripUser.length; i++) {
+            if (i == userSignSlot) {
+                num = (int) (Math.random() * 5 + 1);
+                switch (num) {
+                    case 1:
+                        argumento = descripUser[i].getAgumento1();
+                        break;
+                    case 2:
+                        argumento = descripUser[i].getAgumento2();
+                        break;
+                    case 3:
+                        argumento = descripUser[i].getAgumento3();
+                        break;
+                    case 4:
+                        argumento = descripUser[i].getAgumento4();
+                        break;
+                    case 5:
+                        argumento = descripUser[i].getAgumento5();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } return argumento;
+    }
+    
+    private void showArgument(User user){
+        String argument1 = argumentoUser(user);
+        String argument2;
+        String description;
+        do
+            argument2 = argumentoUser(user);
+        while(!argument1.equals(argument2));
+        description = argument1 + "\n" + argument2;
+    }  
 }
