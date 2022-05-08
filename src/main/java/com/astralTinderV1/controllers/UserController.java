@@ -101,7 +101,7 @@ public class UserController {
 //    }
 
  @GetMapping("/perfil/{id}")
-    public String ShowProfile(ModelMap m,@PathVariable String id)
+    public String showProfile(ModelMap m,@PathVariable String id)
     {
         User user;
         try

@@ -21,10 +21,10 @@ public class AstralPlaneController {
     UserService uS;
 
     @Autowired
-    public AstralPlaneController(AstralPlaneService apServ) {
+    public AstralPlaneController(AstralPlaneService apServ, UserService uS) {
         this.apServ = apServ;
+        this.uS = uS;
     }
-
 //    @GetMapping("/mostrar")
 //    public String showProfile(ModelMap model, HttpSession session) {
 //        User currentUser = (User) session.getAttribute("userSession");
@@ -33,20 +33,19 @@ public class AstralPlaneController {
 //        return "/user-astral-profile";
 //
 //    }
-    
-     @GetMapping("/mostrar/{id}")
-    public String ShowProfile(ModelMap m,@PathVariable String id)
-    {
-        User user;
-        try
-        {
-            user=uS.findById(id);
+
+    @GetMapping("/mostrar/{id}")
+    public String showProfile(ModelMap m, @PathVariable String id) {
+        User user = uS.getById(id);
+        try {
             m.addAttribute("astralPlane", user.getAstralPlane());
-            return "user-astral-profile";            
-        }catch(Exception e)
-        {
+            return "user-astral-profile";
+        } catch (Exception e) {
+            System.out.println(id);
+            System.out.println(user.getAstralPlane());
             System.out.println("no se encontro el usurio con esa id");
-            return "redirect/:";
+            return "redirect:/ruleta";
         }
     }
+
 }

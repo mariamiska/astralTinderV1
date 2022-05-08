@@ -96,6 +96,11 @@ public class UserService implements UserDetailsService {
         return res.get();
     }
 
+       @Transactional
+    public User getById(String id) {
+        return userRepo.getById(id);
+    }
+    
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
