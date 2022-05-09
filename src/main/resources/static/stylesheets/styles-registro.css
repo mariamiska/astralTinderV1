@@ -71,10 +71,26 @@ nav li:hover .submenu{
     height: 25px;
     width: 25px;
 }
-
+.footer {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    padding-top: 1.7rem;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background: black;
+    color: white;
+}
 body {
     height: 100vh;
     width: 100%;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8e9b25d5a5d5498792bf02edfd211e09f3660ee
     background-image:  url('../imgs/full-background.png');
 }
 
@@ -124,8 +140,20 @@ form fieldset{
 
 }
 
+<<<<<<< HEAD
 .camposSelect option{
     background-color:#6e245f;
+=======
+.selectOrientacion{
+
+    color:white;
+
+}
+
+
+.campo{
+    margin-bottom: 1rem;
+>>>>>>> b8e9b25d5a5d5498792bf02edfd211e09f3660ee
 }
 
 .campo label{
@@ -171,13 +199,17 @@ input:hover{
     border-radius: 2rem;
     height: 3rem;
     background-color: #e74064;
+<<<<<<< HEAD
     margin-top: 10px;
     
+=======
+
+>>>>>>> b8e9b25d5a5d5498792bf02edfd211e09f3660ee
 }
 
 .principal-button:hover{
     cursor: pointer;
-    color: #e74064; 
+    color: #e74064;
     background-color: white;
 }
 
