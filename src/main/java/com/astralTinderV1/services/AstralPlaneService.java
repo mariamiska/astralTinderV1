@@ -152,8 +152,8 @@ public class AstralPlaneService {
         YearLunarSign[] anioArray = YearLunarSign.values();
         int modYear = 0;
         for (int i = 0; i < anioArray.length; i++) {
-            if( num==anioArray[i].anioAtributo()){
-               modYear = anioArray[i].modAtributo();   
+            if (num == anioArray[i].anioAtributo()) {
+                modYear = anioArray[i].modAtributo();
             }
         }
         return modYear;
@@ -606,10 +606,10 @@ public class AstralPlaneService {
         }
     }
 
-    private int compatibilidad(User user1, User user2) {
+    public int compatibilidad(User user1, User user2) {
         //user1 = usuario en session, user2 = user random
         int solarUser1 = user1.getAstralPlane().getSolarSign().ordinal();
-        int solarUser2 = user1.getAstralPlane().getSolarSign().ordinal();
+        int solarUser2 = user2.getAstralPlane().getSolarSign().ordinal();
         int k = 0;
         int matriz[][] = {{2, 0, 2, 0, 2, 2, 1, 1, 2, 0, 2, 0},
         {0, 2, 1, 2, 1, 2, 1, 2, 0, 2, 0, 2},
@@ -623,18 +623,20 @@ public class AstralPlaneService {
         {0, 2, 0, 1, 2, 2, 1, 2, 0, 2, 0, 2},
         {2, 0, 2, 0, 1, 1, 2, 1, 2, 0, 2, 0},
         {0, 2, 0, 2, 1, 1, 1, 2, 0, 2, 0, 1}};
+        //        for (int i = 0; i < matriz.length; i++) {
+        //            for (int j = 0; j < matriz.length; j++) {
+        //                if (solarUser1 == i && solarUser2 == j) {
+        //                     k = matriz[i][j];
+        //                     
+        //                }
+        //                System.out.println(k);
+        //            }
+        //        }
 
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if (solarUser1 == i && solarUser2 == j) {
-                    matriz[i][j] = k;
-                }
-            }
-        }
         //0 es bajo
         //1 es medio 
         //2 es alto
-        return k;
+        return matriz[solarUser1][solarUser2];
     }
 
     private String argumentoUser(User user) {
@@ -666,17 +668,18 @@ public class AstralPlaneService {
                         break;
                 }
             }
-        } return argumento;
+        }
+        return argumento;
     }
-    
-  public String showArgument(User user){
+
+    public String showArgument(User user) {
         String argument1 = argumentoUser(user);
         String argument2;
         String description;
-        do
+        do {
             argument2 = argumentoUser(user);
-        while(argument1.equals(argument2));
-        description = argument1 +  " \n " + argument2;
+        } while (argument1.equals(argument2));
+        description = argument1 + " \n " + argument2;
         return description;
     }
 
