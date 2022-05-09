@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+body {
+    background-image: url(../imgs/navbar-tools-background.png);
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+/*------------------------------------------------Navbar---------------------------------------------------*/
+
+nav {
+    background-color: rgb(0, 0, 0, 0.6);
+    display: flex;
+    height: 115px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 15px;
+}
+
+.LogoT {
+    margin-top: 15px;
+    height: 100px;
+    width: 250px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #87006C;
+    transition: .3s;
+}
+
+/*------------------------------------------------------Main----------------------------------------------------------------------------*/
+
+
+.main-container {
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.8fr 1fr;
+    grid-template-areas:
+        "image-eggAstral div-p"
+        "div-p2 image-pcAstral";
+}
+
+.image-eggAstral {
+    grid-area: image-eggAstral;
+}
+
+.div-p {
+    grid-area: div-p;
+}
+
+.image-pcAstral {
+    grid-area: image-pcAstral;
+}
+
+.div-p2 {
+    grid-area: div-p2;
+}
+
+
+.image-eggAstral {
+
+    margin-top: 15px;
+    height: 350px;
+    width: 750px;
+}
+
+.div-Astral {
+    margin-bottom: 60px;
+}
+
+.image-pcAstral {
+    height: 340px;
+    width: 650px;
+}
+
+.div-p {
+    margin-right: 20px;
+}
+
+.div-p2 {
+    margin-left: 20px;
+}
+
+
+
+.fancy-undeline {
+    background-image: linear-gradient(120deg, #ec008c, #fc6767 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in;
+    font-size: 23.2px;
+    color: azure;
+
+}
+
+.fancy-undeline:hover {
+    background-size: 100% 88% !important;
+}
+
+.descriptionP {
+    font-size: 23.2px;
+    color: azure;
+}
+
+.descriptionC {
+    font-size: 23.2px;
+    color: azure;
+}
+
+
+
+/*--------------------------------------------------------Footer-----------------------------------------------------------------------*/
+
+.footer {
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    padding-top: 1.7rem;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background: black;
+    color: white;
+}

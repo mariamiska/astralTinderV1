@@ -77,7 +77,6 @@ nav li:hover .submenu{
     width: 250px;
 }
 
-<<<<<<< HEAD
 /* -------------------------MENU-------------------------------*/
 .Card{
     margin-top: 40px;
@@ -202,7 +201,6 @@ nav li:hover .submenu{
 }
 =======
 /* ----- MENU ---- */
->>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
 
 .contenedor {
     position: absolute;    
@@ -290,10 +288,7 @@ nav li:hover .submenu{
 
 }
 
-<<<<<<< HEAD
 /*--------------------------- Zodiac signos ---------------------------*/
-=======
-
 
 
 .contenedor .barra-botones {
@@ -333,7 +328,6 @@ nav li:hover .submenu{
 /* NAVBAR-CARD*/
 
 
->>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
 .navbarCard{
     position: absolute;
     left: calc(80% - 300px);
@@ -410,24 +404,5 @@ nav li:hover .submenu{
     width: 25px;
 
 }
-<<<<<<< HEAD
-=======
 
 
-
-
-/* DESTKOP VIEW */
-/* 
-@media(min-width: 1025px){
-    .photo{
-        width: 367px;
-        height: 684px;
-    }
-
-    .navbarCard{
-        width: 400px;
-        margin: auto;
-        margin-top: 10px;
-    }
-} */
->>>>>>> 025cfc84ed44a2230e4212eea4db7147d8b04b99
