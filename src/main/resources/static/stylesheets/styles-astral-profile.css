@@ -151,12 +151,23 @@ form fieldset {
     border: none;
     border-radius: 1rem;
     height: 5rem;
-    color: white;
+    color: beige;
     text-align: left;
     font-weight: 900;
     padding: 10px 10px;
     font-size: 16px;
 }
+
+input::placeholder {
+    color: rgba(238, 229, 229, 0.74);
+    padding-left: 2rem;
+}
+
+input:hover {
+    background-color: rgba(255, 255, 255, 0.308);
+}
+
+
 
 a {
     text-decoration: none;
@@ -193,4 +204,3 @@ and open the template in the editor.
     Created on : 07/05/2022, 19:32:56
     Author     : Guido
 */
-

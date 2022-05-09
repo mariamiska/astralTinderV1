@@ -22,7 +22,7 @@ public class VoteService {
 
     @Transactional
     public void saveVote(Vote vote) {
-
+        System.out.println(vote);
         User user1 = vote.getUserRecive();
         User user2 = vote.getUserSend();
         //guarda el usuario que envio el voto en los recibidos del receptor
@@ -66,7 +66,7 @@ public class VoteService {
             matchsUser2.add(user1);
 
         }
-      return (match1 && match2);
+        return (match1 && match2);
     }
 
 }

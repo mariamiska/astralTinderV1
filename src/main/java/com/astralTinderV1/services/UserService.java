@@ -26,23 +26,24 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
     private UserRepository userRepo;
-    @Autowired
     private AstralPlaneService apServ;
-    @Autowired
     private PhotoService photoServ;
 
-    public UserService(UserRepository userRepo, AstralPlaneService apServ) {
+    @Autowired
+    public UserService(UserRepository userRepo, AstralPlaneService apServ, PhotoService photoServ) {
         this.userRepo = userRepo;
         this.apServ = apServ;
+        this.photoServ = photoServ;
     }
+
+   
     
      
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
-        User user = userRepo.findByEmail(eMail);
+       User user = userRepo.findByEmail(eMail);
         if (user == null) {
             throw new UsernameNotFoundException("usuario inexistente");
         }
@@ -57,6 +58,7 @@ public class UserService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
+
 
     /**
      * no olvidar encriptar contraseñas que sino no entra
@@ -76,14 +78,15 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
         System.out.println(user);
     }
-
+    
+   
     public void encodedPassword(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
     }
 
-    @Transactional(rollbackOn = {Exception.class})
+      @Transactional(rollbackOn = {Exception.class})
     public User findById(String id) throws ServiceException {
         Optional<User> res;
         res = userRepo.findById(id);
@@ -93,6 +96,11 @@ public class UserService implements UserDetailsService {
         return res.get();
     }
 
+       @Transactional
+    public User getById(String id) {
+        return userRepo.getById(id);
+    }
+    
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
@@ -103,6 +111,7 @@ public class UserService implements UserDetailsService {
         int añoAhora = LocalDate.now().getYear();
         int edad = añoAhora - (añoNacio + 1900);
         user.setAge(edad);
+
     }
 
     public boolean mayorDeEdad(User user) {
@@ -167,16 +176,15 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public User modifyUser(User user, MultipartFile file) throws Exception {
+    public void modifyUser(User user, MultipartFile file) throws Exception {
 
         age(user);
-        validate(user);
+//        validate(user);
         apServ.crearPerfilAstral(user);
         encodedPassword(user);
         Photo photo = photoServ.multiPartToEntity(file);
         user.setImage(photo);
         userRepo.save(user);
-        return userRepo.save(user);
     }
 
     @Transactional
@@ -185,5 +193,14 @@ public class UserService implements UserDetailsService {
         user.setPassword(password);
         encodedPassword(user);
         return userRepo.save(user);
+    }
+    
+    @Transactional
+    public List<User> getMatches(User user){
+        return user.getMatches();
+    }
+    
+    public void descripcionZodiacal(User user){
+        user.getAstralPlane().getSolarSign().showInfoSolar();
     }
 }

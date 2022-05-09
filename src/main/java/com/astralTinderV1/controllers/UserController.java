@@ -124,7 +124,7 @@ public class UserController {
      * @param mm
      * @return
      */
-    @GetMapping("/modificar")
+    @GetMapping("/modificar/{id}")
     public String modify(ModelMap model, @PathVariable String id) {
         try {
             model.addAttribute("user", userService.findById(id));
@@ -163,3 +163,4 @@ public class UserController {
     }
 
 }
+

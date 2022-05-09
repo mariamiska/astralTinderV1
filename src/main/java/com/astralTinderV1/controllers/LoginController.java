@@ -41,7 +41,4 @@ public class LoginController {
     public String logOut() {
         return "user-login";
     }
-
-    
 }
-

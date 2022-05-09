@@ -15,12 +15,15 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class PhotoService {
 
-    @Autowired
     private PhotoRepository photoRepository;
+
+    @Autowired
+    public PhotoService(PhotoRepository photoRepository) {
+        this.photoRepository = photoRepository;
+    }
 
     @Transactional
     public Photo multiPartToEntity(MultipartFile file) throws ServiceException {
-        System.out.println("entro");
         if (file != null) {
             try {
                 Photo photo = new Photo();
