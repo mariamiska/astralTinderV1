@@ -36,7 +36,7 @@ public enum descripSimulator {
         "Ya te dije que te amaba... el año pasado, ¿no te alcanza?",
         "¿Quién te crees que sos?",
         "La casa está en orden.",
-        "Tengo mucho por ordenar tovia..."),
+        "Tengo mucho por ordenar todavia..."),
    
    LIB("¿Quién soy yo sin vos?",
         "Tal para cual, Pascuala con Pascual.",
