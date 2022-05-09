@@ -669,13 +669,14 @@ public class AstralPlaneService {
         } return argumento;
     }
     
-    private void showArgument(User user){
+    public String showArgument(User user){
         String argument1 = argumentoUser(user);
         String argument2;
         String description;
         do
             argument2 = argumentoUser(user);
-        while(!argument1.equals(argument2));
+        while(argument1.equals(argument2));
         description = argument1 + "\n" + argument2;
+        return description;
     }  
 }
