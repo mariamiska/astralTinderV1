@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles-registro.css">
+    <title>Iniciar sesión</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section class="containerS">
+            <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+
+            <form class="form" th:action="@{/logincheck}" method="POST">
+                <fieldset>
+                    <legend>Inicia sesión con tu cuenta</legend>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Email</label>
+                            <input type="email" name="email" class="direccion de correo" placeholder="Tú email">
+                        </div>
+                    </div>
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Contraseña</label>
+                            <input type="password" name="password" class="contraseña" placeholder="Tú contraseña">
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" class="principal-button" value="Enviar">
+                    </div>
+
+                    <h5><a href="/usuarios/registro">¿No tienes una cuenta?</a></h5>
+
+                </fieldset>
+            </form>
+
+            <span th:if="${error}" th:text="${error}"> </span>
+        </section>
+
+    </div>
+<footer class="footer">
+            Copyright. All rights reserved by Astral Tinder Company - 2022.
+        </footer>
+    <!--  <div th:text="${session.userSession.name}"> </div>
+
+
+
+    <td><img th:src="@{/foto/usuario/__${session.userSession.id}__}" style="width: 100%; height: 100px;"></td> -->
+</body>
+
+</html>
