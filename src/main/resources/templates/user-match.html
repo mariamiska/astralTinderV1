@@ -4,57 +4,81 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/navbar-tools.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-match.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-            rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap">
+           
+        
+              
         <title>Lista Usuarios</title>
     </head>
     <body>
 
-        <div>
-            <nav class="navbar">
-                <h2 class="logo">Astral <span class="span-logo">Tinder</span></h2>
+        <Header>
+            <nav>
+                <div class="navLogo">
+                    <a href="/ruleta"><img src="/imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+                </div>
+                <div class="navbarUls">
+                    <ul class="navbar-menu">
+                        <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
-                <button type="button"><a href="/ruleta">Volver a la ruleta</a></button>
+                            <ul class="submenu">
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
+                                <li><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
+                                <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/login/logout">Cerrar sesión</a></li>
 
+                        </li>
+                    </ul>
+                </div>
             </nav>
+        </Header>
 
-        </div>
         <main>
-            <div><button type="button">Encontra a tu pareja o tu proximo touch and go ♥</button></div>
-            <br>
-            <table class="table table-dark table-striped">
+
+         <div class="container">  
+            <div><h2>¿Amor o aventura?</h2></div>
+            <div class="container-table">
+            <table class="table">
+                
                 <thead>
-                <th>Match</th>
-                <th>Apellido</th>
-
-                <th>Photo</th>
-                <th>Perfil</th>
-
-                <th>Vas a conocerlo?</th>
+                    <th>Foto</th>
+                    <th>Match</th>
+                    <th>Apellido</th>                   
+                    <th>Perfil</th>
+                    <th>¿Vas a conocerlo?</th>
                 </thead>
+
                 <tbody>
-                    <!--<tr th:each="match : ${session.userSession.matches}">-->
+                    <tr th:each="match : ${session.userSession.matches}">
                     <tr th:each="match : ${matches}">
+                        <td class="foto-td"><img class="foto-match" th:src="@{/foto/usuario/__${match.id}__}"></td>
                         <td th:text="${match.name}"></td>
                         <td th:text="${match.surname}"></td>
-                        <td><img th:src="@{/foto/usuario/__${match.id}__}" style="width: 25%; height: 100px;"></td>
+                        
                         <td>
-                            <button ><a href="#" th:href="@{'/usuarios/perfil/'+ ${match.id}}" >Ir al perfil</a></button>
+                            <button class="button"><a href="#" th:href="@{'/usuarios/perfil/'+ ${match.id}}" >Ir al perfil</a></button>
                         </td> 
 
 
                         <td>
-                            <button ><a href="#" th:href="@{'/perfilAstral/mostrar/'+ ${match.id}}" >Ir al perfil astral</a></button>
+                            <button class="button"><a href="#" th:href="@{'/perfilAstral/mostrar/'+ ${match.id}}" >Ir al perfil astral</a></button>
                         </td> 
                     </tr>
                 </tbody>
             </table>
+            </div>
+        </div>    
+
+
+            <footer class="footer">
+                Copyright. All rights reserved by Astral Tinder Company - 2022.
+            </footer>
+
+
     </body>
 </html>

@@ -6,19 +6,6 @@
 }
 
 
-body {
-
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-
-    background-image:  url('../imgs/full-background.png');
-    background-size: cover;
-    background-position: center;
-}
-
-
-
 nav{
     width: 100%;
     display: flex;
@@ -33,10 +20,10 @@ nav{
     margin-right: 200px;
 }
 
-
+ 
 .navLogo{
     margin-left: 200px;
-}
+} 
 
 nav ul li{
     text-decoration: none;
@@ -44,7 +31,7 @@ nav ul li{
 nav ul li a{
     color: beige;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bold;    
 }
 
 nav ul li a:hover{
@@ -79,77 +66,128 @@ nav li:hover .submenu{
     height: 100px;
     width: 250px;
 }
+
 .BtonDesplegable{
     height: 25px;
     width: 25px;
 }
-.container{
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 500px;
-    height: 750px;
-    border-radius: 2rem;
-    box-shadow: 7px 13px 37px;
-    position: absolute;
-    left: 775px;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
-    align-items: center;
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image:  url('../imgs/full-background.png');
 }
 
-.container div {
-    color: white;
+/*.container-Form{
+
+    
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: 960px;
+    margin-top: 100px;   
+}*/
+
+
+form{
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 750px;
+    width: 500px;
+    border-radius: 2rem;
+    left: 750px;
+    box-shadow: 7px 13px 37px;
+    position: absolute;
+}
+
+
+form fieldset{
+    border: none;
+}
+
+.camposSelect{
+    width: 100%;
     text-align: center;
-    margin-bottom: 5px;
-    margin-left: 17.5px;
-    margin-right: 10px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    border: none;
+
+}
+
+.camposSelect option{
+    background-color:#6e245f;
+    
 }
 
 .campo label{
+    text-align: left;
     color: white;
     font-weight: bold;
-    text-align: left;
     margin-bottom: 0.5rem;
-    padding-left: 20px;
+    padding-left: 16px;
     font-size: 16px;
     display: block;
 }
 
-.campo div{
+.campo input{
+    padding: 10px;
+    margin: 2px;
     background-color: rgba(255, 255, 255, 0.15);
-    width: 90%;
-    border-radius: 2rem;
-    height: 2.2rem;
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    height: 2rem;
     color: white;
     text-align: center;
-    justify-content: center;
-    padding: 22px;
-    font-size: 16px;
-    margin-top: 10px;
-
+    font-size: 1rem;
 }
 
+input::placeholder{
+    color: rgba(238, 229, 229, 0.74);
+}
 
-.div button{
-    left: 100px;
+input:hover{
+    background-color: rgba(255, 255, 255, 0.308);
 }
 
 .button{
-
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: none;
-    background: #87006C;
-    padding: 12px 20px;
-    border-radius: 30px;
-    color: beige;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-    transition: .4s;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
+.principal-button{
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    width: 40%;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    height: 1.75rem;
+    background-color: #e74064;
+    margin-top: 10px;
+    
+}
+
+.principal-button:hover{
+    cursor: pointer;
+    color: #e74064; 
+    background-color: white;
+}
+
+h5{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 16px;
+}
 
 a{
     text-decoration: none;
@@ -158,8 +196,7 @@ a{
 
 a:hover{
     cursor: pointer;
-    color: white;
-
+    color: #e74064;
 }
 
 .footer {
@@ -174,27 +211,5 @@ a:hover{
     height: 4rem;
     background: black;
     color: white;
-}
-
-.container-foto {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    margin-top: 9.5rem;
-    margin-left: 450px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 2rem;
-    box-shadow: 7px 13px 37px;
-    align-items: center;
-
-}
-
-.foto-usuario{
-    height: 85%;
-    width: 85%;
-    margin: 10px;
-    margin-top: 30px;
-    border-radius: 2rem;
-    margin-left: 22.5px;
-
+    font-size: 16px;
 }
