@@ -33,7 +33,7 @@ public class AstralPlaneService {
         resolveAscendant(user);
         resolveElement(user);
         resolveCualidad(user);
-
+        System.out.println(user.getAstralPlane().getAscendente());
         astralRepo.save(user.getAstralPlane());
     }
 
@@ -271,11 +271,13 @@ public class AstralPlaneService {
 
     private void resolveAscendant(User user) {
         int h = user.getBirthHour().getHours();
-        int hour = h - 2;
-        if (hour >= 24) {
-            hour = 00;
-        }
-        if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ARIES) {
+//        int hour = h - 2;
+//        if (hour >= 24) {
+//            hour = 00;
+//        }
+System.out.println(h);
+int hour = h;
+if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ARIES) {
             if (hour >= 6 && hour < 8) {
                 user.getAstralPlane().setAscendente(ZodiacSigns.ARIES);
             } else if (hour >= 8 && hour < 10) {
@@ -623,20 +625,19 @@ public class AstralPlaneService {
         {0, 2, 0, 1, 2, 2, 1, 2, 0, 2, 0, 2},
         {2, 0, 2, 0, 1, 1, 2, 1, 2, 0, 2, 0},
         {0, 2, 0, 2, 1, 1, 1, 2, 0, 2, 0, 1}};
-        //        for (int i = 0; i < matriz.length; i++) {
-        //            for (int j = 0; j < matriz.length; j++) {
-        //                if (solarUser1 == i && solarUser2 == j) {
-        //                     k = matriz[i][j];
-        //                     
-        //                }
-        //                System.out.println(k);
-        //            }
-        //        }
+                for (int i = 0; i < matriz.length; i++) {
+                    for (int j = 0; j < matriz.length; j++) {
+                        if (solarUser1 == i && solarUser2 == j) {
+                             k = matriz[j][i];
+                             
+                        }
+                    }
+                }
 
         //0 es bajo
         //1 es medio 
         //2 es alto
-        return matriz[solarUser1][solarUser2];
+        return k;
     }
 
     private String argumentoUser(User user) {
