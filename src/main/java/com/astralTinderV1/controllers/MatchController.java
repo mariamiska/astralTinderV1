@@ -45,11 +45,9 @@ public class MatchController {
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
         model.addAttribute("compatibilidad", apServ.compatibilidad(userSession, random));
-        System.out.println(apServ.compatibilidad(userSession, random));
         model.addAttribute("descripcion", apServ.showArgument(random));
         model.addAttribute("vote", new Vote());
-        return "main-menu";
-        
+        return "main-menu"; 
     }
     
     @PostMapping("/match")
@@ -58,8 +56,7 @@ public class MatchController {
         vote.setUserRecive(receiver);
         voteService.saveVote(vote);
         model.addAttribute("match", voteService.Match(vote));
-        return "redirect:/ruleta";
-        
+        return "redirect:/ruleta";  
     }
     
     @GetMapping("/listmatch")
