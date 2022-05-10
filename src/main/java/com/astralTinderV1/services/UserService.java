@@ -37,13 +37,10 @@ public class UserService implements UserDetailsService {
         this.photoServ = photoServ;
     }
 
-   
-    
-     
     @Override
     public UserDetails loadUserByUsername(String eMail) throws UsernameNotFoundException {
 
-       User user = userRepo.findByEmail(eMail);
+        User user = userRepo.findByEmail(eMail);
         if (user == null) {
             throw new UsernameNotFoundException("usuario inexistente");
         }
@@ -58,7 +55,6 @@ public class UserService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), permissions);
     }
-
 
     /**
      * no olvidar encriptar contraseñas que sino no entra
@@ -78,15 +74,14 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
         System.out.println(user);
     }
-    
-   
+
     public void encodedPassword(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
     }
 
-      @Transactional(rollbackOn = {Exception.class})
+    @Transactional(rollbackOn = {Exception.class})
     public User findById(String id) throws ServiceException {
         Optional<User> res;
         res = userRepo.findById(id);
@@ -96,11 +91,11 @@ public class UserService implements UserDetailsService {
         return res.get();
     }
 
-       @Transactional
+    @Transactional
     public User getById(String id) {
         return userRepo.getById(id);
     }
-    
+
     @Transactional
     public List<User> getAll() {
         return userRepo.findAll();
@@ -140,13 +135,41 @@ public class UserService implements UserDetailsService {
         if (user.getPassword().length() < 6 || user.getPassword().isEmpty()) {
             throw new Exception("La contraseña debe tener más de 6 caracteres");
         }
-                         
-        boolean emailExists = getAll().stream().anyMatch(existingUser ->  existingUser.getEmail().equals(user.getEmail()));
-        
-        if(emailExists){
-            throw new Exception ("El email ya existe con otro usuario!");
+
+        boolean emailExists = getAll().stream().anyMatch(existingUser -> existingUser.getEmail().equals(user.getEmail()));
+
+        if (emailExists) {
+            throw new Exception("El email ya existe con otro usuario!");
         }
-        
+
+        if (user.getEmail().isEmpty()) {
+            throw new Exception("Debe tener un email");
+        }
+    }
+
+    public void validateModify(User user) throws Exception {
+        if (user.getName().isEmpty()) {
+            throw new Exception("Debe tener un nombre");
+        }
+        if (user.getSurname().isEmpty()) {
+            throw new Exception("Debe tener un apellido ");
+        }
+        if (mayorDeEdad(user) != true) {
+            throw new Exception("Debe ser mayor de 18 años");
+        }
+        if (user.getBirth() == null) {
+            throw new Exception("Debes ingresar tu fecha de nacimiento para la carta astral");
+        }
+        if (user.getBirthHour() == null) {
+            throw new Exception("Debes ingresar tu hora de nacimiento para la carta astral");
+        }
+        if (user.getPhoneNumber().isEmpty()) {
+            throw new Exception("Debes ingresar numero de telefono");
+        }
+        if (user.getPassword().length() < 6 || user.getPassword().isEmpty()) {
+            throw new Exception("La contraseña debe tener más de 6 caracteres");
+        }
+
         if (user.getEmail().isEmpty()) {
             throw new Exception("Debe tener un email");
         }
@@ -179,7 +202,7 @@ public class UserService implements UserDetailsService {
     public void modifyUser(User user, MultipartFile file) throws Exception {
 
         age(user);
-//        validate(user);
+        validateModify(user);
         apServ.crearPerfilAstral(user);
         encodedPassword(user);
         Photo photo = photoServ.multiPartToEntity(file);
@@ -194,13 +217,13 @@ public class UserService implements UserDetailsService {
         encodedPassword(user);
         return userRepo.save(user);
     }
-    
+
     @Transactional
-    public List<User> getMatches(User user){
+    public List<User> getMatches(User user) {
         return user.getMatches();
     }
-    
-    public void descripcionZodiacal(User user){
+
+    public void descripcionZodiacal(User user) {
         user.getAstralPlane().getSolarSign().showInfoSolar();
     }
 }

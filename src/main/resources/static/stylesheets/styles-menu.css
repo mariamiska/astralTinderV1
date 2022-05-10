@@ -1,86 +1,82 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-body{
-    background-image:url(../imgs/FONDO\ MENU\ ASTRAL\ TINDER.png);
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  body {
+    background-image: url(../imgs/FONDO\ MENU\ ASTRAL\ TINDER.png);
     height: 100vh;
     width: 100%;
-
-}
-
-
-/* 
-/*NAVBAR*/
-
-nav{
+  }
+  
+  /* 
+  /*NAVBAR*/
+  
+  nav {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(0,0,0,0.6);
-
-}
-.navbar-menu{
+    background-color: rgb(0, 0, 0, 0.6);
+  }
+  .navbar-menu {
     cursor: pointer;
     margin-right: 200px;
-}
-
- 
-.navLogo{
+  }
+  
+  .navLogo {
     margin-left: 200px;
-} 
-
-nav ul li{
+  }
+  
+  nav ul li {
     text-decoration: none;
-}
-nav ul li a{
+  }
+  nav ul li a {
     color: beige;
     text-decoration: none;
-    font-weight: bold;    
-}
-
-nav ul li a:hover{
-    color: #87006C;
-    transition: .3s;
-}
-
-.submenu{
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: #87006c;
+    transition: 0.3s;
+  }
+  
+  .submenu {
     color: white;
     position: absolute;
     display: none;
     list-style: none;
-}
-
-nav li:hover .submenu{
+  }
+  
+  nav li:hover .submenu {
     display: block;
-}
-
-.submenu:hover{
-    color: #87006C;
-    transition: .3s;
-}
-
-.submenu li a{
+  }
+  
+  .submenu:hover {
+    color: #87006c;
+    transition: 0.3s;
+  }
+  
+  .submenu li a {
     display: block;
     color: beige;
     padding: 15px 15px 15px 20px;
     text-decoration: none;
-}
-
-.LogoT{
+  }
+  
+  .LogoT {
     height: 100px;
     width: 250px;
-}
-
-/* ----- MENU ---- */
-
-.contenedor {
-    position: absolute;    
+  }
+  
+  /* ----- MENU ---- */
+  
+  .contenedor {
+    position: absolute;
     width: 500px;
     height: 700px;
     color: red;
@@ -89,75 +85,74 @@ nav li:hover .submenu{
     left: calc(50% - 250px);
     top: 7rem;
     border-radius: 20px;
-}
+    margin-top: 30px;
 
-
-
-.contenedor-color-muy-compatible{
-    box-shadow: 0 0 15px 15px rgba(123, 19, 184, 0.77);  
-}
-
-.contenedor-color-compatible {
-    box-shadow: 0 0 15px 15px rgba(189, 67, 173, 0.77);
-}
-
-.contenedor-color-poco-compatible{
+  }
+  
+  .contenedor-color-muy-compatible {
     box-shadow: 0 0 15px 15px rgba(189, 144, 185, 0.77);
-}
+    border-radius: 20px;
+  }
+  
+  .contenedor-color-compatible {
+    box-shadow: 0 0 15px 15px rgba(101, 21, 167, 0.77);
+    border-radius: 20px;
 
+  }
+  
+  .contenedor-color-poco-compatible {
+    box-shadow: 0 0 15px 15px rgba(189, 144, 185, 0.77);
+    border-radius: 20px;
 
-.contenedor .nombre-edad {
+  }
+  
+  .contenedor .nombre-edad {
     display: flex;
-    
+  
     text-align: left;
     position: absolute;
     height: 30px;
     width: 100%;
-    background: rgba(0, 0 , 0 , 0.3);
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     bottom: 225px;
-}
-
-.nombre-edad {
+  }
+  
+  .nombre-edad {
     padding: 10px 10px;
-    
-    
-}
-
-
-.contenedor .descripcion-perfil{
+  }
+  
+  .contenedor .descripcion-perfil {
     text-align: left;
     display: flex;
     position: absolute;
     height: 150px;
     width: 100%;
-    background: rgba(0, 0 , 0 , 0.3);
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     bottom: 75px;
-}
-
-.descripcion-perfil{
+  }
+  
+  .descripcion-perfil {
     padding: 10px 10px;
-}
-
-.contenedor .foto-contenedor{
-    background: rgba(0, 0 , 0 , 0.3);
+  }
+  
+  .contenedor .foto-contenedor {
+    background: rgba(0, 0, 0, 0.3);
     width: 500px;
     height: 700px;
     overflow: hidden;
     border-radius: 20px;
-}
-
-.foto-contenedor .foto-usuario {
+  }
+  
+  .foto-contenedor .foto-usuario {
     width: 500px;
     height: 700px;
     overflow: hidden;
     border-radius: 20px;
-    
-}
-
-
-.footer {
+  }
+  
+  .footer {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -169,34 +164,27 @@ nav li:hover .submenu{
     height: 4rem;
     background: black;
     color: white;
-}
-
-
-.barra-botones .buttons {
-    
+  }
+  
+  .barra-botones .buttons {
     border: none;
-    background: #87006C;
+    background: #87006c;
     padding: 12px 30px;
     border-radius: 30px;
     color: beige;
     font-weight: bold;
     cursor: pointer;
     font-size: 15px;
-    transition: .4s;
+    transition: 0.4s;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    
-}
-
-.buttons:hover{
+  }
+  
+  .buttons:hover {
     transform: scale(1.3);
-
-}
-
-
-
-
-.contenedor .barra-botones {
+  }
+  
+  .contenedor .barra-botones {
     display: flex;
     flex: auto;
     flex-direction: row;
@@ -205,123 +193,109 @@ nav li:hover .submenu{
     height: 75px;
     position: absolute;
     width: 100%;
-    background: rgba(0, 0 , 0 , 0.3);
+    background: rgba(0, 0, 0, 0.3);
     gap: 1.5rem;
     bottom: 0;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-
-
-
-
-
-
-/* NAVBAR-CARD*/
-
-
-.navbarCard{
+  }
+  
+  /* NAVBAR-CARD*/
+  
+  .navbarCard {
     position: absolute;
     left: calc(80% - 300px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 200px;    
+    width: 200px;
     margin-left: 25px;
     height: 700px;
-    
-}
-
-.Signos{
+  }
+  
+  .Signos {
     cursor: pointer;
     list-style: none;
-}
-.Signos ul li a{
+  }
+  .Signos ul li a {
     color: beige;
     text-decoration: none;
-    font-weight: bold;    
-}
-
-.Signos ul li a:hover{
-    color: #87006C;
-    transition: .3s;
-}
-
-
-.subSignos{
+    font-weight: bold;
+  }
+  
+  .Signos ul li a:hover {
+    color: #87006c;
+    transition: 0.3s;
+  }
+  
+  .subSignos {
     width: 220px;
-}
-.subSignos{
+  }
+  .subSignos {
     color: white;
     position: relative;
     display: none;
     list-style: none;
     right: -100px;
-    top:-40px;
-}
-
-.Signos li:hover .subSignos{
+    top: -40px;
+  }
+  
+  .Signos li:hover .subSignos {
     display: block;
-}
-
-.subSignos:hover{
-    color: #87006C;
-    transition: .3s;
-}
-
-.subSignos li a{
+  }
+  
+  .subSignos:hover {
+    color: #87006c;
+    transition: 0.3s;
+  }
+  
+  .subSignos li a {
     display: block;
     color: beige;
     text-decoration: none;
-}
-
-
-/* 
-.navbarCard i {
-    font-size: 1.5rem;
-    color: #dadfe6;
-}
-
-.navbarCard i:nth-child(2){
-    color: #fe466d;
-} */
-
-.BtonAscendente{
+  }
+  
+  /* 
+  .navbarCard i {
+      font-size: 1.5rem;
+      color: #dadfe6;
+  }
+  
+  .navbarCard i:nth-child(2){
+      color: #fe466d;
+  } */
+  
+  .BtonAscendente {
     height: 50px;
     width: 50px;
-}
-
-.BtonDesplegable{
+  }
+  
+  .BtonDesplegable {
     height: 25px;
     width: 25px;
-}
-.btonCorazon{
-
+  }
+  .btonCorazon {
     height: 25px;
     width: 25px;
-}
-
-.btonRuleta{
-    
+  }
+  
+  .btonRuleta {
     height: 25px;
     width: 25px;
-
-}
-
-
-
-
-/* DESTKOP VIEW */
-/* 
-@media(min-width: 1025px){
-    .photo{
-        width: 367px;
-        height: 684px;
-    }
-
-    .navbarCard{
-        width: 400px;
-        margin: auto;
-        margin-top: 10px;
-    }
-} */
+  }
+  
+  /* DESTKOP VIEW */
+  /* 
+  @media(min-width: 1025px){
+      .photo{
+          width: 367px;
+          height: 684px;
+      }
+  
+      .navbarCard{
+          width: 400px;
+          margin: auto;
+          margin-top: 10px;
+      }
+  } */
+  

@@ -1,66 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/styles-login.css">
-    <title>Iniciar sesión</title>
-</head>
-<body>
- 
-    <div>
-        <nav class="navbar">
-            <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
-            <ul>
-                <li><a href="/acercaDe">Acerca de</a></li>
-                <li><a href="/contactanos">Contacto</a></li>
-            </ul>
-        </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles-login.css">
+        <link rel="icon" href="../imgs/icono favicon.png" type="image/x-icon">
+        <title>Iniciar sesión</title>
+    </head>
+    <body>
 
-    </div>
+        <div>
+            <nav class="navbar">
+                <a href="/"><img src="../imgs/LOGO 2 (HORIZONTAL).png" alt="logo " class="LogoT"></a>
+                <ul>
+                    <li><a href="/acercaDe">Acerca de</a></li>
+                    <li><a href="/contactanos">Contacto</a></li>
+                </ul>
+            </nav>
 
-    
-    
-    <div class="container">
-        
-        
-                      
+        </div>
+
+
+
+        <div class="container">
+
+
+
             <form class="form" th:action="@{/logincheck}" method="POST">
-                
-                    <legend>Inicia sesión con tu cuenta</legend>
 
-                    
-                        <div class="campo">
-                            <label>Email</label>
-                            <input type="email" name="email" class="direccion de correo" placeholder="Email">
-                        </div>
-                    
+                <legend>Inicia sesión con tu cuenta</legend>
 
-                    
-                        <div class="campo">
-                            <label>Contraseña</label>
-                            <input type="password" name="password" class="contraseña" placeholder=" Contraseña">
-                        </div>
-                    
 
-                    <div class="button">
-                        <input type="submit" class="principal-button" value="Enviar">
-                    </div>
+                <div class="campo">
+                    <label>Email</label>
+                    <input type="email" name="email" class="direccion de correo" placeholder="Email">
+                </div>
 
-                    <h5><a href="/usuarios/registro">¿No tienes una cuenta?</a></h5>
 
-             
+
+                <div class="campo">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="contraseña" placeholder=" Contraseña">
+                </div>
+
+
+                <div class="button">
+                    <input type="submit" class="principal-button" value="Enviar">
+                </div>
+
+                <h5><a href="/usuarios/registro">¿No tienes una cuenta?</a></h5>
+
+
             </form>
 
-             <span th:if="${error}" th:text="${error}" > </span>
-             <span th:if="${error}" th:text="${error}"> </span>
-         </div>
-    <footer class="footer">
-        Copyright. All rights reserved by Astral Tinder Company - 2022.
-    </footer>
+            <span th:if="${error}" th:text="${error}" > </span>
+            <span th:if="${error}" th:text="${error}"> </span>
+        </div>
+        <footer class="footer">
+            Copyright. All rights reserved by Astral Tinder Company - 2022.
+        </footer>
 
-</body>
+    </body>
 </html>
