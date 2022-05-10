@@ -37,12 +37,15 @@ public class MatchController {
     public String ruleta(ModelMap model, HttpSession session) {
         
         User currentUser = (User) session.getAttribute("randomUser");
+        User userSession = (User) session.getAttribute("userSession");
         
-        User random = cypS.randomUser();
+        User random = cypS.randomUser(userSession);
         while (currentUser != null && random.getId().equals(currentUser.getId())) {
-            random = cypS.randomUser();
+            random = cypS.randomUser(userSession);
         }
         session.setAttribute("randomUser", random);//cypS.randomUser());
+        model.addAttribute("compatibilidad", apServ.compatibilidad(userSession, random));
+        System.out.println(apServ.compatibilidad(userSession, random));
         model.addAttribute("descripcion", apServ.showArgument(random));
         model.addAttribute("vote", new Vote());
         return "main-menu";

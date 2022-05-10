@@ -6,7 +6,7 @@
 }
 
 body{
-    background-image: url(../imgs/fondo-perfil-astral.png);
+    background-image: url(../imgs/background-perfil-astral.png);
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -194,14 +194,4 @@ a:hover {
     color: white;
 }
 
-
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 07/05/2022, 19:32:56
-    Author     : Guido
-*/
 
