@@ -152,8 +152,8 @@ public class AstralPlaneService {
         YearLunarSign[] anioArray = YearLunarSign.values();
         int modYear = 0;
         for (int i = 0; i < anioArray.length; i++) {
-            if( num==anioArray[i].anioAtributo()){
-               modYear = anioArray[i].modAtributo();   
+            if (num == anioArray[i].anioAtributo()) {
+                modYear = anioArray[i].modAtributo();
             }
         }
         return modYear;
@@ -270,10 +270,80 @@ public class AstralPlaneService {
     }
 
     private void resolveAscendant(User user) {
-        int h = user.getBirthHour().getHours();
-        int hour = h - 2;
-        if (hour >= 24) {
-            hour = 00;
+        int hour = user.getBirthHour().getHours();
+        switch (hour) {
+            case 0:
+                hour = 22;
+                break;
+            case 1:
+                hour = 23;
+                break;
+            case 2:
+                hour = 0;
+                break;
+            case 3:
+                hour = 1;
+                break;
+            case 4:
+                hour = 2;
+                break;
+            case 5:
+                hour = 3;
+                break;
+            case 6:
+                hour = 4;
+                break;
+            case 7:
+                hour = 5;
+                break;
+            case 8:
+                hour = 6;
+                break;
+            case 9:
+                hour = 7;
+                break;
+            case 10:
+                hour = 8;
+                break;
+            case 11:
+                hour = 9;
+                break;
+            case 12:
+                hour = 10;
+                break;
+            case 13:
+                hour = 11;
+                break;
+            case 14:
+                hour = 12;
+                break;
+            case 15:
+                hour = 13;
+                break;
+            case 16:
+                hour = 14;
+                break;
+            case 17:
+                hour = 15;
+                break;
+            case 18:
+                hour = 16;
+                break;
+            case 19:
+                hour = 17;
+                break;
+            case 20:
+                hour = 18;
+                break;
+            case 21:
+                hour = 19;
+                break;
+            case 22:
+                hour = 20;
+                break;
+            case 23:
+                hour = 21;
+                break;
         }
         if (user.getAstralPlane().getSolarSign() == ZodiacSigns.ARIES) {
             if (hour >= 6 && hour < 8) {
@@ -666,17 +736,18 @@ public class AstralPlaneService {
                         break;
                 }
             }
-        } return argumento;
+        }
+        return argumento;
     }
-    
-    public String showArgument(User user){
+
+    public String showArgument(User user) {
         String argument1 = argumentoUser(user);
         String argument2;
         String description;
-        do
+        do {
             argument2 = argumentoUser(user);
-        while(argument1.equals(argument2));
+        } while (argument1.equals(argument2));
         description = argument1 + "\n" + argument2;
         return description;
-    }  
+    }
 }
