@@ -43,6 +43,7 @@ nav ul li a:hover{
     transition: .3s;
 }
 
+
 button{
     
     border: none;
@@ -76,7 +77,7 @@ body{
 }
 
 .box-input{
-
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
     height: 50px;
@@ -94,6 +95,7 @@ body{
 
 
 .box-index{
+    border-radius: 2rem;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -119,7 +121,9 @@ body{
     z-index: -1;
 
 }
-
+.box-content{
+    border-radius: 2rem;
+}
 .box-index:after{
     content: '';
     position: absolute;
@@ -130,11 +134,13 @@ body{
     background: rgb(0,0,0,0.6);
     z-index: -1;
     filter: blur(40px);
+    border-radius: 2rem;
 
 }
 
 .box-index:before, .box-index:after{
     background: linear-gradient(235deg, #87006C, rgb(0,0,0,0.6), #3b4e91 );
+    border-radius: 2rem;
 }
 
 .box-content button {
@@ -211,6 +217,7 @@ body{
 
     to{transform: rotateZ(360deg);}
 }
+
 .footer {
     text-align: center;
     align-items: center;

@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
               rel="stylesheet">
         <title>Perfil Astral</title>
+        <link rel="icon" type="image/png" sizes="16x16"  href="../imgs/favicon-16x16.png">
     </head>
 
     <body>
@@ -27,6 +28,7 @@
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
                                 <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/tutorial">Tutorial</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>

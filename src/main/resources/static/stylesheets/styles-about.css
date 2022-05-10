@@ -62,33 +62,67 @@ body{
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background-image:  url(../imgs/navbar-tools-background.png);
+    background-image:  url(../imgs/background-about.png);
     background-size: cover;
     background-position: center;
 
 }
 
-
-.container{
-    top: 200px;
-    position: relative;
-    width: 100%;
-    height: 400px;
+.contenedor{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.068);
-
+    align-content: center;
+    position: absolute;
+    width: 750px;
+    height: 450px;
+    background: rgba(0, 0, 0, 0.3);
+    left: 200px;
+    top: 250px;
+    padding: 10px;
 }
 
-.container img{
-    height: auto;
-    width: auto;
-    max-width: 150px;
-    max-height: 150px;
-    margin: 50px;
-    margin-left: 150px;
+
+.p1{
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(120deg, #a2126a,#500444 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in; 
+}   
+
+.p2{
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(120deg, #a2126a,#500444 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in;   
 }
+    
+    
+    
+
+
+
+.p1:hover {
+    background-size: 100% 100% !important;
+}
+
+.p2:hover {
+    background-size: 100% 100% !important;
+}
+
+
+
+
 
 .footer {
     text-align: center;

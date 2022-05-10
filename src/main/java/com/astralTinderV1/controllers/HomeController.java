@@ -26,6 +26,11 @@ public class HomeController {
         return "contact";
     }
     
+    @GetMapping("/tutorial")
+    public String tutorial()
+    {
+        return "tutorial";
+    }
     
     
 }

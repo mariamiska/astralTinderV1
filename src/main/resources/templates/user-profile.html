@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-profile.css">
-
+        <link rel="icon" type="image/png" sizes="16x16"  href="../imgs/favicon-16x16.png">
         <title>Perfil</title>
     </head>
     <body>
@@ -24,6 +24,7 @@
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a  href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
                                 <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/tutorial">Tutorial</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>
@@ -33,7 +34,7 @@
             </nav>
         </Header>
         <div class="container-foto">  
-                               <img class="foto-usuario" th:src="@{/foto/usuario/__${session.userSession.id}__}">
+                               <img class="foto-usuario" th:src="@{/foto/usuario/__${user.id}__}">
      </div>
         <div class="container">
                     

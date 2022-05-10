@@ -16,10 +16,10 @@ public class ChooseYourPartnerService {
         this.userRepository = userRepository;
     }
 
-    public User randomUser() {
+    public User randomUser(User user) {
 
         List<User> userList = userRepository.findAll();
-
+        userList.remove(user);
         int chooseRandomUser = (int) (Math.random() * userList.size());
 
         User randomUser = userList.get(chooseRandomUser);
