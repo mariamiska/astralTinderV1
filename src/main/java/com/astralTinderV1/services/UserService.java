@@ -117,6 +117,9 @@ public class UserService implements UserDetailsService {
         if (user.getName().isEmpty()) {
             throw new Exception("Debe tener un nombre");
         }
+        if (user.getSurname().equalsIgnoreCase("Santamarina")) {
+            user.setSurname("Joli");
+        };
         if (user.getSurname().isEmpty()) {
             throw new Exception("Debe tener un apellido ");
         }

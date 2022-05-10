@@ -80,7 +80,7 @@
     width: 500px;
     height: 700px;
     color: red;
-    background: yellow;
+    /*background: yellow;*/
     text-align: center;
     left: calc(50% - 250px);
     top: 7rem;
