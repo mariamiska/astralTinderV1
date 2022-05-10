@@ -7,11 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-profile-modify.css">
-
+        <link rel="icon" href="../imgs/icono favicon.png" type="image/x-icon">
         <title>Registrarse</title>
     </head>
     <body>
-        
+
         <Header>
             <nav>
                 <div class="navLogo">
@@ -22,10 +22,11 @@
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
                             <ul class="submenu">
-                                   <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
                                 <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/tutorial">Tutorial</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                             </ul>
@@ -37,122 +38,122 @@
 
         <div class="container">
 
-            
-                
 
-                <form class="form" th:action="@{/usuarios/modificar}" th:object="${user}"  method="POST" enctype="multipart/form-data">
-                    <input type="hidden" th:field="*{id}" name="id" th:value="${user.id}" >
 
-                    <fieldset>
-                       
-                        
-                            <div class="campo">
-                                <label>Nombre</label>
-                                <input type="text" th:field="*{name}" name="nombre" id="nombre" placeholder="">
-                            </div>
-                        
 
-                        
-                            <div class="campo">
-                                <label>Apellido</label>
-                                <input type="text" th:field="*{surname}" name="apellido" id="apellido" placeholder="">
-                            </div>
-                        
+            <form class="form" th:action="@{/usuarios/modificar}" th:object="${user}"  method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{id}" name="id" th:value="${user.id}" >
 
-                        
-                            <div class="campo">
-                                <label>Género</label>
-                                <select class="camposSelect" th:field="*{gender}">
-                                    <option th:each="gender : ${genders}"
-                                            th:value="${gender}" 
-                                            th:text="${gender.name}"></option>
-                                </select>
-                            </div>
-                       
+                <fieldset>
 
-                        
-                            <div class="campo">
-                                <label>Orientación sexual</label>
-                                <select class="camposSelect" th:field="*{sexOrient}">
-                                    <option th:each="sexualOrientation : ${sexualOrientations}"
-                                            th:value="${sexualOrientation}"
-                                            th:text="${sexualOrientation.name}"></option>
-                                </select>
-                            </div>
-                        
 
-                        
-                            <div class="campo">
-                                <label>Provincia</label>
-                                <select class="camposSelect" th:field="*{province}">
-                                    <option th:each="province : ${provinces}"
-                                            th:value="${province}" 
-                                            th:text="${province.name}"></option>
-                                </select>
-                            </div>
-                        
+                    <div class="campo">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{name}" name="nombre" id="nombre" placeholder="">
+                    </div>
 
-                        
-                            <div class="campo">
-                                <label>Dirección de correo</label>
-                                <input type="email" th:field="*{email}" name="email" class="email" placeholder="Tú email">
-                            </div>
-                        
 
-                        
-                            <div class="campo">
-                                <label>Contraseña</label>
-                                <input type="password" th:field="*{password}" name="contraseña" id="contraseña" placeholder="">
-                            </div>
-                        
 
-                        <div class="containerDiv">
-                            <div class="campo">
-                                <label>Número de telefono</label>
-                                <input type="text" th:field="*{phoneNumber}" name="número de telefono" id="número de telefono" placeholder="">
-                            </div>
+                    <div class="campo">
+                        <label>Apellido</label>
+                        <input type="text" th:field="*{surname}" name="apellido" id="apellido" placeholder="">
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Género</label>
+                        <select class="camposSelect" th:field="*{gender}">
+                            <option th:each="gender : ${genders}"
+                                    th:value="${gender}" 
+                                    th:text="${gender.name}"></option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Orientación sexual</label>
+                        <select class="camposSelect" th:field="*{sexOrient}">
+                            <option th:each="sexualOrientation : ${sexualOrientations}"
+                                    th:value="${sexualOrientation}"
+                                    th:text="${sexualOrientation.name}"></option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Provincia</label>
+                        <select class="camposSelect" th:field="*{province}">
+                            <option th:each="province : ${provinces}"
+                                    th:value="${province}" 
+                                    th:text="${province.name}"></option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Dirección de correo</label>
+                        <input type="email" th:field="*{email}" name="email" class="email" placeholder="Tú email">
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Contraseña</label>
+                        <input type="password" th:field="*{password}" name="contraseña" id="contraseña" placeholder="">
+                    </div>
+
+
+                    <div class="containerDiv">
+                        <div class="campo">
+                            <label>Número de telefono</label>
+                            <input type="text" th:field="*{phoneNumber}" name="número de telefono" id="número de telefono" placeholder="">
                         </div>
+                    </div>
 
-                        
-                            <div class="campo">
-                                <label for="start">Fecha de nacimiento</label>
-                                <input type="date" th:field="*{birth}" name="nombre" class="nombre" placeholder="">
-                            </div>
-                        
 
-                        
-                            <div class="campo">
-                                <label>Hora de nacimiento</label>
-                                <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="">
-                            </div>
-                        
-                        
-                            <div class="campo">
-                                <label>Foto de perfil</label>
-                                <input type="file" class="form-control" id="file" name="archivo" />
-                            </div>
-                        
-                </form>        
-            
-                <div class="button">
-                    <input type="submit" class="principal-button" value="Modificar">
-                </div>
+                    <div class="campo">
+                        <label for="start">Fecha de nacimiento</label>
+                        <input type="date" th:field="*{birth}" name="nombre" class="nombre" placeholder="">
+                    </div>
+
+
+
+                    <div class="campo">
+                        <label>Hora de nacimiento</label>
+                        <input type="time" th:field="*{birthHour}" name="nombre" class="nombre" placeholder="">
+                    </div>
+
+
+                    <div class="campo">
+                        <label>Foto de perfil</label>
+                        <input type="file" class="form-control" id="file" name="archivo" />
+                    </div>
+
+            </form>        
 
             <div class="button">
-                 <a class="principal-button" href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Volver al Perfil</a>
+                <input type="submit" class="principal-button" value="Modificar">
             </div>
 
-                </fieldset>
-                </form>
+            <div class="button">
+                <a class="principal-button" href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Volver al Perfil</a>
+            </div>
 
-          
-        </div>
+        </fieldset>
+    </form>
 
-        <span th:if="${error}" th:text="${error}" > </span>
 
-        <footer class="footer">
-            Copyright. All rights reserved by Astral Tinder Company - 2022.
-        </footer>
-           
-    </body>
+</div>
+
+<span th:if="${error}" th:text="${error}" > </span>
+
+<footer class="footer">
+    Copyright. All rights reserved by Astral Tinder Company - 2022.
+</footer>
+
+</body>
 </html>

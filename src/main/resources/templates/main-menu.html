@@ -5,13 +5,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="icon" href="../imgs/icono favicon.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="/stylesheets/styles-menu.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet">
-
+        <link rel="icon" href="../imgs/icono favicon.png" type="image/x-icon">
         <title>Menu</title>
 
 
@@ -29,10 +29,11 @@
                         <li><i><img src="/imgs/boton desplegable.png" class="BtonDesplegable"></i>
 
                             <ul class="submenu">
-                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li>
+                                <li><a  href="#" th:href="@{'/usuarios/perfil/'+ ${session.userSession.id}}">Mi perfil</a></li> 
                                 <li><a  href="#" th:href="@{'/perfilAstral/mostrar/'+ ${session.userSession.id}}">Mi perfil Astral</a></li>
                                 <li><a href="#" th:href="@{'/usuarios/modificar/'+ ${session.userSession.id}}">Configuracion de la cuenta</a></li>
                                 <li><a href="/ruleta/listmatch">Matches ♥</a></li>
+                                <li><a href="/tutorial">Tutorial</a></li>
                                 <li><a href="/login/logout">Cerrar sesión</a></li>
 
                         </li>
@@ -42,8 +43,8 @@
         </Header>
         <main>
             <div class="contenedor">
-            <div th:class="${compatibilidad == 0 ? 'contenedor-color-poco-compatible' : compatibilidad == 1 ? 'contenedor-color-compatible' : 'contenedor-color-muy-compatible'}" >
-                
+                <div th:class="${compatibilidad == 0 ? 'contenedor-color-poco-compatible' : compatibilidad == 1 ? 'contenedor-color-compatible' : 'contenedor-color-muy-compatible'}" >
+
 
                     <form th:action="@{/ruleta/match}"  method="POST" th:object="${vote}">
                         <div class="foto-contenedor">
