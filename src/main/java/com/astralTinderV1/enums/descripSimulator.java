@@ -36,7 +36,7 @@ public enum descripSimulator {
         "Ya te dije que te amaba... el año pasado, ¿no te alcanza?",
         "¿Quién te crees que sos?",
         "La casa está en orden.",
-        "Tengo mucho por ordenar tovia..."),
+        "Tengo mucho por ordenar todavia..."),
    
    LIB("¿Quién soy yo sin vos?",
         "Tal para cual, Pascuala con Pascual.",
@@ -53,7 +53,7 @@ public enum descripSimulator {
    SAG("¿Tiene corazón este camino? Si tiene, el camino es bueno.",
         "Retroceder nunca, rendirse jamás.",
         "¿Cómo que no tengo razón?",
-        "Lo importante es el camino, no la meta",
+        "Lo importante es el camino, no la meta.",
         "Dme una causa para luchar, no importa cual... solo dame una!"), 
  
    CAP("La paciencia es un árbol de raíz amarga, pero de frutos muy dulces.",
